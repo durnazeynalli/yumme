@@ -56,8 +56,8 @@ const Header = () =>{
 
 const StyledHeader = styled.header`
     background-color: ${COLORS.white};
-    box-shadow: 0px 12px 24px #888888;
-    margin-bottom; 5px;
+    box-shadow: 0px 12px 14px rgba(181, 173, 176, 0.25);
+    margin-bottom: 20px;
 `;
 
 const Container = styled.div`

@@ -66,7 +66,7 @@ const Orders = () => {
 }
 
 const Container = styled.div`
-    margin: 0 7%;
+    margin: 0 7% 20px;
     padding: 20px 0;
 `;
 
