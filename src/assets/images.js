@@ -21,6 +21,15 @@ import vir3 from './vir3.png';
 import vir4 from './vir4.png';
 import frame from './Frame.png';
 import rect from './rect.png';
+import online from './online.png';
+import detailBg from './detailBg.png';
+import detailLogo from './detailLogo.png';
+import pizza1 from './pizza1.png';
+import pizza2 from './pizza2.png';
+import pizza3 from './pizza3.png';
+import pizza4 from './pizza4.png';
+import pizza5 from './pizza5.png';
+import pizza6 from './pizza6.png';
 
 const IMG = {
     logo: logo,
@@ -45,7 +54,16 @@ const IMG = {
     vir3: vir3,
     vir4: vir4,
     frame: frame,
-    rect: rect
+    rect: rect,
+    online: online,
+    detailBg: detailBg,
+    detailLogo: detailLogo,
+    pizza1: pizza1,
+    pizza2: pizza2,
+    pizza3: pizza3,
+    pizza4: pizza4,
+    pizza5: pizza5,
+    pizza6: pizza6,
 }
 
 export default IMG;

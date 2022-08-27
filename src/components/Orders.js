@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import IMG from "../assets/images";
 import COLORS from "../styles/colors";
+import OrderDetails from "./OrderDetails";
 
 const options = [
     {
@@ -54,12 +55,13 @@ const Orders = () => {
                         </Row>
                     </OptionCont>
                 </LeftContainer>
-                <OrderContainer>
-                    <Title>My Orders</Title>
-                    <FoodImg src={IMG.food} alt="food" />
-                    <Text>You haven’t have any <br/> order today</Text>
-                    <OrderButton>Order</OrderButton>
-                </OrderContainer>
+                <RightContainer>
+                    <OrderDetails 
+                        title="My Orders"
+                        text="You haven’t have any order today"
+                        button="Order"
+                    />
+                </RightContainer>
             </Row>
         </Container>
     )
@@ -77,7 +79,11 @@ const Row = styled.div`
 `;
 
 const LeftContainer = styled.div`
-    width: 68%;
+    width: 73%;
+`;
+
+const RightContainer = styled.div`
+    width: 25%;
 `;
 
 const Image = styled.img`
@@ -106,45 +112,6 @@ const OptionText = styled.h6`
     font-weight: 400;
     font-size: 16px;
     margin: -2px 0;
-`;
-
-const OrderContainer = styled.div`
-    text-align: center;
-    box-shadow: 0px 12px 24px rgba(181, 173, 176, 0.25);
-    border-radius: 16px;
-    background-color: ${COLORS.white};
-    width: 28%;
-`;
-
-const Title = styled.h4`
-    color: ${COLORS.titleColor};
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 24px;
-`;
-
-const FoodImg = styled.img`
-    margin-top: 25px;
-`;
-
-const Text = styled.p`
-    color: ${COLORS.grayTextColor};
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-`;
-
-const OrderButton = styled.button`
-    border: 1px solid ${COLORS.orange};
-    background-color: ${COLORS.orange};
-    color: ${COLORS.white};
-    border-radius: 12px;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 24px;
-    width: 80%;
-    padding: 10px 0;
-    margin: 35px 0 20px; 
 `;
 
 export default Orders;

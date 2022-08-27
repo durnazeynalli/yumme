@@ -50,7 +50,7 @@ const NearbyShop = () => {
                 <Title>Nearby Shop</Title>
                 <ViewAll to="/nearbyshop">View all</ViewAll>
             </Row>
-            <ListContainer>
+            <ListContainer to="/details">
                 <Row>
                     {
                         datas.map((el) => {
@@ -106,8 +106,8 @@ const ViewAll = styled(Link)`
     }
 `;
 
-const ListContainer = styled.div`
-
+const ListContainer = styled(Link)`
+    text-decoration: none;
 `;
 
 const Column = styled.div`

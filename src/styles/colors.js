@@ -9,7 +9,8 @@ const COLORS = {
     orange: '#FF961C',
     infoText: '#50565A',
     red: '#D81921',
-    pageTitle: '##92929D'
+    pageTitle: '#92929D',
+    restaurantInfo: '#44444F',
 }
 
 export default COLORS;

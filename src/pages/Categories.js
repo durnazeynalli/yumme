@@ -4,6 +4,7 @@ import NearbyShop from "../components/NearbyShop";
 import PageHeader from "../components/PageHeader";
 import Promotion from "../components/Promotion";
 import VirtualKitchen from "../components/VirtualKitchen";
+import COLORS from "../styles/colors";
 
 const Categories = ({ title }) => {
     return (
@@ -17,7 +18,7 @@ const Categories = ({ title }) => {
 }
 
 const Container = styled.div`
-
+    background-color: ${COLORS.white};
 `;
 
 export default Categories;
