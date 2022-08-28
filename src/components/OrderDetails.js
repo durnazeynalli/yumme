@@ -28,11 +28,11 @@ const Title = styled.h4`
     font-weight: 500;
     font-size: 18px;
     line-height: 24px;
-    margin-top: 20px;
+    margin-top: 10px;
 `;
 
 const FoodImg = styled.img`
-    margin-top: 25px;
+    margin-top: 65px;
 `;
 
 const Text = styled.p`
@@ -40,6 +40,7 @@ const Text = styled.p`
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
+    margin-bottom: 65px;
 `;
 
 const OrderButton = styled.button`

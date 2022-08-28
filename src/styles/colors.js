@@ -11,6 +11,9 @@ const COLORS = {
     red: '#D81921',
     pageTitle: '#92929D',
     restaurantInfo: '#44444F',
+    border: '#F1F1F5',
+    green: '#1DA108',
+    modelBorder: '#FAFAFB'
 }
 
 export default COLORS;

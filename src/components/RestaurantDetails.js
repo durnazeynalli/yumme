@@ -103,7 +103,7 @@ const BgImg = styled.div`
     background-image: url(${IMG.detailBg});
     background-repeat: no-repeat;
     backgroun-size: cover;
-    height: 34%;
+    height: 300px;
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
     position: relative;
@@ -118,8 +118,7 @@ const heartIcon = {
 
 const InfoSide = styled.div`
     width: 30%;
-    height: 570px;
-    border: 1px solid black;
+    height: 660px;
     text-align: center;
     position: relative;
 `;
@@ -151,7 +150,8 @@ const RestaurantInfo = styled.p`
 
 const MenuSide = styled.div`
     width: 70%;
-    border: 1px solid black;
+    height: 660px;
+    border-left: 2px solid ${COLORS.border};
 `;
 
 const Reviews = styled.div`
@@ -178,7 +178,7 @@ const Image = styled.img`
 
 const SocialCont = styled.div`
     position: absolute;
-    bottom: 20px;
+    bottom: 50px;
     width: 100%;
     text-align: center;
 `;
