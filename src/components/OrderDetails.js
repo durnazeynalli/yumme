@@ -4,13 +4,13 @@ import styled from "styled-components";
 import IMG from "../assets/images";
 import COLORS from "../styles/colors";
 
-const OrderDetails = ({ title, text, button }) => {
+const OrderDetails = ({ title, text, button, onClick }) => {
     return (
         <OrderContainer>
             <Title>{title}</Title>
             <FoodImg src={IMG.food} alt="food" />
             <Text>{text}</Text>
-            <OrderButton>{button}</OrderButton>
+            <OrderButton onClick={onClick}>{button}</OrderButton>
         </OrderContainer>
     )
 }

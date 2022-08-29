@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -16,8 +16,14 @@ import { BsLinkedin } from "react-icons/bs";
 
 import COLORS from "../styles/colors";
 import RestaurantMenu from "./RestaurantMenu";
+import MyCard from "./MyCard";
 
 const RestaurantDetails = () => {
+
+    const [card, setCard] = useState(false);
+
+    const cardHandler  = () => setCard(v => !v);
+
     return (
         <Container>
             <Row>
@@ -64,11 +70,16 @@ const RestaurantDetails = () => {
                     </Row>
                 </DetailContainer>
                 <RightSide>
-                    <OrderDetails 
-                        title="My Cart"
-                        text="You have nothing in your cart"
-                        button="Add item"
-                    />
+                    {!card ?
+                        <OrderDetails 
+                            title="My Cart"
+                            text="You have nothing in your cart"
+                            button="Add item"
+                            onClick={cardHandler}
+                        /> 
+                        :
+                        <MyCard />
+                    }            
                     <Image src={IMG.online} alt="online" />
                 </RightSide>
             </Row>

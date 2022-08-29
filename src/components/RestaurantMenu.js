@@ -36,10 +36,10 @@ const data = [
 
 const RestaurantMenu = ({ title }) => {
 
-    const [addBtn, setAddBtn] = useState(false);
+    // const [addBtn, setAddBtn] = useState(false);
     const [modal, setModal] = useState(false);
 
-    const addBtnHandler = () => setAddBtn(v => !v);
+    // const addBtnHandler = () => setAddBtn(v => !v);
     const modalHandler = () => setModal(v => !v);
 
     return (
@@ -62,7 +62,7 @@ const RestaurantMenu = ({ title }) => {
                             </Row>
                             <Row>
                                 <Price>A$40</Price>
-                                <BsFillPlusCircleFill style={{color: COLORS.green}} onClick={addBtnHandler}/>
+                                <BsFillPlusCircleFill style={{color: COLORS.green}} />
                             </Row>   
                         </ContMargin>
                     </ItemCont>
@@ -77,17 +77,12 @@ const RestaurantMenu = ({ title }) => {
                                 <AiOutlineHeart style={{color: COLORS.orange}} />
                             </Row>
                             <Row>
-                                <Price>A$40</Price>
-                                {addBtn ? 
-                                    <Counter>
-                                        <Oper onClick={addBtnHandler}>-</Oper>
-                                        <Number>01</Number>
-                                        <Oper>+</Oper>
-                                    </Counter>
-                                    :
-                                    <BsFillPlusCircleFill style={{color: COLORS.green}} onClick={addBtnHandler}/>
-                                    
-                                } 
+                                <Price>A$40</Price>                          
+                                <Counter>
+                                    <Oper>-</Oper>
+                                    <Number>01</Number>
+                                    <Oper>+</Oper>
+                                </Counter> 
                             </Row>   
                         </ContMargin>
                     </ItemCont>
