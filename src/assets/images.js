@@ -30,6 +30,11 @@ import pizza3 from './pizza3.png';
 import pizza4 from './pizza4.png';
 import pizza5 from './pizza5.png';
 import pizza6 from './pizza6.png';
+import visa from './visa.png';
+import master from './Mastercard.png';
+import amex from './Amex.png';
+import paypal from './PayPal.png';
+
 
 const IMG = {
     logo: logo,
@@ -64,6 +69,10 @@ const IMG = {
     pizza4: pizza4,
     pizza5: pizza5,
     pizza6: pizza6,
+    visa: visa,
+    master: master,
+    amex: amex,
+    paypal: paypal
 }
 
 export default IMG;

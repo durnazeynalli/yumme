@@ -7,7 +7,7 @@ import COLORS from "../styles/colors";
 const MyCard = () => {
     return (
         <OrderContainer>
-            <Title>My card</Title>
+            <Title>My card (2)</Title>
             <FoodDetails>
                 <Image src={IMG.pizza1} alt="image" />
                 <Info>
@@ -57,7 +57,7 @@ const OrderContainer = styled.div`
     box-shadow: 0px 12px 24px rgba(181, 173, 176, 0.25);
     border-radius: 16px;
     background-color: ${COLORS.white};
-    padding: 20px 20px 0;
+    padding: 20px 20px 30px;
     height: 50%;
     position: relative;
 `;
@@ -82,6 +82,7 @@ const FoodDetails = styled.div`
     border: 1px solid ${COLORS.border};
     border-radius: 10px;
     padding: 5px 10px;
+    margin: 10px 0;
 `;
 
 const Info = styled.div`
@@ -176,7 +177,7 @@ const TotalCont = styled.div`
 
 const Position = styled.div`
     position: absolute;
-    bottom: 0;
+    bottom: 7px;
     width: 86%;
 `;
 

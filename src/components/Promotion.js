@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
+
 import IMG from "../assets/images";
 import COLORS from "../styles/colors";
 
@@ -46,10 +46,6 @@ const datas = [
 const Promotion = () => {
     return (
         <Container>
-            <Row>
-                <Title>Promotion</Title>
-                <ViewAll to="/promotion">View all</ViewAll>
-            </Row>
             <ListContainer>
                 <Row>
                     {
@@ -58,16 +54,18 @@ const Promotion = () => {
                                 <Column>
                                     <Rect>Up to 20%</Rect>
                                     <Image src={el.image} alt="image" />
-                                    <Name>{el.name}</Name>
-                                    <Text>{el.address}</Text>
-                                    <Info>
-                                        <GoLocation style={icons} />
-                                        <Text>{el.distance}</Text>
-                                        <MdOutlineTimer style={icons} />
-                                        <Text>{el.time}</Text>
-                                        <AiOutlineStar style={icons} />
-                                        <Text>{el.star}</Text>
-                                    </Info>
+                                    <InfoCont>
+                                        <Name>{el.name}</Name>
+                                        <Text>{el.address}</Text>
+                                        <Info>
+                                            <GoLocation style={icons} />
+                                            <InfoText>{el.distance}</InfoText>
+                                            <MdOutlineTimer style={icons} />
+                                            <InfoText>{el.time}</InfoText>
+                                            <AiOutlineStar style={icons} />
+                                            <InfoText>{el.star}</InfoText>
+                                        </Info>
+                                    </InfoCont>
                                 </Column>
                             )
                         })
@@ -79,32 +77,13 @@ const Promotion = () => {
 }
 
 const Container = styled.div`
-    margin: 2% 7%;
+    margin: 0 7%;
 `;
 
 const Row = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-`;
-
-const Title = styled.h4`
-    color: ${COLORS.textColor};
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 24px;
-`;
-
-const ViewAll = styled(Link)`
-    color: ${COLORS.blue};
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
-    text-decoration: none;
-
-    :hover {
-        text-decoration: underline;
-    }
 `;
 
 const ListContainer = styled.div`
@@ -136,33 +115,42 @@ const Image = styled.img`
     border-top-right-radius: 16px;
 `;
 
+const InfoCont = styled.div`
+    padding: 10px 20px;
+`;
+
 const Name = styled.h6`
     color: ${COLORS.textColor};
     font-weight: 700;
     font-size: 16px;
     line-height: 24px;
-    margin-left: 10px;
-    margin-bottom: -20px;
+    margin: -1px 0;
 `;
 
 const Text = styled.h6`
-    margin-right: 10px;
     font-weight: 400;
     font-size: 14px;
     color: ${COLORS.infoText};
-    margin-left: 10px;
+    margin: -1px 0;
+    padding: 7px 0;
 `;
 
 const Info = styled.div`
     display: flex;
     align-items: center;
     padding-bottom: 10px;
-    margin-top: -40px;
+`;
+
+const InfoText = styled.h6`
+    font-weight: 400;
+    font-size: 14px;
+    color: ${COLORS.infoText};
+    margin: -1px 0;
+    padding: 5px 15px 5px 5px;
 `;
 
 const icons = {
     color: COLORS.orange,
-    marginLeft: '10px'
 }
 
 export default Promotion;

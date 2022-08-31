@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
 import IMG from "../assets/images";
 import COLORS from "../styles/colors";
 
-import ItemDetailModal from "./ItemDetailModal";
 
 import { AiOutlineHeart } from "react-icons/ai";
 import { BsDot } from "react-icons/bs";
@@ -34,23 +33,14 @@ const data = [
     }
 ]
 
-const RestaurantMenu = ({ title }) => {
-
-    // const [addBtn, setAddBtn] = useState(false);
-    const [modal, setModal] = useState(false);
-
-    // const addBtnHandler = () => setAddBtn(v => !v);
-    const modalHandler = () => setModal(v => !v);
+const RestaurantMenu = ({ title, onClick }) => {
 
     return (
         <Container>
-            { modal &&
-                <ItemDetailModal onClick={modalHandler} positionStyle={{position: 'absolute', left: '80px', top: '-80px'}}/>
-            }
             <Title>{title}</Title>
             <ItemsContainer>
                 <Row>
-                    <ItemCont onClick={modalHandler}>
+                    <ItemCont onClick={onClick}>
                         <Image src={IMG.pizza1} alt="image"/>
                         <ContMargin>
                             <Name>Seafood Pizza</Name>
@@ -67,7 +57,7 @@ const RestaurantMenu = ({ title }) => {
                         </ContMargin>
                     </ItemCont>
                     <ItemCont>
-                        <Image src={IMG.pizza2} alt="image" onClick={modalHandler}/>
+                        <Image src={IMG.pizza2} alt="image" />
                         <ContMargin>
                             <Name>Seafood Pizza</Name>
                             <Row>
@@ -87,7 +77,7 @@ const RestaurantMenu = ({ title }) => {
                         </ContMargin>
                     </ItemCont>
                     <ItemCont>
-                        <Image src={IMG.pizza3} alt="image" onClick={modalHandler}/>
+                        <Image src={IMG.pizza3} alt="image"/>
                         <ContMargin>
                             <Name>Seafood Pizza</Name>
                             <Row>
@@ -107,7 +97,7 @@ const RestaurantMenu = ({ title }) => {
                     {data.map((item, index) => {
                         return (
                                 <ItemCont key={index}>
-                                    <Image src={item.image} alt="image" onClick={modalHandler}/>
+                                    <Image src={item.image} alt="image"/>
                                     <ContMargin>
                                         <Name>{item.name}</Name>
                                         <Row>

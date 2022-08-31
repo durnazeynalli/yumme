@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import RestaurantDetailsHeader from "../components/RestaurantDetailsHeader";
+import RestaurantDetailsHeader from "../components/Headers/RestaurantDetailsHeader";
 import RestaurantDetails from "../components/RestaurantDetails";
 
 import COLORS from "../styles/colors";

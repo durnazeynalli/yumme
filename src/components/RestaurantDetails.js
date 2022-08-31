@@ -17,12 +17,20 @@ import { BsLinkedin } from "react-icons/bs";
 import COLORS from "../styles/colors";
 import RestaurantMenu from "./RestaurantMenu";
 import MyCard from "./MyCard";
+import ItemDetailModal from "./Modals/ItemDetailModal";
 
 const RestaurantDetails = () => {
 
     const [card, setCard] = useState(false);
-
+    const [modal, setModal] = useState(false);
+    
     const cardHandler  = () => setCard(v => !v);
+    const modalHandler = () => setModal(v => !v);
+
+    const submit = () => {
+        cardHandler();
+        modalHandler();
+    }
 
     return (
         <Container>
@@ -61,11 +69,18 @@ const RestaurantDetails = () => {
                             </SocialCont>
                         </InfoSide>
                         <MenuSide>
+                            { modal &&
+                                <ItemDetailModal
+                                    onClick={modalHandler} 
+                                    positionStyle={{position: 'absolute', left: '80px', top: '-80px', zIndex: 1}}
+                                    addBtn={submit}
+                                />
+                            }
                             <Reviews>
                                 <InfoText to="/reviews">Reviews</InfoText>
                                 <InfoText to="/info">Info</InfoText>
                             </Reviews>
-                            <RestaurantMenu title="Pizza (6 items)" />
+                            <RestaurantMenu title="Pizza (6 items)" onClick={modalHandler}/>
                         </MenuSide>
                     </Row>
                 </DetailContainer>
@@ -138,6 +153,7 @@ const TextRow = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 10px 0;
 `;
 
 const RestaurantName = styled.h6`
@@ -156,13 +172,13 @@ const RestaurantInfo = styled.p`
     font-size: 14px;
     color: ${COLORS.restaurantInfo};
     margin: 0 5px;
-    padding-bottom: 10px;
 `;
 
 const MenuSide = styled.div`
     width: 70%;
-    height: 660px;
+    height: 710px;
     border-left: 2px solid ${COLORS.border};
+    position: relative;
 `;
 
 const Reviews = styled.div`
@@ -189,7 +205,7 @@ const Image = styled.img`
 
 const SocialCont = styled.div`
     position: absolute;
-    bottom: 50px;
+    bottom: 10px;
     width: 100%;
     text-align: center;
 `;

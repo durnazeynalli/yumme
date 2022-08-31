@@ -25,7 +25,11 @@ const Footer = () => {
                         <SocialLink to="">
                             <BsLinkedin style={social} />
                         </SocialLink>
-                        <CopyText>© 2022 Yumme. All rights reserved.</CopyText>
+                        <CopyText>TRAN Systems <br/>
+                            ABN 99 773 857 017<br/>
+                            All rights reserved.<br/>
+                            Copyright 2018 - 2022.
+                        </CopyText>
                     </SocialCont>
                 </FirstCol>
                 <SecondCol>
@@ -48,14 +52,13 @@ const Footer = () => {
                     <Title>Help</Title>
                     <Text>FAQ</Text>
                     <Text>Hotline</Text>
-                    <Text>Text</Text>
-                    <Text>Text</Text>
-                    <Text>Text</Text>
-                    <Text>Text</Text>
+                    <Text>Support center</Text>
+                    <Text>Terms &amp; Conditions</Text>
+                    <Text>Privacy Policy</Text>
                 </SecondCol>
                 <SecondCol>
                     <Title>Contact</Title>
-                    <Text>+61 3728382</Text>
+                    <Text>(+63) 678 276 888</Text>
                     <Text>237 Thornridge Cir. Shiloh, Melbun...</Text>
                 </SecondCol>
             </Row>
@@ -63,10 +66,12 @@ const Footer = () => {
     )
 }
 
-const StyledFooter = styled.footer`
+
+
+const StyledFooter = styled.div`
     background-color: ${COLORS.orange};
     color: ${COLORS.white};
-    padding: 3% 7%;
+    padding: 3% 7% 7%;
     margin-top: 8%;
     position: relative;
 `;
@@ -88,11 +93,13 @@ const FirstCol = styled.div`
 
 const AppName = styled.h4`
     font-size: 20px;
+    margin: -1px 0;
+    padding: 10px 0;
 `;
 
 const SocialCont = styled.div`
     position: absolute;
-    bottom: 0;
+    bottom: -60px;
     width: 100%;
 `;
 
@@ -107,7 +114,8 @@ const social = {
 }
 
 const CopyText = styled.p`
-    font-size: 8px;
+    font-weight: 300;
+    font-size: 10px;
 `;
 
 const SecondCol = styled.div`
@@ -116,6 +124,8 @@ const SecondCol = styled.div`
 
 const Title = styled.h5`
     font-size: 14px;
+    margin: -1px 0;
+    padding: 10px 0;
 `;
 
 const Text = styled.p`

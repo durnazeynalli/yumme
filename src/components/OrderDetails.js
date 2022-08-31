@@ -32,7 +32,7 @@ const Title = styled.h4`
 `;
 
 const FoodImg = styled.img`
-    margin-top: 65px;
+    margin-top: 90px;
 `;
 
 const Text = styled.p`
@@ -40,7 +40,7 @@ const Text = styled.p`
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    margin-bottom: 65px;
+    margin-bottom: 90px;
 `;
 
 const OrderButton = styled.button`

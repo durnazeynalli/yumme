@@ -1,17 +1,25 @@
 import React from "react";
 import styled from "styled-components";
-import FilteredNearbyShop from "../components/FilteredNearbyShop";
-import PageHeader from "../components/PageHeader";
+
+import COLORS from "../styles/colors";
+
+import CategoryNearbyHeader from "../components/Headers/CategoryNearbyHeader";
+import NearbyShop from "../components/NearbyShop";
+import PageHeader from "../components/Headers/PageHeader";
 import Promotion from "../components/Promotion";
 import VirtualKitchen from "../components/VirtualKitchen";
-import COLORS from "../styles/colors";
+import CategoryPromotionHeader from "../components/Headers/CategoryPromotionHeader";
+import CategoryVirtualHeader from "../components/Headers/CategoryVirtualHeader";
 
 const Categories = ({ title }) => {
     return (
         <Container>
             <PageHeader title={title} />
-            <FilteredNearbyShop />
+            <CategoryNearbyHeader />
+            <NearbyShop />
+            <CategoryPromotionHeader />
             <Promotion />
+            <CategoryVirtualHeader />
             <VirtualKitchen />
         </Container>
     )
