@@ -5,10 +5,10 @@ import COLORS from "../../styles/colors";
 
 import { GiCancel } from "react-icons/gi";
 
-const TermsModal = ({ onClick, positionStyle , cancelClick, agreeBtn }) => {
+const TermsModal = ({ positionStyle , cancelClick, agreeBtn }) => {
 
     return (
-        <PageBg style={positionStyle} onClick={onClick}>
+        <PageBg style={positionStyle}>
             <Container>
                 <GiCancel onClick={cancelClick} style={cancelBTN} />
                 <Title>Credit Card Registration Terms </Title>
@@ -35,12 +35,7 @@ const TermsModal = ({ onClick, positionStyle , cancelClick, agreeBtn }) => {
 }
 
 const PageBg = styled.div`
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.3);
-    position: relative;
-    z-index: 1;
-    padding: 13% 0;
+    padding: 7% 0;
     display: flex;
     justify-content: center;
 `;
@@ -51,15 +46,15 @@ const Container = styled.div`
     position: relative;
     padding: 15px 0;
     box-shadow: 0px 12px 40px rgba(181, 173, 176, 0.25);
-    position: absolute;  
     width: 35%;
+    margin-top: 5%;
 `;
 
 const cancelBTN = {
     position: 'absolute',
     color: COLORS.pageTitle,
     right: '25px',
-    top: '20px'
+    top: '20px',
 };
 
 const Title = styled.h6`
@@ -94,7 +89,7 @@ const Text = styled.p`
 const Button = styled.button`
     border: 1px solid ${COLORS.orange};
     background-color: ${COLORS.orange};
-    margin: 10px 60px;
+    margin: 10px 60px 20px;
     padding: 15px;
     text-align: center;
     color:  ${COLORS.white};

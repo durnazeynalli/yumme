@@ -7,6 +7,7 @@ const COLORS = {
     titleColor: '#3B3D41',
     grayTextColor: '#696974',
     orange: '#FF961C',
+    disableOrange: '#FFCB8E',
     infoText: '#50565A',
     red: '#D81921',
     pageTitle: '#92929D',

@@ -17,6 +17,8 @@ import AddressModal from "../Modals/AddressModal";
 import NewPaymentModal from "../Modals/NewPaymentModal";
 import NewCardInfoModal from "../Modals/NewCardInfoModal";
 import TermsModal from "../Modals/TermsModal";
+import PaymentModal from "../Modals/PaymentModal";
+import NewPaypalModal from "../Modals/NewPaypalModal";
 
 const Header = () =>{
     const [basketOne, setBasketOne] = useState(false);
@@ -24,16 +26,58 @@ const Header = () =>{
     const [newAddress, setNewAddress] = useState(false);
     const [address, setAddress] = useState(false);
     const [newPayment, setNewPayment] = useState(false);
+    const [payment, setPayment] = useState(false);
     const [newCardInfo, setNewCardInfo] = useState(false);
     const [terms, setTerms] = useState(false);
+    const [paypal, setPaypal] = useState(false);
+    const [menu, setMenu] = useState(false);
 
     const basketOneHandler = () => setBasketOne(v => !v);
     const basketTwoHandler = () => setBasketTwo(v => !v);
     const newAddressHandler = () => setNewAddress(v => !v);
     const addressHandler = () => setAddress(v => !v);
     const newPaymentHandler = () => setNewPayment(v => !v);
+    const paymentHandler = () => setPayment(v => !v);
     const newCardInfoHandler = () => setNewCardInfo(v => !v);
     const termsHandler = () => setTerms(v => !v);
+    const paypalHandler = () => setPaypal(v => !v);
+    const menuHandler = () => setMenu(v => !v);
+
+
+    const passNewPaymnt = () => {
+        newAddressHandler();
+        newPaymentHandler();
+    }
+
+    const passNewCardInfo = () => {
+        newPaymentHandler();
+        newCardInfoHandler();
+    }
+
+    const passTerms = () => {
+        newCardInfoHandler();
+        termsHandler();
+    }
+
+    const passAddNewAddress = () => {
+        addressHandler();
+        newAddressHandler();
+    }
+
+    const passPayment = () => {
+        addressHandler();
+        paymentHandler();
+    }
+
+    const passAddnewPayment = () => {
+        paymentHandler();
+        newPaymentHandler();
+    }
+
+    const passPaypal = () => {
+        newPaymentHandler();
+        paypalHandler();
+    }
 
     return (
         <StyledHeader>
@@ -43,13 +87,22 @@ const Header = () =>{
                     <Navbar>
                         <Row>
                             <StyledNavLink to="/learn">Learn</StyledNavLink>
-                            <StyledNavLink to="/menu">
+                            <StyledMenu onMouseOver={menuHandler}>
                                 Menu
                                 <MdKeyboardArrowDown style={arrowStyle} />
-                            </StyledNavLink>
+                                {menu && 
+                                    <MenuCont>
+                                        <StyledNavLink to="/drink">Drinks</StyledNavLink>
+                                        <StyledNavLink to="/pizza">Pizzas</StyledNavLink>
+                                        <StyledNavLink to="/burger">Burgers</StyledNavLink>
+                                        <StyledNavLink to="/dessert">Desserts</StyledNavLink>
+                                        <StyledNavLink to="/cake">Cakes</StyledNavLink>
+                                    </MenuCont>
+                                 }  
+                            </StyledMenu>
                             <StyledNavLink to="/hotline">Hotline</StyledNavLink>
                             <StyledNavLink to="/blog">Blog</StyledNavLink>
-                        </Row>    
+                        </Row>  
                     </Navbar>
                     <InputContainer>
                         <Row>
@@ -72,14 +125,16 @@ const Header = () =>{
                     </Icons>
                     <StyledLink to="/sign-in">Sign in</StyledLink>
                 </Row>
-                {basketOne && <BasketOneModal positionStyle={{position: 'absolute', top: 0, left: '-101px'}} onClick={basketOneHandler} submit={newAddressHandler}/>}
-                {basketTwo && <BasketTwoModal positionStyle={{position: 'absolute', top: 0, left: '-101px'}} onClick={basketTwoHandler} submit={addressHandler}/>}
-                {newAddress && <NewAddressModal positionStyle={{position: 'absolute', top: 0, left: '-101px'}} onClick={newAddressHandler} continueBtn={newPaymentHandler}/>}
-                {address && <AddressModal positionStyle={{position: 'absolute'}} onClick={addressHandler}/>}
-                {newPayment && <NewPaymentModal positionStyle={{position: 'absolute', top: 0, left: '-101px'}} onClick={newPaymentHandler} continueBtn={newCardInfoHandler}/>}
-                {newCardInfo && <NewCardInfoModal positionStyle={{position: 'absolute', top: 0, left: '-101px'}} onClick={newCardInfoHandler} terms={termsHandler}/>}
-                {terms && <TermsModal positionStyle={{position: 'absolute', top: 0, left: '-101px'}} onClick={termsHandler} cancelClick={termsHandler} agreeBtn={termsHandler}/>}
 
+                {basketOne && <BasketOneModal positionStyle={positionStyle} onClick={basketOneHandler} submit={newAddressHandler}/>}
+                {basketTwo && <BasketTwoModal positionStyle={positionStyle} onClick={basketTwoHandler} submit={addressHandler}/>}
+                {newAddress && <NewAddressModal positionStyle={positionStyle} cancel={newAddressHandler} continueBtn={passNewPaymnt}/>}
+                {address && <AddressModal positionStyle={positionStyle} cancel={addressHandler} addNew={passAddNewAddress} continueBtn={passPayment}/>}
+                {newPayment && <NewPaymentModal positionStyle={positionStyle} onClick={newPaymentHandler} continueBtn={passNewCardInfo} newPaypal={passPaypal} cash={newPaymentHandler} />}
+                {payment && <PaymentModal positionStyle={positionStyle} cancel={paymentHandler} addNew={passAddnewPayment} continueBtn={passPaypal}/>}
+                {newCardInfo && <NewCardInfoModal positionStyle={positionStyle} onClick={newCardInfoHandler} terms={passTerms}/>}
+                {terms && <TermsModal positionStyle={positionStyle} cancelClick={termsHandler} agreeBtn={termsHandler}/>}
+                {paypal && <NewPaypalModal positionStyle={positionStyle} cancel={paypalHandler} continueBtn={paypalHandler}/>}
             </Container>
         </StyledHeader>
     )
@@ -98,6 +153,17 @@ const Container = styled.div`
     position: relative;
 `;
 
+const positionStyle = {
+    position: 'fixed', 
+    top: 0, 
+    left: 0, 
+    bottom: 0,
+    right: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+    oopacity: 0,
+    zIndex: 1000,
+};
+
 const Row = styled.div`
     display: flex;
     align-items: center;
@@ -109,7 +175,7 @@ const Logo = styled.img`
 `;
 
 const Navbar = styled.nav`
-
+    position: relative;
 `;
 
 const arrowStyle = {
@@ -122,6 +188,33 @@ const StyledNavLink = styled(NavLink)`
     margin-left: 25px;
     display: flex;
     align-items: center;
+    line-height: 24px;
+
+    :hover {
+        color: ${COLORS.orange};
+    }
+`;
+
+const StyledMenu = styled.div`
+    color: ${COLORS.textColor};
+    text-decoration: none;
+    margin-left: 25px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+`;
+
+const MenuCont = styled.div`
+    position: absolute;
+    box-shadow: 0px 12px 40px rgba(181, 173, 176, 0.25);
+    border-radius: 8px;
+    padding: 2%;
+    width: 100px;
+    height: 125px;
+    background-color: ${COLORS.white};
+    // left: 80px;
+    top: 30px;
 `;
 
 const InputContainer = styled.div`

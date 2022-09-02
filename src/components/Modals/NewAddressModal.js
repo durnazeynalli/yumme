@@ -8,12 +8,12 @@ import { GiCancel } from "react-icons/gi";
 import { MdDeliveryDining } from "react-icons/md";
 import { MdRestaurant } from "react-icons/md";
 
-const NewAddressModal = ({ onClick, positionStyle , continueBtn}) => {
+const NewAddressModal = ({ cancel, positionStyle , continueBtn}) => {
 
     return (
-        <PageBg style={positionStyle} onClick={onClick}>
+        <PageBg style={positionStyle}>
             <Container>
-                <GiCancel onClick={onClick} style={cancelBTN} />
+                <GiCancel onClick={cancel} style={cancelBTN} />
                 <Title>Confirm Order</Title>
                 <ThinBorder></ThinBorder>
 
@@ -85,12 +85,7 @@ const NewAddressModal = ({ onClick, positionStyle , continueBtn}) => {
 }
 
 const PageBg = styled.div`
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.3);
-    position: relative;
-    z-index: 1;
-    padding: 13% 0;
+    padding: 5% 0 20%;
     display: flex;
     justify-content: center;
 `;

@@ -9,7 +9,7 @@ import { FiImage } from "react-icons/fi";
 const NewCardInfoModal = ({ onClick, positionStyle , continueBtn, terms }) => {
 
     return (
-        <PageBg style={positionStyle} onClick={onClick}>
+        <PageBg style={positionStyle}>
             <Container>
                 <GiCancel onClick={onClick} style={cancelBTN} />
                 <Title>Credit card information</Title>
@@ -44,12 +44,7 @@ const NewCardInfoModal = ({ onClick, positionStyle , continueBtn, terms }) => {
 }
 
 const PageBg = styled.div`
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.3);
-    position: relative;
-    z-index: 1;
-    padding: 13% 0;
+    padding: 7% 0;
     display: flex;
     justify-content: center;
 `;

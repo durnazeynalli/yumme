@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import COLORS from "../../styles/colors";
@@ -6,10 +6,26 @@ import COLORS from "../../styles/colors";
 import { GiCancel } from "react-icons/gi";
 import IMG from "../../assets/images";
 
-const NewPaymentModal = ({ onClick, positionStyle , continueBtn}) => {
+const NewPaymentModal = ({ onClick, positionStyle , newPaypal, continueBtn, cash}) => {
+
+    const [selectedOption, setSelectedOption] = useState("option1");
+
+    const selectedOptionHandler = (e) => {
+        setSelectedOption(e.target.value);
+    }
+
+    const continueClick = () => {
+        if (selectedOption === 'option3') {
+            newPaypal();
+        } else if (selectedOption === 'option2') {
+            continueBtn();
+        } else {
+            cash();
+        }
+    }
 
     return (
-        <PageBg style={positionStyle} onClick={onClick}>
+        <PageBg style={positionStyle}>
             <Container>
                 <GiCancel onClick={onClick} style={cancelBTN} />
                 <Title>Payment Method</Title>
@@ -17,11 +33,11 @@ const NewPaymentModal = ({ onClick, positionStyle , continueBtn}) => {
 
                 <Text>Choose payment methods</Text>
                 <LabelCont>
-                    <Input type="radio"/>
+                    <Input type="radio" value="option1" checked={selectedOption === 'option1'} onChange={selectedOptionHandler}/>
                     <Label>Cash</Label>
                 </LabelCont>
                 <LabelCont>
-                    <Input type="radio" checked/>
+                    <Input type="radio" value="option2" checked={selectedOption === 'option2'} onChange={selectedOptionHandler} />
                     <Row>
                         <Label>Credit/Debit Card</Label>
                         <CardRow>
@@ -32,14 +48,14 @@ const NewPaymentModal = ({ onClick, positionStyle , continueBtn}) => {
                     </Row>
                 </LabelCont>
                 <LabelCont>
-                    <Input type="radio"/>
+                    <Input type="radio" value="option3" checked={selectedOption === 'option3'} onChange={selectedOptionHandler} />
                     <Row>
                         <Label>Paypal</Label>
                         <CardImage src={IMG.paypal} alt="card" />
                     </Row>
                 </LabelCont>
         
-                <Button onClick={continueBtn}>Continue</Button>
+                <Button onClick={continueClick}>Continue</Button>
             </Container>
         </PageBg>
     )
