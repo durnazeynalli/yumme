@@ -131,7 +131,7 @@ const Header = () =>{
                 {newAddress && <NewAddressModal positionStyle={positionStyle} cancel={newAddressHandler} continueBtn={passNewPaymnt}/>}
                 {address && <AddressModal positionStyle={positionStyle} cancel={addressHandler} addNew={passAddNewAddress} continueBtn={passPayment}/>}
                 {newPayment && <NewPaymentModal positionStyle={positionStyle} onClick={newPaymentHandler} continueBtn={passNewCardInfo} newPaypal={passPaypal} cash={newPaymentHandler} />}
-                {payment && <PaymentModal positionStyle={positionStyle} cancel={paymentHandler} addNew={passAddnewPayment} continueBtn={passPaypal}/>}
+                {payment && <PaymentModal positionStyle={positionStyle} cancel={paymentHandler} addNew={passAddnewPayment} continueBtn={paymentHandler}/>}
                 {newCardInfo && <NewCardInfoModal positionStyle={positionStyle} onClick={newCardInfoHandler} terms={passTerms}/>}
                 {terms && <TermsModal positionStyle={positionStyle} cancelClick={termsHandler} agreeBtn={termsHandler}/>}
                 {paypal && <NewPaypalModal positionStyle={positionStyle} cancel={paypalHandler} continueBtn={paypalHandler}/>}
