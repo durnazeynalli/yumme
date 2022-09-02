@@ -30,7 +30,6 @@ const Header = () =>{
     const [newCardInfo, setNewCardInfo] = useState(false);
     const [terms, setTerms] = useState(false);
     const [paypal, setPaypal] = useState(false);
-    const [menu, setMenu] = useState(false);
 
     const basketOneHandler = () => setBasketOne(v => !v);
     const basketTwoHandler = () => setBasketTwo(v => !v);
@@ -41,7 +40,6 @@ const Header = () =>{
     const newCardInfoHandler = () => setNewCardInfo(v => !v);
     const termsHandler = () => setTerms(v => !v);
     const paypalHandler = () => setPaypal(v => !v);
-    const menuHandler = () => setMenu(v => !v);
 
 
     const passNewPaymnt = () => {
@@ -87,18 +85,17 @@ const Header = () =>{
                     <Navbar>
                         <Row>
                             <StyledNavLink to="/learn">Learn</StyledNavLink>
-                            <StyledMenu onMouseOver={menuHandler}>
-                                Menu
-                                <MdKeyboardArrowDown style={arrowStyle} />
-                                {menu && 
-                                    <MenuCont>
-                                        <StyledNavLink to="/drink">Drinks</StyledNavLink>
-                                        <StyledNavLink to="/pizza">Pizzas</StyledNavLink>
-                                        <StyledNavLink to="/burger">Burgers</StyledNavLink>
-                                        <StyledNavLink to="/dessert">Desserts</StyledNavLink>
-                                        <StyledNavLink to="/cake">Cakes</StyledNavLink>
+                            <StyledMenu>
+                                    <StyledNavLink to="/menu">Menu <MdKeyboardArrowDown style={{color: COLORS.orange}} /></StyledNavLink>      
+                                    <MenuCont className="drop">
+                                        <Column>
+                                            <StyledNavLink to="/drink">Drinks</StyledNavLink>
+                                            <StyledNavLink to="/pizza">Pizzas</StyledNavLink>
+                                            <StyledNavLink to="/burger">Burgers</StyledNavLink>
+                                            <StyledNavLink to="/dessert">Desserts   <MdKeyboardArrowDown style={{color: COLORS.orange, marginLeft: '10px'}}/> </StyledNavLink>
+                                            <StyledNavLink to="/cake">Cakes</StyledNavLink>
+                                        </Column>
                                     </MenuCont>
-                                 }  
                             </StyledMenu>
                             <StyledNavLink to="/hotline">Hotline</StyledNavLink>
                             <StyledNavLink to="/blog">Blog</StyledNavLink>
@@ -178,10 +175,6 @@ const Navbar = styled.nav`
     position: relative;
 `;
 
-const arrowStyle = {
-    color: COLORS.orange
-}
-
 const StyledNavLink = styled(NavLink)`
     color: ${COLORS.textColor};
     text-decoration: none;
@@ -198,23 +191,31 @@ const StyledNavLink = styled(NavLink)`
 const StyledMenu = styled.div`
     color: ${COLORS.textColor};
     text-decoration: none;
-    margin-left: 25px;
     display: flex;
     align-items: center;
     cursor: pointer;
     position: relative;
+    display: inline-block;
+
+    :hover .drop {
+        display: block;
+    }
 `;
 
 const MenuCont = styled.div`
     position: absolute;
     box-shadow: 0px 12px 40px rgba(181, 173, 176, 0.25);
     border-radius: 8px;
-    padding: 2%;
-    width: 100px;
-    height: 125px;
+    padding: 10px 17px 10px 0;
     background-color: ${COLORS.white};
-    // left: 80px;
-    top: 30px;
+    top: 20px;
+    display: none;
+    z-index: 1;
+`;
+
+const Column = styled.div`
+    display: flex;
+    flex-direction: column;
 `;
 
 const InputContainer = styled.div`

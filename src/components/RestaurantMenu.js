@@ -121,7 +121,7 @@ const RestaurantMenu = ({ title, onClick }) => {
 }
 
 const Container = styled.div`
-    padding: 0 20px;
+    padding: 0 20px 15px;
     position: relative;
 `;
 

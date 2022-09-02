@@ -81,6 +81,7 @@ const RestaurantDetails = () => {
                                 <InfoText to="/info">Info</InfoText>
                             </Reviews>
                             <RestaurantMenu title="Pizza (6 items)" onClick={modalHandler}/>
+                            <RestaurantMenu title="Drink (6 items)" onClick={modalHandler}/>
                         </MenuSide>
                     </Row>
                 </DetailContainer>
@@ -179,6 +180,7 @@ const MenuSide = styled.div`
     height: 710px;
     border-left: 2px solid ${COLORS.border};
     position: relative;
+    overflow-y: scroll;
 `;
 
 const Reviews = styled.div`

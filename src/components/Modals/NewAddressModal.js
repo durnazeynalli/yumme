@@ -16,6 +16,7 @@ const NewAddressModal = ({ cancel, positionStyle , continueBtn}) => {
                 <GiCancel onClick={cancel} style={cancelBTN} />
                 <Title>Confirm Order</Title>
                 <ThinBorder></ThinBorder>
+                <Scroll>
 
                 <Text>Contact</Text>
                 <Border>
@@ -78,6 +79,8 @@ const NewAddressModal = ({ cancel, positionStyle , continueBtn}) => {
                 <Border>
                     <TextInput type="text" placeholder="Choose date" />
                 </Border>
+                </Scroll>
+
                 <Button onClick={continueBtn}>Continue</Button>
             </Container>
         </PageBg>
@@ -85,7 +88,7 @@ const NewAddressModal = ({ cancel, positionStyle , continueBtn}) => {
 }
 
 const PageBg = styled.div`
-    padding: 5% 0 20%;
+    padding: 9% 0;
     display: flex;
     justify-content: center;
 `;
@@ -98,6 +101,11 @@ const Container = styled.div`
     box-shadow: 0px 12px 40px rgba(181, 173, 176, 0.25);
     position: absolute; 
     z-index: 1; 
+`;
+
+const Scroll = styled.div`
+    overflow-y: scroll;
+    height: 400px;
 `;
 
 const cancelBTN = {
