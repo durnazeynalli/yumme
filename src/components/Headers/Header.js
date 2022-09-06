@@ -19,6 +19,7 @@ import NewCardInfoModal from "../Modals/NewCardInfoModal";
 import TermsModal from "../Modals/TermsModal";
 import PaymentModal from "../Modals/PaymentModal";
 import NewPaypalModal from "../Modals/NewPaypalModal";
+import ConfirmOrderModal from "../Modals/ConfirmOrder";
 
 const Header = () =>{
     const [basketOne, setBasketOne] = useState(false);
@@ -30,6 +31,7 @@ const Header = () =>{
     const [newCardInfo, setNewCardInfo] = useState(false);
     const [terms, setTerms] = useState(false);
     const [paypal, setPaypal] = useState(false);
+    const [confirmOrder, setConfirmOrder] = useState(false);
 
     const basketOneHandler = () => setBasketOne(v => !v);
     const basketTwoHandler = () => setBasketTwo(v => !v);
@@ -40,6 +42,7 @@ const Header = () =>{
     const newCardInfoHandler = () => setNewCardInfo(v => !v);
     const termsHandler = () => setTerms(v => !v);
     const paypalHandler = () => setPaypal(v => !v);
+    const confirmOrderHandler = () => setConfirmOrder(v => !v);
 
 
     const passNewPaymnt = () => {
@@ -75,6 +78,11 @@ const Header = () =>{
     const passPaypal = () => {
         newPaymentHandler();
         paypalHandler();
+    }
+
+    const passConfirmOrder = () => {
+        paymentHandler();
+        confirmOrderHandler();
     }
 
     return (
@@ -128,10 +136,12 @@ const Header = () =>{
                 {newAddress && <NewAddressModal positionStyle={positionStyle} cancel={newAddressHandler} continueBtn={passNewPaymnt}/>}
                 {address && <AddressModal positionStyle={positionStyle} cancel={addressHandler} addNew={passAddNewAddress} continueBtn={passPayment}/>}
                 {newPayment && <NewPaymentModal positionStyle={positionStyle} onClick={newPaymentHandler} continueBtn={passNewCardInfo} newPaypal={passPaypal} cash={newPaymentHandler} />}
-                {payment && <PaymentModal positionStyle={positionStyle} cancel={paymentHandler} addNew={passAddnewPayment} continueBtn={paymentHandler}/>}
+                {payment && <PaymentModal positionStyle={positionStyle} cancel={paymentHandler} addNew={passAddnewPayment} continueBtn={passConfirmOrder}/>}
                 {newCardInfo && <NewCardInfoModal positionStyle={positionStyle} onClick={newCardInfoHandler} terms={passTerms}/>}
                 {terms && <TermsModal positionStyle={positionStyle} cancelClick={termsHandler} agreeBtn={termsHandler}/>}
                 {paypal && <NewPaypalModal positionStyle={positionStyle} cancel={paypalHandler} continueBtn={paypalHandler}/>}
+                {confirmOrder && <ConfirmOrderModal positionStyle={positionStyle} cancel={confirmOrderHandler} continueBtn={confirmOrderHandler}/>}
+
             </Container>
         </StyledHeader>
     )

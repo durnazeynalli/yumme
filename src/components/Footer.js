@@ -15,6 +15,8 @@ const Footer = () => {
             <Row>
                 <FirstCol>
                     <AppName>Yumme</AppName>
+                    <AppText>TRAN Systems</AppText>
+                    <AppText>ABN 99 773 857 017</AppText>
                     <SocialCont>
                         <SocialLink to="">
                             <BsFacebook style={social} />
@@ -25,11 +27,7 @@ const Footer = () => {
                         <SocialLink to="">
                             <BsLinkedin style={social} />
                         </SocialLink>
-                        <CopyText>TRAN Systems <br/>
-                            ABN 99 773 857 017<br/>
-                            All rights reserved.<br/>
-                            Copyright 2018 - 2022.
-                        </CopyText>
+                        <CopyText>© Copy right 2018-2022. All rights reserved.</CopyText>
                     </SocialCont>
                 </FirstCol>
                 <SecondCol>
@@ -58,8 +56,16 @@ const Footer = () => {
                 </SecondCol>
                 <SecondCol>
                     <Title>Contact</Title>
-                    <Text>(+63) 678 276 888</Text>
-                    <Text>237 Thornridge Cir. Shiloh, Melbun...</Text>
+                    <Text>(+61) 413 537 730</Text>
+                    <Text>support@3co.network</Text>
+                    <Text>info@3co.network</Text>
+                    <Text>sale@3co.network</Text>
+                </SecondCol>
+                <SecondCol>
+                    <Title>Address</Title>
+                    <Text>198 Adelaide Street,
+Brisbane, Queensland, 4000,
+Australia.</Text>
                 </SecondCol>
             </Row>
         </StyledFooter>
@@ -97,9 +103,16 @@ const AppName = styled.h4`
     padding: 10px 0;
 `;
 
+const AppText = styled.p`
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    color: ${COLORS.white},
+`;
+
 const SocialCont = styled.div`
     position: absolute;
-    bottom: -60px;
+    bottom: -30px;
     width: 100%;
 `;
 
@@ -116,10 +129,11 @@ const social = {
 const CopyText = styled.p`
     font-weight: 300;
     font-size: 10px;
+    color: ${COLORS.white},
 `;
 
 const SecondCol = styled.div`
-
+    width: 10%;
 `;
 
 const Title = styled.h5`

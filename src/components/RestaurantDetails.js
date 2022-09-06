@@ -72,7 +72,7 @@ const RestaurantDetails = () => {
                             { modal &&
                                 <ItemDetailModal
                                     onClick={modalHandler} 
-                                    positionStyle={{position: 'absolute', left: '80px', top: '-80px', zIndex: 1}}
+                                    positionStyle={positionStyle}
                                     addBtn={submit}
                                 />
                             }
@@ -106,6 +106,17 @@ const RestaurantDetails = () => {
 const Container = styled.div`
     padding: 0 7%;
 `;
+
+const positionStyle = {
+    position: 'fixed', 
+    top: 0, 
+    left: 0, 
+    bottom: 0,
+    right: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+    oopacity: 0,
+    zIndex: 1000,
+};
 
 const Row = styled.div`
     display: flex;

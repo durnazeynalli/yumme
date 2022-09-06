@@ -10,7 +10,9 @@ import { MdOutlineStickyNote2 } from "react-icons/md";
 
 const ItemDetailModal = ({ onClick, positionStyle , addBtn}) => {
     return (
-        <Container style={positionStyle}>
+        <PageBg style={positionStyle}>
+
+        <Container>
             <GiCancel onClick={onClick} style={cancelBTN} />
             <Title>Add item</Title>
             <ThinBorder></ThinBorder>
@@ -64,15 +66,24 @@ const ItemDetailModal = ({ onClick, positionStyle , addBtn}) => {
             </Form>
             <Button onClick={addBtn}>Add to cart (A$40)</Button>
         </Container>
+        </PageBg>
+
     )
 }
 
+const PageBg = styled.div`
+    padding: 13% 0;
+    display: flex;
+    justify-content: center;
+`;
+
 const Container = styled.div`
-    width: 70%;
     border-radius: 25px;
     background-color: ${COLORS.white};
     position: relative;
     padding: 15px 0;
+    position: absolute;
+    z-index: 1;
 `;
 
 const cancelBTN = {
