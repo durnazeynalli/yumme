@@ -32,10 +32,12 @@ const NewPaypalModal = ({ cancel, positionStyle , continueBtn}) => {
                 <ThinBorder></ThinBorder>
 
                 <Text>Fill Paypal information</Text>
-                <Border>
+
+                <Border style={element.submitValid ? {padding: '10px 20px'} : {padding: '5px 20px'}}>
+                    <BorderLabel style={element.submitValid ? {display: 'none'} : {display: 'inline'}}>Email</BorderLabel>
                     <TextInput type="email" value={element.email} onChange={elementHandler} placeholder="Email" />
                 </Border>
-               
+                
                 <Button 
                     onClick={continueBtn} 
                     disabled={element.submitValid}
@@ -94,7 +96,13 @@ const Border = styled.div`
     border: 1px solid ${COLORS.border};
     border-radius: 12px;
     margin: 10px 60px;
-    padding: 10px 20px;
+`;
+
+const BorderLabel = styled.label`
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    color: ${COLORS.pageTitle};
 `;
 
 const TextInput = styled.input`

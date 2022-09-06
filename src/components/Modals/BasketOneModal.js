@@ -9,7 +9,7 @@ const BasketOne = ({ positionStyle, onClick, submit }) => {
         <PageBg style={positionStyle} onClick={onClick}>
             <OrderContainer>
                 <ArrowUp></ArrowUp>
-                <Title>My card (1)</Title>
+                <Title>My cart (1)</Title>
                 <FoodDetails>
                     <Image src={IMG.pizza1} alt="image" />
                     <Info>

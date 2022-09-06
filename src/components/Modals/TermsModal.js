@@ -44,10 +44,10 @@ const Container = styled.div`
     border-radius: 25px;
     background-color: ${COLORS.white};
     position: relative;
-    padding: 15px 0 0;
+    padding: 15px 60px;
     box-shadow: 0px 12px 40px rgba(181, 173, 176, 0.25);
-    width: 35%;
-    margin-top: 5%;
+    position: absolute; 
+    z-index: 1; 
 `;
 
 const cancelBTN = {
@@ -69,14 +69,14 @@ const Title = styled.h6`
 
 const ThinBorder = styled.div`
     border-top: 1px solid ${COLORS.border};
-    margin: 10px 60px;
+    margin: 10px 0;
 `;
 
 const TextBorder = styled.div`
-    width: 78%;
-    margin: 10px 60px;
-    overflow-y: scroll;
-    height: 300px;
+    width: 370px;
+    margin: 10px 0;
+    // overflow-y: scroll;
+    // height: 300px;
 `;
 
 const Text = styled.p`
@@ -91,12 +91,12 @@ const Text = styled.p`
 const Button = styled.button`
     border: 1px solid ${COLORS.orange};
     background-color: ${COLORS.orange};
-    margin: 10px 60px;
+    margin: 10px 0;
     padding: 15px;
     text-align: center;
     color:  ${COLORS.white};
     border-radius: 12px;
-    width: 78%;
+    width: 100%;
 `;
 
 export default TermsModal;

@@ -85,6 +85,11 @@ const Header = () =>{
         confirmOrderHandler();
     }
 
+    const passBackToNewCardInfo = () => {
+        termsHandler();
+        newCardInfoHandler();
+    }
+
     return (
         <StyledHeader>
             <Container>
@@ -112,7 +117,7 @@ const Header = () =>{
                     <InputContainer>
                         <Row>
                             <FiSearch style={searchStyle} />
-                            <Input type="text" placeholder="Search restaurants, dissert..." />
+                            <Input type="text" placeholder="Search nearby stores " />
                             <AiOutlineBars style={searchStyle} />
                         </Row>
                     </InputContainer>
@@ -137,8 +142,8 @@ const Header = () =>{
                 {address && <AddressModal positionStyle={positionStyle} cancel={addressHandler} addNew={passAddNewAddress} continueBtn={passPayment}/>}
                 {newPayment && <NewPaymentModal positionStyle={positionStyle} onClick={newPaymentHandler} continueBtn={passNewCardInfo} newPaypal={passPaypal} cash={newPaymentHandler} />}
                 {payment && <PaymentModal positionStyle={positionStyle} cancel={paymentHandler} addNew={passAddnewPayment} continueBtn={passConfirmOrder}/>}
-                {newCardInfo && <NewCardInfoModal positionStyle={positionStyle} onClick={newCardInfoHandler} terms={passTerms}/>}
-                {terms && <TermsModal positionStyle={positionStyle} cancelClick={termsHandler} agreeBtn={termsHandler}/>}
+                {newCardInfo && <NewCardInfoModal positionStyle={positionStyle} onClick={newCardInfoHandler} terms={passTerms} continueBtn={newCardInfoHandler} />}
+                {terms && <TermsModal positionStyle={positionStyle} cancelClick={termsHandler} agreeBtn={passBackToNewCardInfo}/>}
                 {paypal && <NewPaypalModal positionStyle={positionStyle} cancel={paypalHandler} continueBtn={paypalHandler}/>}
                 {confirmOrder && <ConfirmOrderModal positionStyle={positionStyle} cancel={confirmOrderHandler} continueBtn={confirmOrderHandler}/>}
 
@@ -188,7 +193,7 @@ const Navbar = styled.nav`
 const StyledNavLink = styled(NavLink)`
     color: ${COLORS.textColor};
     text-decoration: none;
-    margin-left: 25px;
+    margin:  5px 0 5px 25px;
     display: flex;
     align-items: center;
     line-height: 24px;
@@ -218,7 +223,8 @@ const MenuCont = styled.div`
     border-radius: 8px;
     padding: 10px 17px 10px 0;
     background-color: ${COLORS.white};
-    top: 20px;
+    top: 30px;
+    left: 20px;
     display: none;
     z-index: 1;
 `;

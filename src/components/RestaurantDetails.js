@@ -80,8 +80,10 @@ const RestaurantDetails = () => {
                                 <InfoText to="/reviews">Reviews</InfoText>
                                 <InfoText to="/info">Info</InfoText>
                             </Reviews>
-                            <RestaurantMenu title="Pizza (6 items)" onClick={modalHandler}/>
-                            <RestaurantMenu title="Drink (6 items)" onClick={modalHandler}/>
+                            <MenuContainer>
+                                <RestaurantMenu title="Pizza (6 items)" onClick={modalHandler}/>
+                                <RestaurantMenu title="Drink (6 items)" onClick={modalHandler}/>
+                            </MenuContainer>
                         </MenuSide>
                     </Row>
                 </DetailContainer>
@@ -156,16 +158,18 @@ const heartIcon = {
 
 const InfoSide = styled.div`
     width: 30%;
-    height: 660px;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: relative;
+    margin-top: 100px;
 `;
 
 const TextRow = styled.div`
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin: 10px 0;
+    margin: 5px 0;
+    width: 100px;
 `;
 
 const RestaurantName = styled.h6`
@@ -173,8 +177,7 @@ const RestaurantName = styled.h6`
     font-weight: 500;
     font-size: 24px;
     color: ${COLORS.textColor};
-    margin-top: 100px;
-    margin-bottom: 0;
+    margin: -1px 0;
     padding-bottom: 10px;
 `;
 
@@ -192,6 +195,10 @@ const MenuSide = styled.div`
     border-left: 2px solid ${COLORS.border};
     position: relative;
     overflow-y: scroll;
+`;
+
+const MenuContainer = styled.div`
+    margin-top: 60px;
 `;
 
 const Reviews = styled.div`
@@ -218,7 +225,7 @@ const Image = styled.img`
 
 const SocialCont = styled.div`
     position: absolute;
-    bottom: 10px;
+    bottom: 40px;
     width: 100%;
     text-align: center;
 `;

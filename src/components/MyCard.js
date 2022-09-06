@@ -7,7 +7,7 @@ import COLORS from "../styles/colors";
 const MyCard = () => {
     return (
         <OrderContainer>
-            <Title>My card (2)</Title>
+            <Title>My cart (2)</Title>
             <FoodDetails>
                 <Image src={IMG.pizza1} alt="image" />
                 <Info>

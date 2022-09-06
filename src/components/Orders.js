@@ -14,22 +14,22 @@ const options = [
     {
         link: "/pizza",
         image: IMG.pizza,
-        text: "Pizza"
+        text: "Pizzas"
     },
     {
         link: "/burger",
         image: IMG.burger,
-        text: "Burger"
+        text: "Burgers"
     },
     {
         link: "/dessert",
         image: IMG.dessert,
-        text: "Dessert"
+        text: "Desserts"
     },
     {
         link: "/cake",
         image: IMG.cake,
-        text: "Cake"
+        text: "Cakes"
     }
 ];
 

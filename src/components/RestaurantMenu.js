@@ -130,7 +130,7 @@ const Title = styled.h6`
     font-size: 16px;
     color: ${COLORS.textColor};
     margin: -1px;
-    padding: 25px 0 10px;
+    padding: 10px 0;
 `;
 
 const ItemsContainer = styled.div`
@@ -148,7 +148,7 @@ const ItemCont = styled.div`
     border 1px solid ${COLORS.border};
     border-radius: 10px;
     width: 30%;
-    margin: 5px 0;
+    margin: 13px 0;
 `;
 
 const Image = styled.img`
