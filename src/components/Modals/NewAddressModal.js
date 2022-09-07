@@ -3,10 +3,11 @@ import styled from "styled-components";
 
 import COLORS from "../../styles/colors";
 
-import { AiFillCaretDown } from "react-icons/ai";
 import { GiCancel } from "react-icons/gi";
 import { MdDeliveryDining } from "react-icons/md";
 import { MdRestaurant } from "react-icons/md";
+import TimeAndDate from "./ModalComponents/TimeAndDate";
+import Address from "./ModalComponents/Address";
 
 const NewAddressModal = ({ cancel, positionStyle , continueBtn}) => {
 
@@ -17,68 +18,32 @@ const NewAddressModal = ({ cancel, positionStyle , continueBtn}) => {
                 <Title>Confirm Order</Title>
                 <ThinBorder></ThinBorder>
                 <Scroll>
+                    <Text>Contact</Text>
+                    <Border>
+                        <TextInput type="text" placeholder="Name" />
+                    </Border>
+                    <Border>
+                        <TextInput type="text" placeholder="Phone number" />
+                    </Border>
 
-                <Text>Contact</Text>
-                <Border>
-                    <TextInput type="text" placeholder="Name" />
-                </Border>
-                <Border>
-                    <TextInput type="text" placeholder="Phone number" />
-                </Border>
+                    <Text>Service options</Text>
+                    <LabelCont>
+                        <Input type="radio" checked/>
+                        <Delivery style={{backgroundColor: '#27c75426'}}>
+                            <MdDeliveryDining style={{color: COLORS.green}}/>
+                        </Delivery>
+                        <Label>Shipper delivery</Label>
+                    </LabelCont>
+                    <LabelCont>
+                        <Input type="radio"/>
+                        <Delivery style={{backgroundColor: '#F1F1F5'}}>
+                            <MdRestaurant style={{color: COLORS.pageTitle}}/>
+                        </Delivery>
+                        <Label>Onsite pickup</Label>
+                    </LabelCont>
 
-                <Text>Service options</Text>
-                <LabelCont>
-                    <Input type="radio" checked/>
-                    <Delivery style={{backgroundColor: '#27c75426'}}>
-                        <MdDeliveryDining style={{color: COLORS.green}}/>
-                    </Delivery>
-                    <Label>Shipper delivery</Label>
-                </LabelCont>
-                <LabelCont>
-                    <Input type="radio"/>
-                    <Delivery style={{backgroundColor: '#F1F1F5'}}>
-                        <MdRestaurant style={{color: COLORS.pageTitle}}/>
-                    </Delivery>
-                    <Label>Onsite pickup</Label>
-                </LabelCont>
-
-                <Text>Address</Text>
-                <Border>
-                    <Row>
-                        <TextInput type="text" placeholder="Select a state" />
-                        <AiFillCaretDown style={{color: COLORS.pageTitle}} />
-                    </Row>
-                </Border>
-                <Border>
-                    <Row>
-                        <TextInput type="text" placeholder="Select a city" />
-                        <AiFillCaretDown style={{color: COLORS.pageTitle}} />
-                    </Row>
-                </Border>
-                <Border>
-                    <TextInput type="text" placeholder="Address" />
-                </Border>
-
-                <Text>Time</Text>
-                <TimeRow>
-                    <Row>
-                        <TimeBorder>
-                            <Row>
-                                <TextInput type="text" placeholder="Choose time" />
-                                <AiFillCaretDown style={{color: COLORS.pageTitle}} />
-                            </Row>
-                        </TimeBorder>
-                        <AMBorder>
-                            <Row>
-                                <TextInput type="text" placeholder="AM" />
-                                <AiFillCaretDown style={{color: COLORS.pageTitle}} />
-                            </Row>
-                        </AMBorder>
-                    </Row>
-                </TimeRow>     
-                <Border>
-                    <TextInput type="text" placeholder="Choose date" />
-                </Border>
+                    <Address />
+                    <TimeAndDate />
                 </Scroll>
 
                 <Button onClick={continueBtn}>Continue</Button>
@@ -115,12 +80,6 @@ const cancelBTN = {
     top: '20px'
 };
 
-const Row = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-`;
-
 const Title = styled.h6`
     font-style: normal;
     font-weight: 500;
@@ -145,24 +104,6 @@ const Border = styled.div`
     border: 1px solid ${COLORS.border};
     border-radius: 12px;
     margin: 10px 60px;
-    padding: 10px 20px;
-`;
-
-const TimeRow = styled.div`
-    margin: 10px 60px;
-`;
-
-const TimeBorder = styled.div`
-    width: 63%;
-    border: 1px solid ${COLORS.border};
-    border-radius: 12px;
-    padding: 10px 20px;
-`;
-
-const AMBorder = styled.div`
-    width: 15%;
-    border: 1px solid ${COLORS.border};
-    border-radius: 12px;
     padding: 10px 20px;
 `;
 

@@ -1,15 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import COLORS from "../../styles/colors";
 
 import { GiCancel } from "react-icons/gi";
-import ServiceAndDelivery from "./ConfirmOrderComponents/ServiceAndDelivery";
-import OrderDetails from "./ConfirmOrderComponents/OrderDetails";
-import PaymentMethod from "./ConfirmOrderComponents/PaymentMethod";
-import PromoCode from "./ConfirmOrderComponents/PromoCode";
+import ServiceAndDelivery from "./ModalComponents/ServiceAndDelivery";
+import OrderDetails from "./ModalComponents/OrderDetails";
+import PaymentMethod from "./ModalComponents/PaymentMethod";
+import PromoCode from "./ModalComponents/PromoCode";
 
-const ConfirmOrderModal = ({ cancel, positionStyle , continueBtn}) => {
+const ConfirmOrderModal = ({ cancel, positionStyle , success, fail}) => {
+
+    const [selectedOption, setSelectedOption] = useState("option1");
+
+    const selectedOptionHandler = (e) => {
+        setSelectedOption(e.target.value);
+    }
+
+    const continueBtn = () => {
+        if (selectedOption ==='option1') {
+            success();
+        } else {
+            fail();
+        }
+    }
 
     return (
         <PageBg style={positionStyle}>
@@ -18,7 +32,13 @@ const ConfirmOrderModal = ({ cancel, positionStyle , continueBtn}) => {
                 <Title>Confirm Order</Title>
                 <ThinBorder></ThinBorder>
                 <Scroll>
-                    <ServiceAndDelivery />
+                    <ServiceAndDelivery
+                        value1="option1"
+                        selectedOption1={selectedOption === 'option1'}
+                        value2="option2"
+                        selectedOption2={selectedOption === 'option2'}
+                        onChange={selectedOptionHandler}
+                    />
                     <OrderDetails />
                     <Column>
                         <Row>

@@ -4,8 +4,8 @@ import styled from "styled-components";
 import COLORS from "../styles/colors";
 
 import { BsFacebook } from "react-icons/bs";
-import { BsInstagram } from "react-icons/bs";
-import { BsLinkedin } from "react-icons/bs";
+import { BsTwitter } from "react-icons/bs";
+import { FaInstagramSquare } from "react-icons/fa";
 import IMG from "../assets/images";
 
 const Footer = () => {
@@ -22,10 +22,10 @@ const Footer = () => {
                             <BsFacebook style={social} />
                         </SocialLink>
                         <SocialLink to="">
-                            <BsInstagram style={social} />
+                            <BsTwitter style={social} />
                         </SocialLink>
                         <SocialLink to="">
-                            <BsLinkedin style={social} />
+                            <FaInstagramSquare style={social} />
                         </SocialLink>
                         <CopyText>© Copy right 2018-2022. All rights reserved.</CopyText>
                     </SocialCont>
@@ -33,26 +33,24 @@ const Footer = () => {
                 <SecondCol>
                     <Title>Company</Title>
                     <Text>About Yumme</Text>
-                    <Text>Our Offerings</Text>
-                    <Text>Newsroom</Text>
                     <Text>Investors</Text>
-                    <Text>Blog</Text>
+                    <Text>Techies</Text>
+                    <Text>Roadmap</Text>
                     <Text>Careers</Text>
-                    <Text>AI</Text>
                 </SecondCol>
                 <SecondCol>
                     <Title>Products</Title>
-                    <Text>Yumme</Text>
-                    <Text>Tran2GO</Text>
-                    <Text>TranME</Text>
+                    <Text>Privacy Policy</Text>
+                    <Text>Terms of service</Text>
+                    <Text>Product Disclosure Statement</Text>
+                    <Text>Terms and Conditions</Text>
                 </SecondCol>
                 <SecondCol>
                     <Title>Help</Title>
                     <Text>FAQ</Text>
                     <Text>Hotline</Text>
                     <Text>Support center</Text>
-                    <Text>Terms &amp; Conditions</Text>
-                    <Text>Privacy Policy</Text>
+                    <Text>Help Desk</Text>
                 </SecondCol>
                 <SecondCol>
                     <Title>Contact</Title>
@@ -63,9 +61,7 @@ const Footer = () => {
                 </SecondCol>
                 <SecondCol>
                     <Title>Address</Title>
-                    <Text>198 Adelaide Street,
-Brisbane, Queensland, 4000,
-Australia.</Text>
+                    <Text>198 Adelaide Street, Brisbane, Queensland, 4000, Australia.</Text>
                 </SecondCol>
             </Row>
         </StyledFooter>
@@ -112,7 +108,7 @@ const AppText = styled.p`
 
 const SocialCont = styled.div`
     position: absolute;
-    bottom: -30px;
+    bottom: -60px;
     width: 100%;
 `;
 

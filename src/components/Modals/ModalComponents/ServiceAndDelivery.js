@@ -10,21 +10,21 @@ import { MdLocationOn } from "react-icons/md";
 import { AiFillClockCircle } from "react-icons/ai";
 import { BsDot } from "react-icons/bs";
 
-const ServiceAndDelivery = () => {
+const ServiceAndDelivery = ({value1, value2, onChange, selectedOption1, selectedOption2}) => {
 
     return (
         <Container>
             <Column>
                 <Text>Service options</Text>
                 <LabelCont>
-                    <Input type="radio" checked/>
+                    <Input type="radio" value={value1} checked={selectedOption1} onChange={onChange}/>
                     <Delivery style={{backgroundColor: '#27c75426'}}>
                         <MdDeliveryDining style={{color: COLORS.green}}/>
                     </Delivery>
                     <Label>Shipper delivery</Label>
                 </LabelCont>
                 <LabelCont>
-                    <Input type="radio"/>
+                    <Input type="radio" value={value2} checked={selectedOption2} onChange={onChange}/>
                     <Delivery style={{backgroundColor: '#F1F1F5'}}>
                         <MdRestaurant style={{color: COLORS.pageTitle}}/>
                     </Delivery>

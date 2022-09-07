@@ -35,7 +35,7 @@ const TermsModal = ({ positionStyle , cancelClick, agreeBtn }) => {
 }
 
 const PageBg = styled.div`
-    padding: 8% 0 11%;
+    padding: 10% 0 11%;
     display: flex;
     justify-content: center;
 `;
@@ -75,8 +75,8 @@ const ThinBorder = styled.div`
 const TextBorder = styled.div`
     width: 370px;
     margin: 10px 0;
-    // overflow-y: scroll;
-    // height: 300px;
+    overflow-y: scroll;
+    height: 300px;
 `;
 
 const Text = styled.p`

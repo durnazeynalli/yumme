@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import COLORS from "../../styles/colors";
 
-import { AiFillCaretDown } from "react-icons/ai";
 import { GiCancel } from "react-icons/gi";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import { BsPlusCircleDotted } from "react-icons/bs";
+import TimeAndDate from "./ModalComponents/TimeAndDate";
 
 const AddressModal = ({ cancel, positionStyle, addNew, continueBtn}) => {
+
+    const [selectedOption, setSelectedOption] = useState("option1");
+
+    const selectedOptionHandler = (e) => {
+        setSelectedOption(e.target.value);
+    }
 
     return (
         <PageBg style={positionStyle}>
@@ -18,7 +24,7 @@ const AddressModal = ({ cancel, positionStyle, addNew, continueBtn}) => {
                 <ThinBorder></ThinBorder>
 
                 <LabelCont>
-                    <Input type="radio" checked/>
+                    <Input type="radio" value="option1" checked={selectedOption === 'option1'} onChange={selectedOptionHandler} />
                     <InputRow>
                         <LabelCol>
                             <Label>Anh Thi Nguyen<Span>Default address</Span></Label>
@@ -30,7 +36,7 @@ const AddressModal = ({ cancel, positionStyle, addNew, continueBtn}) => {
                     </InputRow>
                 </LabelCont>
                 <LabelCont>
-                    <Input type="radio"/>
+                    <Input type="radio" value="option2" checked={selectedOption === 'option2'} onChange={selectedOptionHandler} />
                     <InputRow>
                         <LabelCol>
                             <Label>Dave Tomlinson</Label>
@@ -42,7 +48,7 @@ const AddressModal = ({ cancel, positionStyle, addNew, continueBtn}) => {
                     </InputRow>
                 </LabelCont>
                 <LabelCont>
-                    <Input type="radio"/>
+                    <Input type="radio" value="option3" checked={selectedOption === 'option3'} onChange={selectedOptionHandler}/>
                     <InputRow>
                         <LabelCol>
                             <Label>Tyson H Chin Kaw</Label>
@@ -61,26 +67,8 @@ const AddressModal = ({ cancel, positionStyle, addNew, continueBtn}) => {
 
                 <LargeBorder></LargeBorder>
 
-                <Text>Time</Text>
-                <TimeRow>
-                    <Row>
-                        <TimeBorder>
-                            <Row>
-                                <TextInput type="text" placeholder="Choose time" />
-                                <AiFillCaretDown style={{color: COLORS.pageTitle}} />
-                            </Row>
-                        </TimeBorder>
-                        <AMBorder>
-                            <Row>
-                                <TextInput type="text" placeholder="AM" />
-                                <AiFillCaretDown style={{color: COLORS.pageTitle}} />
-                            </Row>
-                        </AMBorder>
-                    </Row>
-                </TimeRow>     
-                <Border>
-                    <TextInput type="text" placeholder="Choose date" />
-                </Border>
+                <TimeAndDate />
+
                 <Button onClick={continueBtn}>Continue</Button>
             </Container>
         </PageBg>
@@ -110,12 +98,6 @@ const cancelBTN = {
     top: '20px'
 };
 
-const Row = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-`;
-
 const Title = styled.h6`
     font-style: normal;
     font-weight: 500;
@@ -131,45 +113,9 @@ const ThinBorder = styled.div`
     margin: 10px 60px;
 `;
 
-const Text = styled.p`
-    color: ${COLORS.textColor};
-    margin: 20px 60px;
-`;
-
-const Border = styled.div`
-    border: 1px solid ${COLORS.border};
-    border-radius: 12px;
-    margin: 10px 60px;
-    padding: 10px 20px;
-`;
-
 const LargeBorder = styled.div`
     border-top: 8px solid ${COLORS.modelBorder};
     margin: 10px 60px;
-`;
-
-const TimeRow = styled.div`
-    margin: 10px 60px;
-`;
-
-const TimeBorder = styled.div`
-    width: 63%;
-    border: 1px solid ${COLORS.border};
-    border-radius: 12px;
-    padding: 10px 20px;
-`;
-
-const AMBorder = styled.div`
-    width: 15%;
-    border: 1px solid ${COLORS.border};
-    border-radius: 12px;
-    padding: 10px 20px;
-`;
-
-const TextInput = styled.input`
-    outline: none;
-    border: none;
-    width: 100%;
 `;
 
 const LabelCont = styled.div`

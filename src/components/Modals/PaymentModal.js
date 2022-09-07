@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import COLORS from "../../styles/colors";
@@ -9,6 +9,12 @@ import IMG from "../../assets/images";
 
 const PaymentModal = ({ cancel, positionStyle, addNew, continueBtn}) => {
 
+    const [selectedOption, setSelectedOption] = useState("option1");
+
+    const selectedOptionHandler = (e) => {
+        setSelectedOption(e.target.value);
+    }
+
     return (
         <PageBg style={positionStyle}>
             <Container>
@@ -18,7 +24,7 @@ const PaymentModal = ({ cancel, positionStyle, addNew, continueBtn}) => {
 
                 <Text>Choose payment methods</Text>
                 <LabelCont>
-                    <Input type="radio" checked/>
+                    <Input type="radio" value="option1" checked={selectedOption === 'option1'} onChange={selectedOptionHandler} />
                     <CardImage src={IMG.visa} alt="card" />
                     <LabelCol>
                         <Label>NATIONAL AUSTRALIA BANK</Label>
@@ -26,7 +32,7 @@ const PaymentModal = ({ cancel, positionStyle, addNew, continueBtn}) => {
                     </LabelCol>
                 </LabelCont>
                 <LabelCont>
-                    <Input type="radio"/>
+                    <Input type="radio" value="option2" checked={selectedOption === 'option2'} onChange={selectedOptionHandler} />
                     <CardImage src={IMG.paypal} alt="card" />
                     <LabelCol>
                         <Label>Paypal</Label>
@@ -34,7 +40,7 @@ const PaymentModal = ({ cancel, positionStyle, addNew, continueBtn}) => {
                     </LabelCol>
                 </LabelCont>
                 <LabelCont>
-                    <Input type="radio"/>
+                    <Input type="radio" value="option3" checked={selectedOption === 'option3'} onChange={selectedOptionHandler} />
                     <CardImage src={IMG.master} alt="card" />
                     <LabelCol>
                         <Label>NATIONAL AUSTRALIA BANK</Label>

@@ -20,6 +20,9 @@ import TermsModal from "../Modals/TermsModal";
 import PaymentModal from "../Modals/PaymentModal";
 import NewPaypalModal from "../Modals/NewPaypalModal";
 import ConfirmOrderModal from "../Modals/ConfirmOrder";
+import WaitingModal from "../Modals/WaitingModal";
+import SuccessModal from "../Modals/SuccessModal";
+import FailModal from "../Modals/FailModal";
 
 const Header = () =>{
     const [basketOne, setBasketOne] = useState(false);
@@ -32,6 +35,9 @@ const Header = () =>{
     const [terms, setTerms] = useState(false);
     const [paypal, setPaypal] = useState(false);
     const [confirmOrder, setConfirmOrder] = useState(false);
+    const [waiting, setWaiting] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const [fail, setFail] = useState(false);
 
     const basketOneHandler = () => setBasketOne(v => !v);
     const basketTwoHandler = () => setBasketTwo(v => !v);
@@ -43,7 +49,9 @@ const Header = () =>{
     const termsHandler = () => setTerms(v => !v);
     const paypalHandler = () => setPaypal(v => !v);
     const confirmOrderHandler = () => setConfirmOrder(v => !v);
-
+    const waitingHandler = () => setWaiting(v => !v);
+    const successHandler = () => setSuccess(v => !v);
+    const failHandler = () => setFail(v => !v);
 
     const passNewPaymnt = () => {
         newAddressHandler();
@@ -88,6 +96,32 @@ const Header = () =>{
     const passBackToNewCardInfo = () => {
         termsHandler();
         newCardInfoHandler();
+    }
+
+    const passSuccess = () => {
+        waitingHandler();
+        successHandler();
+    }
+
+    const passFail = () => {
+        waitingHandler();
+        failHandler();
+    }
+
+    const placeOrderSuccess = () => {
+        confirmOrderHandler();
+        waitingHandler();
+        setTimeout(() => {
+            passSuccess();
+        }, 2000);
+    }
+
+    const placeOrderFail = () => {
+        confirmOrderHandler();
+        waitingHandler();
+        setTimeout(() => {
+            passFail();
+        }, 2000);
     }
 
     return (
@@ -145,8 +179,10 @@ const Header = () =>{
                 {newCardInfo && <NewCardInfoModal positionStyle={positionStyle} onClick={newCardInfoHandler} terms={passTerms} continueBtn={newCardInfoHandler} />}
                 {terms && <TermsModal positionStyle={positionStyle} cancelClick={termsHandler} agreeBtn={passBackToNewCardInfo}/>}
                 {paypal && <NewPaypalModal positionStyle={positionStyle} cancel={paypalHandler} continueBtn={paypalHandler}/>}
-                {confirmOrder && <ConfirmOrderModal positionStyle={positionStyle} cancel={confirmOrderHandler} continueBtn={confirmOrderHandler}/>}
-
+                {confirmOrder && <ConfirmOrderModal positionStyle={positionStyle} cancel={confirmOrderHandler} success={placeOrderSuccess} fail={placeOrderFail}/>}
+                {waiting && <WaitingModal positionStyle={positionStyle} />}
+                {success && <SuccessModal positionStyle={positionStyle} agreeBtn={successHandler}/>}
+                {fail && <FailModal positionStyle={positionStyle} agreeBtn={failHandler}/>}
             </Container>
         </StyledHeader>
     )

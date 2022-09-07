@@ -55,7 +55,7 @@ const Border = styled.div`
     border: 1px solid ${COLORS.border};
     border-radius: 12px;
     padding: 10px 20px;
-    width: 65%;
+    width: 75%;
 `;
 
 const TextInput = styled.input`
@@ -80,7 +80,7 @@ const PromoCodes = styled.div`
 `;
 
 const PromoCont = styled.div`
-    width: 240px;
+    width: 70%;
     border: 1px solid ${COLORS.orange};
     box-shadow: 0px 10px 16px rgba(20, 37, 63, 0.06);
     border-radius: 12px;
@@ -115,7 +115,7 @@ const Discount = styled.p`
 `;
 
 const TextCont = styled.div`
-
+    margin-left: 5px;
 `;
 
 const Text1 = styled.p`

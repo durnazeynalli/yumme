@@ -58,7 +58,7 @@ const OrderContainer = styled.div`
     border-radius: 16px;
     background-color: ${COLORS.white};
     padding: 20px 20px 30px;
-    height: 50%;
+    height: 55%;
     position: relative;
 `;
 
