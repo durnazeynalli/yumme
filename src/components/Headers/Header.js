@@ -128,7 +128,7 @@ const Header = () =>{
         <StyledHeader>
             <Container>
                 <Row>
-                    <Logo src={IMG.logo} alt="logo" />
+                    <Link to="/"> <Logo src={IMG.logo} alt="logo" /></Link>
                     <Navbar>
                         <Row>
                             <StyledNavLink to="/learn">Learn</StyledNavLink>

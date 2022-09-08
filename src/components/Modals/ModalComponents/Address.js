@@ -8,7 +8,7 @@ import COLORS from "../../../styles/colors";
 
 import { AiFillCaretDown } from "react-icons/ai";
 
-const Address = () => {
+const Address = ({ value, onChange, borderStyle, labelStyle }) => {
     
     // const addressFromik = useFormik({
     //     initialValues: {
@@ -75,20 +75,21 @@ const Address = () => {
                     value={values.city}
                     onChange={(value) => setFieldValue("city", value)}
                 /> */}
-                <Border>
+                <Border style={{padding: '10px 20px'}}>
                     <Row>
                         <TextInput type="text" placeholder="Select a state" />
                         <AiFillCaretDown style={{color: COLORS.pageTitle}} />
                     </Row>
                 </Border>
-                <Border>
+                <Border style={{padding: '10px 20px'}}>
                     <Row>
                         <TextInput type="text" placeholder="Select a city" />
                         <AiFillCaretDown style={{color: COLORS.pageTitle}} />
                     </Row>
                 </Border>
-                <Border>
-                    <TextInput type="text" placeholder="Address" />
+                <Border style={borderStyle}>
+                    <BorderLabel style={labelStyle}>Address</BorderLabel>
+                    <TextInput type="text" placeholder="Address" value={value} onChange={onChange} />
                 </Border>
         </Container>
     )
@@ -113,7 +114,14 @@ const Border = styled.div`
     border: 1px solid ${COLORS.border};
     border-radius: 12px;
     margin: 10px 0;
-    padding: 10px 20px;
+`;
+
+const BorderLabel = styled.label`
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    color: ${COLORS.pageTitle};
+    width: 100%;
 `;
 
 const TextInput = styled.input`
