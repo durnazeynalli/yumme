@@ -8,6 +8,7 @@ import SingleItem from "./SingleItem";
 
 const datas = [
     {
+        id: 1,
         image: IMG.shop1,
         name: "Fresh Tamagoyaki",
         address: "237 Thornridge Cir. Shiloh, Melbun...s",
@@ -16,6 +17,7 @@ const datas = [
         star: "5.0"
     },
     {
+        id: 2,
         image: IMG.shop2,
         name: "Fresh Tamagoyaki",
         address: "237 Thornridge Cir. Shiloh, Melbun...s",
@@ -24,6 +26,7 @@ const datas = [
         star: "5.0"
     },
     {
+        id: 3,
         image: IMG.shop3,
         name: "Fresh Tamagoyaki",
         address: "237 Thornridge Cir. Shiloh, Melbun...s",
@@ -32,6 +35,7 @@ const datas = [
         star: "5.0"
     },
     {
+        id: 4,
         image: IMG.shop4,
         name: "Fresh Tamagoyaki",
         address: "237 Thornridge Cir. Shiloh, Melbun...s",
@@ -50,6 +54,7 @@ const NearbyShop = () => {
                         datas.map((el) => {
                             return (
                                 <SingleItem
+                                    key={el.id}
                                     image={el.image}
                                     name={el.name}
                                     address={el.address}

@@ -10,6 +10,7 @@ import { AiOutlineStar } from "react-icons/ai";
 
 const datas = [
     {
+        id: 1,
         image: IMG.pro1,
         name: "Fresh Tamagoyaki",
         address: "237 Thornridge Cir. Shiloh, Melbun...s",
@@ -18,6 +19,7 @@ const datas = [
         star: "5.0"
     },
     {
+        id: 2,
         image: IMG.pro2,
         name: "Fresh Tamagoyaki",
         address: "237 Thornridge Cir. Shiloh, Melbun...s",
@@ -26,6 +28,7 @@ const datas = [
         star: "5.0"
     },
     {
+        id: 3,
         image: IMG.pro3,
         name: "Fresh Tamagoyaki",
         address: "237 Thornridge Cir. Shiloh, Melbun...s",
@@ -34,6 +37,7 @@ const datas = [
         star: "5.0"
     },
     {
+        id: 4,
         image: IMG.pro4,
         name: "Fresh Tamagoyaki",
         address: "237 Thornridge Cir. Shiloh, Melbun...s",
@@ -51,7 +55,7 @@ const Promotion = () => {
                     {
                         datas.map((el) => {
                             return (
-                                <Column>
+                                <Column key={el.id}>
                                     <Rect>Up to 20%</Rect>
                                     <Image src={el.image} alt="image" />
                                     <InfoCont>

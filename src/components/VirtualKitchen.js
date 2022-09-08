@@ -7,6 +7,7 @@ import SingleItem from "./SingleItem";
 
 const datas = [
     {
+        id: 1,
         image: IMG.vir1,
         name: "Fresh Tamagoyaki",
         address: "237 Thornridge Cir. Shiloh, Melbun...s",
@@ -15,6 +16,7 @@ const datas = [
         star: "5.0"
     },
     {
+        id: 2,
         image: IMG.vir2,
         name: "Fresh Tamagoyaki",
         address: "237 Thornridge Cir. Shiloh, Melbun...s",
@@ -23,6 +25,7 @@ const datas = [
         star: "5.0"
     },
     {
+        id: 3,
         image: IMG.vir3,
         name: "Fresh Tamagoyaki",
         address: "237 Thornridge Cir. Shiloh, Melbun...s",
@@ -31,6 +34,7 @@ const datas = [
         star: "5.0"
     },
     {
+        id: 4,
         image: IMG.vir4,
         name: "Fresh Tamagoyaki",
         address: "237 Thornridge Cir. Shiloh, Melbun...s",
@@ -49,6 +53,7 @@ const VirtualKitchen = () => {
                         datas.map((el) => {
                             return (
                                 <SingleItem 
+                                    key={el.id}
                                     image={el.image}
                                     name={el.name}
                                     address={el.address}

@@ -1,32 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import IMG from "../assets/images";
 import COLORS from "../styles/colors";
+import MyOrders from "./MyOrders";
 import OrderDetails from "./OrderDetails";
 
 const options = [
     {
+        id: 1,
         link: "/drink",
         image: IMG.vector,
         text: "Drinks"
     },
     {
+        id: 2,
         link: "/pizza",
         image: IMG.pizza,
         text: "Pizzas"
     },
     {
+        id: 3,
         link: "/burger",
         image: IMG.burger,
         text: "Burgers"
     },
     {
+        id: 4,
         link: "/dessert",
         image: IMG.dessert,
         text: "Desserts"
     },
     {
+        id: 5,
         link: "/cake",
         image: IMG.cake,
         text: "Cakes"
@@ -34,6 +40,11 @@ const options = [
 ];
 
 const Orders = () => {
+
+    const [orders, setOrders] = useState(false);
+
+    const ordersHandler = () => setOrders(v => !v);
+
     return (
         <Container>
             <Row>
@@ -44,7 +55,7 @@ const Orders = () => {
                             {
                                 options.map((option) => {
                                     return (
-                                        <Column to={option.link}>
+                                        <Column to={option.link} key={option.id}>
                                             <OptionImg src={option.image} alt="option" />
                                             <OptionText>{option.text}</OptionText>
                                         </Column>
@@ -56,11 +67,16 @@ const Orders = () => {
                     </OptionCont>
                 </LeftContainer>
                 <RightContainer>
-                    <OrderDetails 
-                        title="My Orders"
-                        text="You haven’t have any order today"
-                        button="Order"
-                    />
+                    
+                    {orders ?
+                        <MyOrders /> 
+                        : 
+                        <OrderDetails 
+                            title="My Orders"
+                            text="You haven’t have any order today"
+                            button="Order"
+                            onClick={ordersHandler}
+                        />}
                 </RightContainer>
             </Row>
         </Container>
@@ -84,6 +100,7 @@ const LeftContainer = styled.div`
 
 const RightContainer = styled.div`
     width: 25%;
+    height: 100%;
 `;
 
 const Image = styled.img`

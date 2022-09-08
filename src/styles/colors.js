@@ -14,7 +14,10 @@ const COLORS = {
     restaurantInfo: '#44444F',
     border: '#F1F1F5',
     green: '#1DA108',
-    modelBorder: '#FAFAFB'
+    modelBorder: '#FAFAFB',
+    pendingColor: '#FFBD2F',
+    completedColor: '#3DD598',
+    canceledColor: '#FC5A5A'
 }
 
 export default COLORS;
