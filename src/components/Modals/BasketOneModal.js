@@ -40,7 +40,7 @@ const OrderContainer = styled.div`
     padding: 10px 20px 50px;
     width: 27%;
     position: absolute;
-    right: 50px;
+    right: 100px;
     top: 55px; 
 `;
 

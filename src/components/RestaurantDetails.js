@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import IMG from "../assets/images";
-
-import OrderDetails from "./OrderDetails";
+import COLORS from "../styles/colors";
 
 import { AiOutlineHeart } from "react-icons/ai";
 import { MdLocationOn } from "react-icons/md";
@@ -14,15 +13,19 @@ import { BsFacebook } from "react-icons/bs";
 import { BsInstagram } from "react-icons/bs";
 import { BsLinkedin } from "react-icons/bs";
 
-import COLORS from "../styles/colors";
 import RestaurantMenu from "./RestaurantMenu";
 import MyCard from "./MyCard";
 import ItemDetailModal from "./Modals/ItemDetailModal";
+import OrderDetails from "./OrderDetails";
+import Info from "./Info";
+import Virtual from "./Virtual";
+import RestaurantReview from "./RestaurantReview";
 
 const RestaurantDetails = () => {
 
     const [card, setCard] = useState(false);
     const [modal, setModal] = useState(false);
+    const [state, setState] = useState('menu');
     
     const cardHandler  = () => setCard(v => !v);
     const modalHandler = () => setModal(v => !v);
@@ -42,7 +45,7 @@ const RestaurantDetails = () => {
                     </BgImg>
                     <Row>
                         <InfoSide>
-                            <RestaurantName>Pizza Hut Restaurant</RestaurantName>
+                            <RestaurantName onClick={() => setState('menu')}>Pizza Hut Restaurant</RestaurantName>
                             <RestaurantInfo>420 Blue Street Pimpama QLD</RestaurantInfo>
                             <TextRow>
                                 <MdLocationOn style={{color: COLORS.blue}} />
@@ -77,13 +80,30 @@ const RestaurantDetails = () => {
                                 />
                             }
                             <Reviews>
-                                <InfoText to="/reviews">Reviews</InfoText>
-                                <InfoText to="/info">Info</InfoText>
+                                <InfoText 
+                                    onClick={() => setState('review')}
+                                    style={state === 'review' ? {color: COLORS.orange} : { color: COLORS.pageTitle}}
+                                >Reviews</InfoText>
+                                <InfoText 
+                                    onClick={() => setState('info')} 
+                                    style={state === 'info' ? {color: COLORS.orange} : { color: COLORS.pageTitle}}
+                                >Info</InfoText>
+                                <InfoText 
+                                    onClick={() => setState('virtual')} 
+                                    style={state === 'virtual' ? {color: COLORS.orange} : { color: COLORS.pageTitle}}
+                                >Virtual</InfoText>
                             </Reviews>
-                            <MenuContainer>
-                                <RestaurantMenu title="Pizza (6 items)" onClick={modalHandler}/>
-                                <RestaurantMenu title="Drink (6 items)" onClick={modalHandler}/>
-                            </MenuContainer>
+                            <ModalContainer>
+                                {state === 'menu' && 
+                                    <MenuContainer>
+                                        <RestaurantMenu title="Pizza (6 items)" onClick={modalHandler}/>
+                                        <RestaurantMenu title="Drink (6 items)" onClick={modalHandler}/>
+                                    </MenuContainer>
+                                }
+                                {state === 'review' && <RestaurantReview />}
+                                {state === 'info' && <Info />}
+                                {state === 'virtual' && <Virtual />}
+                            </ModalContainer> 
                         </MenuSide>
                     </Row>
                 </DetailContainer>
@@ -179,6 +199,7 @@ const RestaurantName = styled.h6`
     color: ${COLORS.textColor};
     margin: -1px 0;
     padding-bottom: 10px;
+    cursor: pointer;
 `;
 
 const RestaurantInfo = styled.p`
@@ -197,21 +218,26 @@ const MenuSide = styled.div`
     overflow-y: scroll;
 `;
 
-const MenuContainer = styled.div`
+const ModalContainer = styled.div`
     margin-top: 60px;
 `;
 
+const MenuContainer = styled.div`
+    // margin-top: 60px;
+`;
+
 const Reviews = styled.div`
-    text-align: right;
+    display: flex;
+    justify-content: right;
     padding: 10px;
 `;
 
-const InfoText = styled(Link)`
+const InfoText = styled.p`
     text-decoration: none;
-    color: ${COLORS.pageTitle};
     margin: 0 7px;
     font-weight: 400;
     font-size: 14px;
+    cursor: pointer;
 `;
 
 const RightSide = styled.div`

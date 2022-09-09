@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import COLORS from "../../styles/colors";
@@ -9,6 +9,13 @@ import { BsDot } from "react-icons/bs";
 import { MdOutlineStickyNote2 } from "react-icons/md";
 
 const ItemDetailModal = ({ onClick, positionStyle , addBtn}) => {
+
+    const [selectedOption, setSelectedOption] = useState("option1");
+
+    const selectedOptionHandler = (e) => {
+        setSelectedOption(e.target.value);
+    }
+
     return (
         <PageBg style={positionStyle}>
 
@@ -39,21 +46,21 @@ const ItemDetailModal = ({ onClick, positionStyle , addBtn}) => {
             <Form>
                 <SizeText>Choose size</SizeText>
                 <LabelCont>
-                    <Input type="radio" checked/>
+                    <Input type="radio" value="option1" checked={selectedOption === 'option1'} onChange={selectedOptionHandler} />
                     <LabelRow>
                         <Label>Size S</Label>
                         <LabelPrice>A$40</LabelPrice>
                     </LabelRow>
                 </LabelCont>
                 <LabelCont>
-                    <Input type="radio" />
+                    <Input type="radio" value="option2" checked={selectedOption === 'option2'} onChange={selectedOptionHandler} />
                     <LabelRow>
                         <Label>Size M</Label>
                         <LabelPrice>A$50</LabelPrice>
                     </LabelRow>
                 </LabelCont>
                 <LabelCont>
-                    <Input type="radio" />
+                    <Input type="radio" value="option3" checked={selectedOption === 'option3'} onChange={selectedOptionHandler} />
                     <LabelRow>
                         <Label>Size L</Label>
                         <LabelPrice>A$60</LabelPrice>

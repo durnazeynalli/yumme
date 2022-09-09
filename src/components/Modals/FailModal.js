@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import IMG from "../../assets/images";
 
 import COLORS from "../../styles/colors";
 
@@ -8,6 +9,7 @@ const FailModal = ({ positionStyle, agreeBtn }) => {
     return (
         <PageBg style={positionStyle}>
             <Container>
+                <Image src={IMG.fail} alt="fail" />
                 <Title>Oh uh, Sorry</Title>
 
                 <TextBorder>
@@ -22,7 +24,7 @@ const FailModal = ({ positionStyle, agreeBtn }) => {
 }
 
 const PageBg = styled.div`
-    padding: 10% 0 11%;
+    padding: 12% 0;
     display: flex;
     justify-content: center;
 `;
@@ -30,10 +32,18 @@ const PageBg = styled.div`
 const Container = styled.div`
     border-radius: 25px;
     background-color: ${COLORS.white};
-    padding: 15px 60px;
+    padding-bottom: 15px;
     box-shadow: 0px 12px 40px rgba(181, 173, 176, 0.25);
     position: absolute; 
     z-index: 1; 
+`;
+
+const Image = styled.img`
+    width: 100%;
+    margin-top: -15px;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+    margin-bottom: 20px;
 `;
 
 const Title = styled.h6`
@@ -43,12 +53,12 @@ const Title = styled.h6`
     color: ${COLORS.textColor};
     text-align: center;
     margin: -1px;
-    padding: 10px 0;
+    padding-bottom: 10px;
 `;
 
 const TextBorder = styled.div`
     width: 300px;
-    margin: 10px 0;
+    margin: 10px 60px;
 `;
 
 const Text = styled.p`
@@ -63,12 +73,12 @@ const Text = styled.p`
 const Button = styled.button`
     border: 1px solid ${COLORS.orange};
     background-color: ${COLORS.orange};
-    margin: 10px 0;
+    margin: 10px 60px;
     padding: 15px;
     text-align: center;
     color:  ${COLORS.white};
     border-radius: 12px;
-    width: 100%;
+    width: 70%;
 `;
 
 export default FailModal;

@@ -46,7 +46,7 @@ const PromoCode = () => {
                                 <DiscountCont               
                                         style={{backgroundColor: todo.selected ? COLORS.orange : COLORS.searchBar}}
                                     >
-                                    <Logo src={IMG.logo} />
+                                    <Logo src={IMG.whiteLogo} />
                                     <Discount>Discount</Discount>
                                 </DiscountCont>
                                 <TextCont>

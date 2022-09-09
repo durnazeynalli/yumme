@@ -34,7 +34,12 @@ import visa from './visa.png';
 import master from './Mastercard.png';
 import amex from './Amex.png';
 import paypal from './PayPal.png';
-
+import whiteLogo from './whiteLogo.png';
+import success from './success.png';
+import fail from './fail.png';
+import profile1 from './profile1.png';
+import profile2 from './profile2.png';
+import profile3 from './profile3.png';
 
 const IMG = {
     logo: logo,
@@ -72,7 +77,13 @@ const IMG = {
     visa: visa,
     master: master,
     amex: amex,
-    paypal: paypal
+    paypal: paypal,
+    whiteLogo: whiteLogo,
+    success: success,
+    fail: fail,
+    profile1: profile1,
+    profile2: profile2,
+    profile3: profile3,
 }
 
 export default IMG;
