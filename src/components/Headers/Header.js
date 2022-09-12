@@ -208,7 +208,6 @@ const positionStyle = {
     bottom: 0,
     right: 0,
     backgroundColor: 'rgba(0, 0, 0, 0.3)',
-    oopacity: 0,
     zIndex: 1000,
 };
 

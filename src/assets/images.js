@@ -40,6 +40,9 @@ import fail from './fail.png';
 import profile1 from './profile1.png';
 import profile2 from './profile2.png';
 import profile3 from './profile3.png';
+import facebook from './Facebook.png';
+import google from './google.png';
+import apple from './apple.png';
 
 const IMG = {
     logo: logo,
@@ -84,6 +87,9 @@ const IMG = {
     profile1: profile1,
     profile2: profile2,
     profile3: profile3,
+    facebook: facebook,
+    google: google,
+    apple: apple
 }
 
 export default IMG;
