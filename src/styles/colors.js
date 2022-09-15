@@ -14,6 +14,7 @@ const COLORS = {
     restaurantInfo: '#44444F',
     border: '#F1F1F5',
     green: '#1DA108',
+    lightGreen: '#27C754',
     modelBorder: '#FAFAFB',
     pendingColor: '#FFBD2F',
     completedColor: '#3DD598',

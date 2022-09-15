@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import IMG from "../assets/images";
@@ -95,7 +96,7 @@ const MyOrders = () => {
                 <Row>
                     <Span>View all</Span>
                     <Title>My Order</Title>
-                    <View>View all</View>
+                    <View to="/ongoing">View all</View>
                 </Row>
             </TitleCont>
             <Scroll>
@@ -164,12 +165,13 @@ const Title = styled.h4`
     font-style: normal;
 `;
 
-const View = styled.p`
+const View = styled(Link)`
     margin: -1px 0;
     padding: 5px 0;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
+    text-decoration: none;
     color: ${COLORS.blue};
 `;
 
@@ -191,7 +193,7 @@ const OrderNumber = styled.p`
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
-    color: ${COLORS.green};
+    color: ${COLORS.lightGreen};
 `;
 
 const Status = styled.p`

@@ -11,6 +11,8 @@ import SignUp from "./pages/Auth/SignUp";
 import ForgetPassword from "./pages/Auth/ForgetPassword";
 import ResetPassword from "./pages/Auth/ResetPassword";
 import ConfirmCode from "./pages/Auth/ConfirmCode";
+import OnGoingOrders from "./pages/OnGoingOrders";
+import MyOrder from "./pages/MyOrder";
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
         <Route path="/resetPassword" element={ <ResetPassword /> } />
         <Route path="/drink" element={ <Categories title="Drinks" /> } />
         <Route path="/details" element={ <RestaurantDetails title="Drinks" /> } />
+        <Route path="/ongoing" element={ <OnGoingOrders /> } />
+        <Route path="/myOrder" element={ <MyOrder /> } />
       </Routes>
       <Footer/>
     </Router>
