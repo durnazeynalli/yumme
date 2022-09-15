@@ -13,6 +13,10 @@ import ResetPassword from "./pages/Auth/ResetPassword";
 import ConfirmCode from "./pages/Auth/ConfirmCode";
 import OnGoingOrders from "./pages/OnGoingOrders";
 import MyOrder from "./pages/MyOrder";
+import PendingOrder from "./pages/PendingOrder";
+import CompletedOrder from "./pages/CompletedOrder";
+import CancelledOrder from "./pages/CancelledOrder";
+import CollectedOrder from "./pages/CollectedOrder";
 
 function App() {
   return (
@@ -28,7 +32,11 @@ function App() {
         <Route path="/drink" element={ <Categories title="Drinks" /> } />
         <Route path="/details" element={ <RestaurantDetails title="Drinks" /> } />
         <Route path="/ongoing" element={ <OnGoingOrders /> } />
-        <Route path="/myOrder" element={ <MyOrder /> } />
+        <Route path="/cooking" element={ <MyOrder /> } />
+        <Route path="/pending" element={ <PendingOrder /> } />
+        <Route path="/completed" element={ <CompletedOrder /> } />
+        <Route path="/collected" element={ <CollectedOrder /> } />
+        <Route path="/cancelled" element={ <CancelledOrder/> } />
       </Routes>
       <Footer/>
     </Router>

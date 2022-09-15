@@ -47,38 +47,36 @@ const Orders = () => {
 
     return (
         <Container>
-            <Row>
-                <LeftContainer>
-                    <Image src={IMG.image} alt="image" />
-                    <OptionCont>
-                        <Row>
-                            {
-                                options.map((option) => {
-                                    return (
-                                        <Column to={option.link} key={option.id}>
-                                            <OptionImg src={option.image} alt="option" />
-                                            <OptionText>{option.text}</OptionText>
-                                        </Column>
-                                    )
-                                })
-                            }
-                            
-                        </Row>
-                    </OptionCont>
-                </LeftContainer>
-                <RightContainer>
-                    
-                    {orders ?
-                        <MyOrders /> 
-                        : 
-                        <OrderDetails 
-                            title="My Orders"
-                            text="You haven’t have any order today"
-                            button="Order"
-                            onClick={ordersHandler}
-                        />}
-                </RightContainer>
-            </Row>
+            <LeftContainer>
+                <Image src={IMG.image} alt="image" />
+                <OptionCont>
+                    <Row>
+                        {
+                            options.map((option) => {
+                                return (
+                                    <Column to={option.link} key={option.id}>
+                                        <OptionImg src={option.image} alt="option" />
+                                        <OptionText>{option.text}</OptionText>
+                                    </Column>
+                                )
+                            })
+                        }
+                        
+                    </Row>
+                </OptionCont>
+            </LeftContainer>
+            <RightContainer>           
+                {orders ?
+                    <MyOrders/> 
+                    : 
+                    <OrderDetails 
+                        title="My Orders"
+                        text="You haven’t have any order today"
+                        button="Order"
+                        onClick={ordersHandler}
+                        height={{height: '100%'}}
+                    />}
+            </RightContainer>
         </Container>
     )
 }
@@ -86,6 +84,9 @@ const Orders = () => {
 const Container = styled.div`
     margin: 0 7% 20px;
     padding: 20px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 `;
 
 const Row = styled.div`
@@ -96,11 +97,11 @@ const Row = styled.div`
 
 const LeftContainer = styled.div`
     width: 73%;
+
 `;
 
 const RightContainer = styled.div`
     width: 25%;
-    height: 100%;
 `;
 
 const Image = styled.img`

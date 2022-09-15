@@ -114,6 +114,7 @@ const RestaurantDetails = () => {
                             text="You have nothing in your cart"
                             button="Add item"
                             onClick={cardHandler}
+                            height={{height: '55%'}}
                         /> 
                         :
                         <MyCard />
@@ -242,11 +243,14 @@ const InfoText = styled.p`
 
 const RightSide = styled.div`
     width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 `;
 
 const Image = styled.img`
     width: 100%;
-    margin-top: 20px;
+    height: 42%;
 `;
 
 const SocialCont = styled.div`

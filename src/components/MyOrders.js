@@ -99,6 +99,8 @@ const MyOrders = () => {
                     <View to="/ongoing">View all</View>
                 </Row>
             </TitleCont>
+            <MenuCont>
+
             <Scroll>
                 {data.map((e) => {
                     return (
@@ -131,6 +133,7 @@ const MyOrders = () => {
                     )
                 })}
             </Scroll>
+            </MenuCont>
         </Container>
     )
 }
@@ -140,6 +143,9 @@ const Container = styled.div`
     border-radius: 16px;
     background-color: ${COLORS.white};
     padding: 20px 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 `;
 
 const TitleCont = styled.div`
@@ -175,9 +181,13 @@ const View = styled(Link)`
     color: ${COLORS.blue};
 `;
 
+const MenuCont = styled.div`
+    height: 95%;
+`;
+
 const Scroll = styled.div`
-    height: 490px;
-    overflow-y: scroll;
+    height: 480px;
+    overflow-y: auto;
 `;
 
 const OrderContainer = styled.div`

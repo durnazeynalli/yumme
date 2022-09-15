@@ -16,7 +16,7 @@ const data = [
         address: "1901 Thornridge Cir. Shiloh, Hawaii ",
         price: "$24",
         itemNumber: "2 items",
-        dateAndTime: "11:45 am, 10 Aug 21"
+        dateAndTime: "11:45 am, 10 Aug 21",
     },
     {
         id: "2",
@@ -27,7 +27,7 @@ const data = [
         address: "252 Brown Street Pimpama QLD",
         price: "$120",
         itemNumber: "1 item",
-        dateAndTime: "12:20 pm, 12 Aug 21"
+        dateAndTime: "12:20 pm, 12 Aug 21",
     },
     {
         id: "3",
@@ -38,15 +38,15 @@ const data = [
         address: "1901 Thornridge Cir. Shiloh, Hawaii ",
         price: "$120",
         itemNumber: "2 items",
-        dateAndTime: "12:50 pm, 10 Aug 21"
+        dateAndTime: "12:50 pm, 10 Aug 21",
     },
 ]
 
 const OnGoing = () => {
 
     let navigate = useNavigate(); 
-    const routeChange = () =>{ 
-      let path = `/myOrder`; 
+    const routeChange = (e) =>{ 
+        let path = `/pending`;     
       navigate(path);
     }
 

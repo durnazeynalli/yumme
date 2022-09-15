@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import COLORS from '../../styles/colors';
 
 import { AiFillCheckCircle } from "react-icons/ai";
 import { BiCircle } from "react-icons/bi";
+
 import DeliverTo from './OrderDetails/DeliverTo';
 import DeliverAt from './OrderDetails/DeliverAt';
 import ServiceOptions from './OrderDetails/ServiceOptions';
@@ -13,59 +14,76 @@ import Orders from './OrderDetails/Orders';
 import Price from './OrderDetails/Price';
 import Payment from './OrderDetails/Payment';
 import Shipper from './OrderDetails/Shipper';
+import CancelOrderModal from '../Modals/CancelOrderModal';
+
 
 const OrderDetails = () => {
+    const [cancelOrder, setCancelOrder] = useState(false); 
+
+    const cancelHandler = () => setCancelOrder(v => !v);
+
   return (
     <Container>
-        <Row>
-            <OrderDetailsContainer>
-                <Title>Order <Span>#ID12345678</Span></Title>
-                <StatusBar>
-                    <Row>
-                        <StatusCol>
-                            <AiFillCheckCircle style={{color: COLORS.lightGreen}} />
-                            <Status style={{color: COLORS.textColor}}>Cooking</Status>
-                        </StatusCol>
-                        <Border style={{borderColor: COLORS.lightGreen}}></Border>
-                        <StatusCol>
-                            <BiCircle style={{color: COLORS.pageTitle}} />
-                            <Status style={{color: COLORS.pageTitle}} >Collected</Status>
-                        </StatusCol>
-                        <Border style={{borderColor: COLORS.pageTitle}}></Border>
-                        <StatusCol>
-                            <BiCircle style={{color: COLORS.pageTitle}} />
-                            <Status style={{color: COLORS.pageTitle}} >Completed</Status>
-                        </StatusCol>
-                    </Row>
-                </StatusBar>
+        <OrderDetailsContainer>
+            <Title>Order <Span>#ID12345678</Span></Title>
+            <StatusBar>
+                <Row>
+                    <StatusCol>
+                        <AiFillCheckCircle style={{color: COLORS.lightGreen}} />
+                        <Status style={{color: COLORS.textColor}}>Cooking</Status>
+                    </StatusCol>
+                    <Border style={{borderColor: COLORS.lightGreen}}></Border>
+                    <StatusCol>
+                        <BiCircle style={{color: COLORS.pageTitle}} />
+                        <Status style={{color: COLORS.pageTitle}} >Collected</Status>
+                    </StatusCol>
+                    <Border style={{borderColor: COLORS.pageTitle}}></Border>
+                    <StatusCol>
+                        <BiCircle style={{color: COLORS.pageTitle}} />
+                        <Status style={{color: COLORS.pageTitle}} >Completed</Status>
+                    </StatusCol>
+                </Row>
+            </StatusBar>
 
-                <DeliverTo />
-                <DeliverAt />
-                <ServiceOptions />
-                <Orders />
-                <Note />
-                <Price />
-                <Payment />
-                <Shipper />
+            <DeliverTo />
+            <DeliverAt />
+            <ServiceOptions />
+            <Orders />
+            <Note />
+            <Price />
+            <Payment />
+            <Shipper />
 
-                <Button>Cancel Order</Button>
-            </OrderDetailsContainer>
-            <MapContainer>
-                Map
-            </MapContainer>
-        </Row>
+            <Button onClick={cancelHandler}>Cancel Order</Button>
+            {cancelOrder && <CancelOrderModal positionStyle={positionStyle} keep={cancelHandler} />}
+        </OrderDetailsContainer>
+        <MapContainer>
+            Map
+        </MapContainer>
     </Container>
   )
 }
 
 const Container = styled.div`
     margin: 0 7%;
+    display: flex;
+    justify-content: space-between;
 `;
+
+const positionStyle = {
+    position: 'fixed', 
+    top: 0, 
+    left: 0, 
+    bottom: 0,
+    right: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+    zIndex: 1000,
+};
 
 const Row = styled.div`
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 `;
 
 const OrderDetailsContainer = styled.div`
@@ -131,6 +149,7 @@ const Button = styled.button`
 const MapContainer = styled.div`
     width: 35%;
     border: 1px solid black;
+    height: auto;
 `;
 
 export default OrderDetails;
