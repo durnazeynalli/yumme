@@ -18,7 +18,10 @@ const COLORS = {
     modelBorder: '#FAFAFB',
     pendingColor: '#FFBD2F',
     completedColor: '#3DD598',
-    canceledColor: '#FC5A5A'
+    canceledColor: '#FC5A5A',
+    purple: '#A461D8',
+    pink: '#FF9AD5',
+    favorite: '#FABC41'
 }
 
 export default COLORS;

@@ -158,7 +158,7 @@ const Label = styled.label`
 `;
 
 const Span = styled.span`
-    color: ${COLORS.green};
+    color: ${COLORS.lightGreen};
     font-style: normal;
     font-weight: 500;
     font-size: 12px;

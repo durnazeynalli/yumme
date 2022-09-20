@@ -17,6 +17,7 @@ import PendingOrder from "./pages/PendingOrder";
 import CompletedOrder from "./pages/CompletedOrder";
 import CancelledOrder from "./pages/CancelledOrder";
 import CollectedOrder from "./pages/CollectedOrder";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         <Route path="/completed" element={ <CompletedOrder /> } />
         <Route path="/collected" element={ <CollectedOrder /> } />
         <Route path="/cancelled" element={ <CancelledOrder/> } />
+        <Route path="/profile" element={  <Profile/> } />
       </Routes>
       <Footer/>
     </Router>
