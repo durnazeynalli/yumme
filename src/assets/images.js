@@ -45,6 +45,9 @@ import google from './google.png';
 import apple from './apple.png';
 import profilebg from './profilebg.png';
 import profile from './profile.png';
+import qr from './QRCode.png';
+import logoCircle from './LogoCircle.png';
+import noNotification from './Nonotifications.png'
 
 const IMG = {
     logo: logo,
@@ -93,7 +96,10 @@ const IMG = {
     google: google,
     apple: apple,
     profilebg: profilebg,
-    profile: profile
+    profile: profile,
+    qr: qr,
+    logoCircle: logoCircle,
+    noNotification: noNotification
 }
 
 export default IMG;

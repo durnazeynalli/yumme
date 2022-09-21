@@ -7,10 +7,10 @@ import { GoLocation } from "react-icons/go";
 import { MdOutlineTimer } from "react-icons/md";
 import { AiOutlineStar } from "react-icons/ai";
 
-const SingleItem = ({ image, name, address, distance, time, star }) => {
+const SingleItem = ({ image, imageStyle, name, address, distance, time, star, style }) => {
     return (
-        <Column>
-            <Image src={image} alt="image" />
+        <Column style={style}>
+            <Image style={imageStyle} src={image} alt="image" />
             <InfoCont>
                 <Name>{name}</Name>
                 <Text>{address}</Text>

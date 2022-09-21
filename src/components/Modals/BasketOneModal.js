@@ -26,8 +26,6 @@ const BasketOne = ({ positionStyle, onClick, submit }) => {
 }
 
 const PageBg = styled.div`
-    width: 100vw;
-    height: 100vh;
     background-color: rgba(0, 0, 0, 0.3);
     position: relative;
     z-index: 1
@@ -53,7 +51,7 @@ const ArrowUp = styled.div`
     box-shadow: 0px 12px 40px rgba(181, 173, 176, 0.25);
     position: absolute;
     top: -7px;
-    left: 200px;
+    left: 220px;
 `;
 
 const Title = styled.h4`

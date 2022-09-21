@@ -32,10 +32,12 @@ const ProfileDetails = () => {
                 </BgImg>
                 <Row>
                     <LeftSide>
-                        <ProfileImg src={IMG.profile} alt="profile" />
-                        <ProfileCameraCircle>
-                            <AiFillCamera style={{color: COLORS.orange}} />
-                        </ProfileCameraCircle>
+                        <ProfileImgCont>
+                            <ProfileImg src={IMG.profile} alt="profile" />
+                            <ProfileCameraCircle>
+                                <AiFillCamera style={{color: COLORS.orange}} />
+                            </ProfileCameraCircle>
+                        </ProfileImgCont>
                         <UserName>Cameron Williamson</UserName>
                         <UserId>ID: 123456789</UserId>
                         <OptionsCotainer>
@@ -128,9 +130,6 @@ const DetailContainer = styled.div`
 const ProfileImg = styled.img`
     border: 2px soid ${COLORS.border};
     border-radius: 50%;
-    position: absolute;
-    top: -80px;
-    z-index: 1;
 `;
 
 const BgImg = styled.div`
@@ -156,6 +155,12 @@ const CameraCircle = styled.div`
     bottom: 20px;
 `;
 
+const ProfileImgCont = styled.div`
+    position: absolute;
+    top: -80px;
+    z-index: 1;
+`;
+
 const ProfileCameraCircle = styled.div`
     width: 35px;
     height: 35px;
@@ -165,8 +170,8 @@ const ProfileCameraCircle = styled.div`
     align-items: center;
     border-radius: 100%;
     position: absolute;
-    top: 45px;
-    right: 100px;
+    bottom: 7px;
+    right: 7px;
     z-index: 2;
     box-shadow: 0px 12px 40px rgba(181, 173, 176, 0.25);
 `;

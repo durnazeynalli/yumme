@@ -61,7 +61,7 @@ const ArrowUp = styled.div`
     box-shadow: 0px 12px 40px rgba(181, 173, 176, 0.25);
     position: absolute;
     top: -7px;
-    left: 235px;
+    left: 255px;
 `;
 
 const Title = styled.h4`

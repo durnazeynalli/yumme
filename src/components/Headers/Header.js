@@ -3,13 +3,13 @@ import styled from "styled-components";
 import { Link, NavLink } from "react-router-dom";
 
 import IMG from "../../assets/images";
+import COLORS from "../../styles/colors";
 
-import { MdKeyboardArrowDown } from 'react-icons/md';
+import { MdKeyboardArrowDown, MdOutlineShoppingCart } from 'react-icons/md';
 import { FiSearch } from 'react-icons/fi';
 import { AiOutlineBars } from 'react-icons/ai';
 import { GrNotification } from 'react-icons/gr';
-import { MdOutlineShoppingCart } from 'react-icons/md';
-import COLORS from "../../styles/colors";
+
 import BasketOneModal from "../Modals/BasketOneModal";
 import BasketTwoModal from "../Modals/BasketTwoModal";
 import NewAddressModal from "../Modals/NewAddressModal";
@@ -23,10 +23,14 @@ import ConfirmOrderModal from "../Modals/ConfirmOrder";
 import WaitingModal from "../Modals/WaitingModal";
 import SuccessModal from "../Modals/SuccessModal";
 import FailModal from "../Modals/FailModal";
+import NotificationModal from "../Modals/NotificationModal";
+import EmptyNotificationModal from "../Modals/EmptyNotificationModal";
 
 const Header = () =>{
     const [basketOne, setBasketOne] = useState(false);
     const [basketTwo, setBasketTwo] = useState(false);
+    const [emptyNotification, setEmptyNotification] = useState(false);
+    const [notification, setNotification] = useState(false);
     const [newAddress, setNewAddress] = useState(false);
     const [address, setAddress] = useState(false);
     const [newPayment, setNewPayment] = useState(false);
@@ -41,6 +45,8 @@ const Header = () =>{
 
     const basketOneHandler = () => setBasketOne(v => !v);
     const basketTwoHandler = () => setBasketTwo(v => !v);
+    const emptyNotificationHandler = () => setEmptyNotification(v => !v);
+    const notificationHandler = () => setNotification(v => !v);
     const newAddressHandler = () => setNewAddress(v => !v);
     const addressHandler = () => setAddress(v => !v);
     const newPaymentHandler = () => setNewPayment(v => !v);
@@ -157,9 +163,17 @@ const Header = () =>{
                     </InputContainer>
                     <Icons>
                         <Row>
-                            <IconLink onClick={basketOneHandler}>
+                            <IconLink onClick={emptyNotificationHandler}>
+                                {/* <RedDot></RedDot> */}
+                                <GrNotification style={iconsStyle} />
+                            </IconLink>
+                            <IconLink onClick={notificationHandler}>
                                 <RedDot></RedDot>
                                 <GrNotification style={iconsStyle} />
+                            </IconLink>
+                            <IconLink onClick={basketOneHandler}>
+                                <RedDot></RedDot>
+                                <MdOutlineShoppingCart style={iconsStyle} />
                             </IconLink>
                             <IconLink onClick={basketTwoHandler}>
                                 <RedDot></RedDot>
@@ -172,6 +186,8 @@ const Header = () =>{
 
                 {basketOne && <BasketOneModal positionStyle={positionStyle} onClick={basketOneHandler} submit={newAddressHandler}/>}
                 {basketTwo && <BasketTwoModal positionStyle={positionStyle} onClick={basketTwoHandler} submit={addressHandler}/>}
+                {emptyNotification && <EmptyNotificationModal positionStyle={positionStyle} onClick={emptyNotificationHandler}/>}
+                {notification && <NotificationModal positionStyle={positionStyle} onClick={notificationHandler}/>}
                 {newAddress && <NewAddressModal positionStyle={positionStyle} cancel={newAddressHandler} continueBtn={passNewPaymnt}/>}
                 {address && <AddressModal positionStyle={positionStyle} cancel={addressHandler} addNew={passAddNewAddress} continueBtn={passPayment}/>}
                 {newPayment && <NewPaymentModal positionStyle={positionStyle} onClick={newPaymentHandler} continueBtn={passNewCardInfo} newPaypal={passPaypal} cash={newPaymentHandler} />}
