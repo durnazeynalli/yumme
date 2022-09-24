@@ -1,13 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 
 import IMG from '../../assets/images';
 import COLORS from '../../styles/colors';
 
 import SingleOrder from './SingleOrder';
+import ShipperRateModal from '../Modals/ShipperRateModal';
 
 import { MdKeyboardArrowRight } from 'react-icons/md';
 import { MdKeyboardArrowLeft } from 'react-icons/md';
+import RestaurantRateModal from '../Modals/RestaurantRateModal';
+import GiftModal from '../Modals/GiftModal';
+import GiftFormModal from '../Modals/GiftFormModal';
+import GiftSuccessModal from '../Modals/GiftSuccessModal';
 
 const data = [
     {
@@ -79,6 +84,39 @@ const data = [
 ]
 
 const History = () => {
+    const [shipperRate, setShipperRate] = useState(false);
+    const [restaurantRate, setRestaurantRate] = useState(false);
+    const [gift, setGift] = useState(false);
+    const [giftForm, setGiftForm] = useState(false);
+    const [giftSuccess, setGiftSuccess] = useState(false);
+
+
+    const shipperRateHandler = () => setShipperRate(v => !v);
+    const restaurantRateHandler = () => setRestaurantRate(v => !v);
+    const giftHandler = () => setGift(v => !v);
+    const giftFormHandler = () => setGiftForm(v => !v);
+    const giftSuccessHandler = () => setGiftSuccess(v => !v);
+
+
+    const passRestaurantRate = () => {
+        shipperRateHandler();
+        restaurantRateHandler();
+    }
+
+    const passGift = () => {
+        restaurantRateHandler();
+        giftHandler();
+    }
+
+    const passGiftForm = () => {
+        giftHandler();
+        giftFormHandler();
+    }
+
+    const passGiftSuccess = () => {
+        giftFormHandler();
+        giftSuccessHandler();
+    }
 
   return (
     <Container>
@@ -86,9 +124,15 @@ const History = () => {
         <OrderContainer>
             {data.map((e) => {
                 return (
-                    <SingleOrder e={e} />
+                    <SingleOrder e={e} rate={shipperRateHandler} />
                 )
             })}
+            {shipperRate && <ShipperRateModal positionStyle={positionStyle} cancel={shipperRateHandler} submitBtn={passRestaurantRate} /> }
+            {restaurantRate && <RestaurantRateModal positionStyle={positionStyle} cancel={restaurantRateHandler} submitBtn={passGift} /> }
+            {gift && <GiftModal positionStyle={positionStyle} cancel={giftHandler} continueBtn={passGiftForm}/> }
+            {giftForm && <GiftFormModal positionStyle={positionStyle} cancel={giftFormHandler} continueBtn={passGiftSuccess}/> }
+            {giftSuccess && <GiftSuccessModal positionStyle={positionStyle} cancel={giftSuccessHandler} continueBtn={giftSuccessHandler}/> }
+
         </OrderContainer>
         <PageRow>
             <Border>
@@ -115,6 +159,16 @@ const Container = styled.div`
     border-radius: 16px;
     position: relative;
 `;
+
+const positionStyle = {
+    position: 'fixed', 
+    top: 0, 
+    left: 0, 
+    bottom: 0,
+    right: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+    zIndex: 1000,
+};
 
 const Title = styled.h6`
     font-style: normal;

@@ -47,7 +47,12 @@ import profilebg from './profilebg.png';
 import profile from './profile.png';
 import qr from './QRCode.png';
 import logoCircle from './LogoCircle.png';
-import noNotification from './Nonotifications.png'
+import noNotification from './Nonotifications.png';
+import award from './Awards.png';
+import cooking from './cooking.png';
+import collected from './collected.png';
+import completed from './completed.png';
+
 
 const IMG = {
     logo: logo,
@@ -99,7 +104,11 @@ const IMG = {
     profile: profile,
     qr: qr,
     logoCircle: logoCircle,
-    noNotification: noNotification
+    noNotification: noNotification,
+    award: award,
+    cooking: cooking,
+    collected: collected,
+    completed: completed
 }
 
 export default IMG;

@@ -15,6 +15,7 @@ import COLORS from "../styles/colors";
 
 import { AiFillCheckCircle } from "react-icons/ai";
 import { BsFillXCircleFill } from "react-icons/bs";
+import IMG from "../assets/images";
 
 
 const CancelledOrder = () => {
@@ -22,7 +23,6 @@ const CancelledOrder = () => {
         <Container>
             <MyOrdersHeader />
             <BodyContainer>
-                <Row>
                     <OrderDetailsContainer>
                         <Title>Order <Span>#ID12345678</Span></Title>
                         <StatusBar>
@@ -51,9 +51,8 @@ const CancelledOrder = () => {
                         <Button>Reorder</Button>
                     </OrderDetailsContainer>
                     <MapContainer>
-                        Map
+                        <MapImage src={IMG.cooking} alt="map"/>
                     </MapContainer>
-                </Row>
             </BodyContainer>
         </Container>
     )
@@ -65,6 +64,8 @@ const Container = styled.div`
 
 const BodyContainer = styled.div`
     margin: 0 7%;
+    display: flex;
+    justify-content: space-between;
 `;
 
 const Row = styled.div`
@@ -135,7 +136,13 @@ const Button = styled.button`
 
 const MapContainer = styled.div`
     width: 35%;
-    border: 1px solid black;
+    height: auto;
+`;
+
+const MapImage = styled.img`
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
 `;
 
 export default CancelledOrder

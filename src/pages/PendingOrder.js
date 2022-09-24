@@ -14,13 +14,13 @@ import Shipper from "../components/MyOrder/OrderDetails/Shipper";
 import COLORS from "../styles/colors";
 
 import { BiCircle } from "react-icons/bi";
+import IMG from "../assets/images";
 
 const PendingOrder = () => {
     return (
         <Container>
             <MyOrdersHeader />
             <BodyContainer>
-                <Row>
                     <OrderDetailsContainer>
                         <Title>Order <Span>#ID12345678</Span></Title>
                         <StatusBar>
@@ -54,9 +54,8 @@ const PendingOrder = () => {
                         <Button>Cancel Order</Button>
                     </OrderDetailsContainer>
                     <MapContainer>
-                        Map
+                        <MapImage src={IMG.cooking} alt="map"/>
                     </MapContainer>
-                </Row>
             </BodyContainer>
         </Container>
     )
@@ -68,6 +67,8 @@ const Container = styled.div`
 
 const BodyContainer = styled.div`
     margin: 0 7%;
+    display: flex;
+    justify-content: space-between;
 `;
 
 const Row = styled.div`
@@ -138,7 +139,13 @@ const Button = styled.button`
 
 const MapContainer = styled.div`
     width: 35%;
-    border: 1px solid black;
+    height: auto;
+`;
+
+const MapImage = styled.img`
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
 `;
 
 export default PendingOrder;

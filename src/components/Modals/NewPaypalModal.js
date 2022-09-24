@@ -118,7 +118,7 @@ const Button = styled.button`
     text-align: center;
     color:  ${COLORS.white};
     border-radius: 12px;
-    width: 78%;
+    width: 72%;
 `;
 
 export default NewPaypalModal;

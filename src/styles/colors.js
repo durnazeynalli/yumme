@@ -21,7 +21,8 @@ const COLORS = {
     canceledColor: '#FC5A5A',
     purple: '#A461D8',
     pink: '#FF9AD5',
-    favorite: '#FABC41'
+    favorite: '#FABC41',
+    grayBackground: '#FAFAFB'
 }
 
 export default COLORS;

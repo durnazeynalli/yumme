@@ -15,6 +15,7 @@ import Price from './OrderDetails/Price';
 import Payment from './OrderDetails/Payment';
 import Shipper from './OrderDetails/Shipper';
 import CancelOrderModal from '../Modals/CancelOrderModal';
+import IMG from '../../assets/images';
 
 
 const OrderDetails = () => {
@@ -58,7 +59,7 @@ const OrderDetails = () => {
             {cancelOrder && <CancelOrderModal positionStyle={positionStyle} keep={cancelHandler} />}
         </OrderDetailsContainer>
         <MapContainer>
-            Map
+            <MapImage src={IMG.cooking} alt="map"/>
         </MapContainer>
     </Container>
   )
@@ -148,8 +149,13 @@ const Button = styled.button`
 
 const MapContainer = styled.div`
     width: 35%;
-    border: 1px solid black;
     height: auto;
+`;
+
+const MapImage = styled.img`
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
 `;
 
 export default OrderDetails;
