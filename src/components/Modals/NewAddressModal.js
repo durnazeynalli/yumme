@@ -115,9 +115,9 @@ const NewAddressModal = ({ cancel, positionStyle , continueBtn}) => {
 }
 
 const PageBg = styled.div`
-    padding: 9% 0;
     display: flex;
     justify-content: center;
+    align-items: center;
 `;
 
 const Container = styled.div`
@@ -132,7 +132,7 @@ const Container = styled.div`
 
 const Scroll = styled.div`
     overflow-y: scroll;
-    height: 400px;
+    height: 370px;
 `;
 
 const cancelBTN = {

@@ -79,9 +79,9 @@ const ItemDetailModal = ({ onClick, positionStyle , addBtn}) => {
 }
 
 const PageBg = styled.div`
-    padding: 13% 0;
     display: flex;
     justify-content: center;
+    align-items: center;
 `;
 
 const Container = styled.div`

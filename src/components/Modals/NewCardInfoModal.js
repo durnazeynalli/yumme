@@ -112,9 +112,9 @@ const NewCardInfoModal = ({ onClick, positionStyle , continueBtn, terms }) => {
 }
 
 const PageBg = styled.div`
-    padding: 7% 0;
     display: flex;
     justify-content: center;
+    align-items: center;
 `;
 
 const Container = styled.div`

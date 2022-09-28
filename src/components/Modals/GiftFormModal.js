@@ -78,22 +78,24 @@ const lonHandler = (e) => {
                   <AwardImg src={IMG.award} alt="award" />
                 </ImageBorder>
                 <Text>Please fill-in the requirements.</Text>
-                <Border style={element.name ? {padding: '5px 20px'} : {padding: '13px 20px'}}>
-                    <BorderLabel style={element.name ? {display: 'inline'} : {display: 'none'}}>Street name</BorderLabel>
-                    <TextInput type="text" placeholder="Street name" value={element.name} onChange={nameHandler} />
-                </Border>
-                <Border style={element.postcode ? {padding: '5px 20px'} : {padding: '13px 20px'}}>
-                    <BorderLabel style={element.postcode ? {display: 'inline'} : {display: 'none'}}>Postcode/Zipcode</BorderLabel>
-                    <TextInput type="text" placeholder="Postcode/Zipcode" value={element.postcode} onChange={postcodeHandler} />
-                </Border>
-                <Border style={element.lat ? {padding: '5px 20px'} : {padding: '13px 20px'}}>
-                    <BorderLabel style={element.lat ? {display: 'inline'} : {display: 'none'}}>Latitude</BorderLabel>
-                    <TextInput type="text" placeholder="Latitude" value={element.lat} onChange={latHandler} />
-                </Border>
-                <Border style={element.lon ? {padding: '5px 20px'} : {padding: '13px 20px'}}>
-                    <BorderLabel style={element.lon ? {display: 'inline'} : {display: 'none'}}>Longitude</BorderLabel>
-                    <TextInput type="text" placeholder="Longitude" value={element.lon} onChange={lonHandler} />
-                </Border>
+                <Form>
+                  <Border style={element.name ? {padding: '5px 20px'} : {padding: '13px 20px'}}>
+                      <BorderLabel style={element.name ? {display: 'inline'} : {display: 'none'}}>Street name</BorderLabel>
+                      <TextInput type="text" placeholder="Street name" value={element.name} onChange={nameHandler} />
+                  </Border>
+                  <Border style={element.postcode ? {padding: '5px 20px'} : {padding: '13px 20px'}}>
+                      <BorderLabel style={element.postcode ? {display: 'inline'} : {display: 'none'}}>Postcode/Zipcode</BorderLabel>
+                      <TextInput type="text" placeholder="Postcode/Zipcode" value={element.postcode} onChange={postcodeHandler} />
+                  </Border>
+                  <Border style={element.lat ? {padding: '5px 20px'} : {padding: '13px 20px'}}>
+                      <BorderLabel style={element.lat ? {display: 'inline'} : {display: 'none'}}>Latitude</BorderLabel>
+                      <TextInput type="text" placeholder="Latitude" value={element.lat} onChange={latHandler} />
+                  </Border>
+                  <Border style={element.lon ? {padding: '5px 20px'} : {padding: '13px 20px'}}>
+                      <BorderLabel style={element.lon ? {display: 'inline'} : {display: 'none'}}>Longitude</BorderLabel>
+                      <TextInput type="text" placeholder="Longitude" value={element.lon} onChange={lonHandler} />
+                  </Border>
+                </Form>
                 <SubmitBtn 
                   onClick={continueBtn}
                   disabled={element.submitValid}
@@ -106,9 +108,9 @@ const lonHandler = (e) => {
 }
 
 const PageBg = styled.div`
-  padding: 8% 0;
   display: flex;
   justify-content: center;
+  align-items: center;
 `;
 
 const Container = styled.div`
@@ -164,6 +166,10 @@ const Text = styled.p`
 
 `;
 
+const Form = styled.form`
+  height: 170px;
+  overflow-y: scroll;
+`;
 
 const Border = styled.div`
   border: 1px solid ${COLORS.border};

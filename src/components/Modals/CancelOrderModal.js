@@ -38,9 +38,9 @@ const CancelOrderModal = ({ positionStyle, keep }) => {
 }
 
 const PageBg = styled.div`
-    padding: 12% 0;
     display: flex;
     justify-content: center;
+    align-items: center;
 `;
 
 const Container = styled.div`

@@ -35,9 +35,9 @@ const TermsModal = ({ positionStyle , cancelClick, agreeBtn }) => {
 }
 
 const PageBg = styled.div`
-    padding: 10% 0 11%;
     display: flex;
     justify-content: center;
+    align-items: center;
 `;
 
 const Container = styled.div`

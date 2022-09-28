@@ -76,9 +76,9 @@ const AddressModal = ({ cancel, positionStyle, addNew, continueBtn}) => {
 }
 
 const PageBg = styled.div`
-    padding: 5% 0 20%;
     display: flex;
     justify-content: center;
+    align-items: center;
 `;
 
 const Container = styled.div`

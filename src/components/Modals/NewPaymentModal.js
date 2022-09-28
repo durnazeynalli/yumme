@@ -62,14 +62,9 @@ const NewPaymentModal = ({ onClick, positionStyle , newPaypal, continueBtn, cash
 }
 
 const PageBg = styled.div`
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.3);
-    position: relative;
-    z-index: 1;
-    padding: 13% 0;
     display: flex;
     justify-content: center;
+    align-items: center;
 `;
 
 const Container = styled.div`

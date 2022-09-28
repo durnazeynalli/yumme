@@ -72,9 +72,9 @@ const ConfirmOrderModal = ({ cancel, positionStyle , success, fail}) => {
 }
 
 const PageBg = styled.div`
-    padding: 9% 0;
     display: flex;
     justify-content: center;
+    align-items: center;
 `;
 
 const Container = styled.div`

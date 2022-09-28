@@ -81,6 +81,7 @@ const StyledFooter = styled.div`
 const Logo = styled.img`
     position: absolute;
     right: 50px;
+    bottom: 0;    
 `;
 
 const Row = styled.div`
