@@ -10,7 +10,7 @@ const CategoryNearbyHeader = () => {
     return (
         <Container>
             <Row>
-                <Title>Nearby Shops</Title>
+                <Title>Shops - nearby</Title>
                 <FilterColumn>
                     <FiFilter styled={{color: 'gray'}} />
                     <Cont>

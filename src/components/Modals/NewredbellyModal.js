@@ -5,7 +5,7 @@ import COLORS from "../../styles/colors";
 
 import { GiCancel } from "react-icons/gi";
 
-const NewPaypalModal = ({ cancel, positionStyle , continueBtn}) => {
+const NewredbellyModal = ({ cancel, positionStyle , continueBtn}) => {
 
     const [element, setElement] = useState({
         email: '',
@@ -28,14 +28,14 @@ const NewPaypalModal = ({ cancel, positionStyle , continueBtn}) => {
         <PageBg style={positionStyle}>
             <Container>
                 <GiCancel onClick={cancel} style={cancelBTN} />
-                <Title>Paypal information</Title>
+                <Title>Redbelly</Title>
                 <ThinBorder></ThinBorder>
 
                 <Text>Payee’s contact</Text>
 
                 <Border style={element.submitValid ? {padding: '10px 20px'} : {padding: '5px 20px'}}>
-                    <BorderLabel style={element.submitValid ? {display: 'none'} : {display: 'inline'}}>Name or email</BorderLabel>
-                    <TextInput type="email" value={element.email} onChange={elementHandler} placeholder="Name or email" />
+                    <BorderLabel style={element.submitValid ? {display: 'none'} : {display: 'inline'}}>Wallet address</BorderLabel>
+                    <TextInput type="email" value={element.email} onChange={elementHandler} placeholder="Wallet address" />
                 </Border>
                 
                 <Button 
@@ -124,4 +124,4 @@ const Button = styled.button`
     width: 100%;
 `;
 
-export default NewPaypalModal;
+export default NewredbellyModal

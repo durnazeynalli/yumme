@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import IMG from "../assets/images";
 import COLORS from "../styles/colors";
-import MyOrders from "./MyOrders";
+import MyOrderBasket from "./MyOrderBasket";
 import OrderDetails from "./OrderDetails";
 
 const options = [
@@ -67,12 +67,9 @@ const Orders = () => {
             </LeftContainer>
             <RightContainer>           
                 {orders ?
-                    <MyOrders/> 
+                    <MyOrderBasket height={{height: '100%'}} /> 
                     : 
                     <OrderDetails 
-                        title="My Orders"
-                        text="You haven’t have any order today"
-                        button="Order"
                         onClick={ordersHandler}
                         height={{height: '100%'}}
                     />}

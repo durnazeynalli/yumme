@@ -5,26 +5,20 @@ import COLORS from "../../styles/colors";
 
 import { GiCancel } from "react-icons/gi";
 
-const TermsModal = ({ positionStyle , cancelClick, agreeBtn }) => {
+const CancelTerms = ({ positionStyle , cancelClick, agreeBtn }) => {
 
     return (
         <PageBg style={positionStyle}>
             <Container>
                 <GiCancel onClick={cancelClick} style={cancelBTN} />
-                <Title>Credit Card Registration Terms </Title>
+                <Title> Request of cancellation fees </Title>
                 <ThinBorder></ThinBorder>
 
                 <TextBorder>
-                    <Text>Add your credit card information to pay for and use paid services with all Yumme account services. 
-                        As part of the Yumme Single Sign-On feature, the default setting allows you to make future purchases 
-                        from Yumme account services without having to enter your credit card information again. Expiring cards 
-                        will even be updated without you having to register your card again. You can manage your card information 
-                        by going to My payment methods. Note that your credit card information will be stored and managed by Yumme, 
-                        credit card companies, or our payment gateway providers. Their privacy policies will apply to your credit 
-                        card information and any other personal details submitted to them. When you register a credit card, a minimum 
-                        authorization hold will be placed on your card to verify your credit card information. You will not actually 
-                        be charged. By clicking <Span>Authorise</Span>, you affirm that you have read the above, and agree to the terms and 
-                        conditions stated. If you do not agree, please press the X button. 
+                    <Text style={{textDecoration: 'underline'}}>A non-refundable fees are intended to protect Yumme in circumstances of sudden 
+                        cancellation and to compensate the restaurant for the time, effort and money expended up to that point.</Text>
+                    <Text>By clicking <Span>Agree</Span>, you affirm that you have read the above, and agree to the terms and conditions stated. 
+                        If you do not agree, please press the X button. 
                     </Text>
                 </TextBorder>
 
@@ -75,8 +69,6 @@ const ThinBorder = styled.div`
 const TextBorder = styled.div`
     width: 370px;
     margin: 10px 0;
-    overflow-y: scroll;
-    height: 300px;
 `;
 
 const Text = styled.p`
@@ -103,4 +95,4 @@ const Button = styled.button`
     width: 100%;
 `;
 
-export default TermsModal;
+export default CancelTerms

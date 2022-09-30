@@ -16,12 +16,20 @@ import Payment from './OrderDetails/Payment';
 import Shipper from './OrderDetails/Shipper';
 import CancelOrderModal from '../Modals/CancelOrderModal';
 import IMG from '../../assets/images';
+import CancelTerms from '../Modals/CancelTerms';
 
 
 const OrderDetails = () => {
     const [cancelOrder, setCancelOrder] = useState(false); 
+    const [cancelTerm, setCancelTerm] = useState(false); 
 
     const cancelHandler = () => setCancelOrder(v => !v);
+    const cancelTermHandler = () => setCancelTerm(v => !v);
+
+    const passTerms = () => {
+        cancelHandler();
+        cancelTermHandler();
+    }
 
   return (
     <Container>
@@ -56,7 +64,8 @@ const OrderDetails = () => {
             <Shipper />
 
             <Button onClick={cancelHandler}>Cancel Order</Button>
-            {cancelOrder && <CancelOrderModal positionStyle={positionStyle} keep={cancelHandler} />}
+            {cancelOrder && <CancelOrderModal positionStyle={positionStyle} keep={cancelHandler} terms={passTerms}/>}
+            {cancelTerm && <CancelTerms positionStyle={positionStyle} agreeBtn={cancelTermHandler} />}
         </OrderDetailsContainer>
         <MapContainer>
             <MapImage src={IMG.cooking} alt="map"/>

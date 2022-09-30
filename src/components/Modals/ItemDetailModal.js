@@ -33,7 +33,7 @@ const ItemDetailModal = ({ onClick, positionStyle , addBtn}) => {
                         <Text>323 favourites</Text>
                     </InfoRow>
                     <Row>
-                        <Price>A$40</Price>
+                        <Price>$40</Price>
                         <Counter>
                             <Oper>-</Oper>
                             <Number>01</Number>
@@ -49,21 +49,21 @@ const ItemDetailModal = ({ onClick, positionStyle , addBtn}) => {
                     <Input type="radio" value="option1" checked={selectedOption === 'option1'} onChange={selectedOptionHandler} />
                     <LabelRow>
                         <Label>Size S</Label>
-                        <LabelPrice>A$40</LabelPrice>
+                        <LabelPrice>$40</LabelPrice>
                     </LabelRow>
                 </LabelCont>
                 <LabelCont>
                     <Input type="radio" value="option2" checked={selectedOption === 'option2'} onChange={selectedOptionHandler} />
                     <LabelRow>
                         <Label>Size M</Label>
-                        <LabelPrice>A$50</LabelPrice>
+                        <LabelPrice>$50</LabelPrice>
                     </LabelRow>
                 </LabelCont>
                 <LabelCont>
                     <Input type="radio" value="option3" checked={selectedOption === 'option3'} onChange={selectedOptionHandler} />
                     <LabelRow>
                         <Label>Size L</Label>
-                        <LabelPrice>A$60</LabelPrice>
+                        <LabelPrice>$60</LabelPrice>
                     </LabelRow>
                 </LabelCont>
                 <NoteCont>
@@ -71,7 +71,7 @@ const ItemDetailModal = ({ onClick, positionStyle , addBtn}) => {
                     <Note type="text" placeholder="Add note"/>
                 </NoteCont>
             </Form>
-            <Button onClick={addBtn}>Add to cart (A$40)</Button>
+            <Button onClick={addBtn}>Add to cart ($40)</Button>
         </Container>
         </PageBg>
 

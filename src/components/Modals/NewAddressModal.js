@@ -4,27 +4,30 @@ import styled from "styled-components";
 import COLORS from "../../styles/colors";
 
 import { GiCancel } from "react-icons/gi";
-import { MdDeliveryDining } from "react-icons/md";
-import { MdRestaurant } from "react-icons/md";
+
 import TimeAndDate from "./ModalComponents/TimeAndDate";
 import Address from "./ModalComponents/Address";
+import DeliveryMethods from "./ModalComponents/DeliveryMethods";
 
 const NewAddressModal = ({ cancel, positionStyle , continueBtn}) => {
 
-    const [selectedOption, setSelectedOption] = useState("option1");
     const [element, setElement] = useState({
         name: '',
         number: '',
-        address: '',
+        street: '',
+        suburb: '',
+        postcode: '',
         nameValid: false,
         numberValid: false,
-        addressValid: false,
+        streetValid: false,
+        suburbValid: false,
+        postcodeValid: false,
         submitValid: true
     });
 
     const nameHandler = (e) => {
         let nameValid = e.target.value ? true : false;
-        let submitValid = nameValid && element.number && element.address;
+        let submitValid = nameValid && element.number && element.street && element.suburb && element.postcode;
 
         setElement({
             ...element,
@@ -36,7 +39,7 @@ const NewAddressModal = ({ cancel, positionStyle , continueBtn}) => {
 
     const numberHandler = (e) => {
         let numberValid = e.target.value ? true : false;
-        let submitValid = numberValid && element.name && element.address;
+        let submitValid = numberValid && element.name && element.street && element.suburb && element.postcode;
 
         setElement({
             ...element,
@@ -46,27 +49,55 @@ const NewAddressModal = ({ cancel, positionStyle , continueBtn}) => {
         });
     }
 
-    const addressHandler = (e) => {
-        let addressValid = e.target.value ? true : false;
-        let submitValid = addressValid && element.nameValid && element.number;
+    const streetHandler = (e) => {
+        let streetValid = e.target.value ? true : false;
+        let submitValid = streetValid && element.nameValid && element.number && element.suburb && element.postcode;
 
         setElement({
             ...element,
-            address: e.target.value,
-            addressValid: addressValid,
+            street: e.target.value,
+            streetValid: streetValid,
             submitValid: !submitValid
         });
     }
 
-    const selectedOptionHandler = (e) => {
-        setSelectedOption(e.target.value);
+    const suburbHandler = (e) => {
+        let suburbValid = e.target.value ? true : false;
+        let submitValid = suburbValid && element.nameValid && element.number && element.street && element.postcode;
+
+        setElement({
+            ...element,
+            suburb: e.target.value,
+            suburbValid: suburbValid,
+            submitValid: !submitValid
+        });
+    }
+
+    const postcodeHandler = (e) => {
+        let postcodeValid = e.target.value ? true : false;
+        let submitValid = postcodeValid && element.nameValid && element.number && element.street && element.suburb;
+
+        setElement({
+            ...element,
+            postcode: e.target.value,
+            postcodeValid: postcodeValid,
+            submitValid: !submitValid
+        });
     }
 
     return (
         <PageBg style={positionStyle}>
             <Container>
-                <GiCancel onClick={cancel} style={cancelBTN} />
-                <Title>Confirm Order</Title>
+                <GiCancel 
+                    onClick={cancel} 
+                    style={{position: 'absolute',
+                        color: COLORS.pageTitle,
+                        right: '25px',
+                        top: '20px', 
+                        display: element.submitValid ? 'inline' : 'none'
+                    }} 
+                />
+                <Title>Payee’s details</Title>
                 <ThinBorder></ThinBorder>
                 <Scroll>
                     <Text>Contact</Text>
@@ -79,27 +110,23 @@ const NewAddressModal = ({ cancel, positionStyle , continueBtn}) => {
                         <TextInput type="text" placeholder="Phone number" value={element.number} onChange={numberHandler} />
                     </Border>
 
-                    <Text>Service options</Text>
-                    <LabelCont>
-                        <Input type="radio" value="option1" checked={selectedOption === 'option1'} onChange={selectedOptionHandler} />
-                        <Delivery style={{backgroundColor: '#27c75426'}}>
-                            <MdDeliveryDining style={{color: COLORS.green}}/>
-                        </Delivery>
-                        <Label>Shipper delivery</Label>
-                    </LabelCont>
-                    <LabelCont>
-                        <Input type="radio" value="option2" checked={selectedOption === 'option2'} onChange={selectedOptionHandler} />
-                        <Delivery style={{backgroundColor: '#F1F1F5'}}>
-                            <MdRestaurant style={{color: COLORS.pageTitle}}/>
-                        </Delivery>
-                        <Label>Onsite pickup</Label>
-                    </LabelCont>
+                    <DeliveryMethods />
 
                     <Address
-                        value={element.address}
-                        onChange={addressHandler}
-                        borderStyle={element.address ? {padding: '5px 20px'} : {padding: '13px 20px'}}
-                        labelStyle={element.address ? {display: 'inline'} : {display: 'none'}}
+                        streetValue={element.street}
+                        streetOnChange={streetHandler}
+                        streetBorderStyle={element.street ? {padding: '5px 20px'} : {padding: '13px 20px'}}
+                        streetLabelStyle={element.street ? {display: 'inline'} : {display: 'none'}}
+
+                        suburbValue={element.suburb}
+                        suburbOnChange={suburbHandler}
+                        suburbBorderStyle={element.suburb ? {padding: '5px 20px'} : {padding: '13px 20px'}}
+                        suburbLabelStyle={element.suburb ? {display: 'inline'} : {display: 'none'}}
+                        
+                        postCodeValue={element.postcode}
+                        postCodeOnChange={postcodeHandler}
+                        postCodeBorderStyle={element.postcode ? {padding: '5px 20px'} : {padding: '13px 20px'}}
+                        postCodeLabelStyle={element.postcode ? {display: 'inline'} : {display: 'none'}}
                     />
                     <TimeAndDate />
                 </Scroll>
@@ -108,7 +135,7 @@ const NewAddressModal = ({ cancel, positionStyle , continueBtn}) => {
                     onClick={continueBtn}
                     disabled={element.submitValid}
                     style={{backgroundColor: element.submitValid ? COLORS.disableOrange : COLORS.orange, borderColor: element.submitValid ? COLORS.disableOrange : COLORS.orange}}
-                >Continue</Button>
+                >Save</Button>
             </Container>
         </PageBg>
     )
@@ -123,8 +150,7 @@ const PageBg = styled.div`
 const Container = styled.div`
     border-radius: 25px;
     background-color: ${COLORS.white};
-    position: relative;
-    padding: 15px 0;
+    padding: 15px 60px;
     box-shadow: 0px 12px 40px rgba(181, 173, 176, 0.25);
     position: absolute; 
     z-index: 1; 
@@ -134,13 +160,6 @@ const Scroll = styled.div`
     overflow-y: scroll;
     height: 370px;
 `;
-
-const cancelBTN = {
-    position: 'absolute',
-    color: COLORS.pageTitle,
-    right: '25px',
-    top: '20px'
-};
 
 const Title = styled.h6`
     font-style: normal;
@@ -154,18 +173,20 @@ const Title = styled.h6`
 
 const ThinBorder = styled.div`
     border-top: 1px solid ${COLORS.border};
-    margin: 10px 60px;
+    margin: 10px 0;
 `;
 
 const Text = styled.p`
     color: ${COLORS.textColor};
-    margin: 20px 60px;
+    margin: 20px 0;
+    font-weight: 500;
+    font-size: 14px;
 `;
 
 const Border = styled.div`
     border: 1px solid ${COLORS.border};
     border-radius: 12px;
-    margin: 10px 60px;
+    margin: 10px 0;
 `;
 
 const BorderLabel = styled.label`
@@ -182,39 +203,14 @@ const TextInput = styled.input`
     width: 100%;
 `;
 
-const LabelCont = styled.div`
-    display: flex;
-    align-items: center;
-    margin: 10px 60px;
-`;
-
-const Input = styled.input`
-    accent-color: ${COLORS.orange};
-    margin-right: 7px;
-`;
-
-const Label = styled.label`
-    font-weight: 400;
-    font-size: 15px;
-`;
-
-const Delivery = styled.div`
-    padding: 1px;
-    border-radius: 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 6px 0 0;
-`;
-
 const Button = styled.button`
     border: 1px solid;
-    margin: 10px 60px;
+    margin: 10px 0;
     padding: 15px;
     text-align: center;
     color:  ${COLORS.white};
     border-radius: 12px;
-    width: 78%;
+    width: 100%;
 `;
 
 export default NewAddressModal;

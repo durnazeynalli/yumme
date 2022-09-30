@@ -3,11 +3,10 @@ import styled from "styled-components";
 
 import COLORS from "../../styles/colors";
 
-import { GiCancel } from "react-icons/gi";
 import { BsPlusCircleDotted } from "react-icons/bs";
 import IMG from "../../assets/images";
 
-const PaymentModal = ({ cancel, positionStyle, addNew, continueBtn}) => {
+const PaymentModal = ({ positionStyle, addNew, continueBtn}) => {
 
     const [selectedOption, setSelectedOption] = useState("option1");
 
@@ -18,8 +17,7 @@ const PaymentModal = ({ cancel, positionStyle, addNew, continueBtn}) => {
     return (
         <PageBg style={positionStyle}>
             <Container>
-                <GiCancel onClick={cancel} style={cancelBTN} />
-                <Title>Payment Method</Title>
+                <Title>Digital Gateways</Title>
                 <ThinBorder></ThinBorder>
 
                 <Text>Choose payment methods</Text>
@@ -72,18 +70,11 @@ const Container = styled.div`
     border-radius: 25px;
     background-color: ${COLORS.white};
     position: relative;
-    padding: 15px 0;
+    padding: 15px 60px;
     box-shadow: 0px 12px 40px rgba(181, 173, 176, 0.25);
     position: absolute; 
     z-index: 1; 
 `;
-
-const cancelBTN = {
-    position: 'absolute',
-    color: COLORS.pageTitle,
-    right: '25px',
-    top: '20px'
-};
 
 const Title = styled.h6`
     font-style: normal;
@@ -97,23 +88,26 @@ const Title = styled.h6`
 
 const ThinBorder = styled.div`
     border-top: 1px solid ${COLORS.border};
-    margin: 10px 60px;
+    margin: 10px 0;
 `;
 
 const Text = styled.p`
     color: ${COLORS.textColor};
-    margin: 20px 60px;
+    margin: 20px 0;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
 `;
 
 const LargeBorder = styled.div`
     border-top: 8px solid ${COLORS.modelBorder};
-    margin: 10px 60px;
+    margin: 10px 0;
 `;
 
 const LabelCont = styled.div`
     display: flex;
     align-items: center;
-    margin: 10px 60px;
+    margin: 10px 0;
 `;
 
 const Input = styled.input`
@@ -149,16 +143,16 @@ const CardImage = styled.img`
 const Button = styled.button`
     border: 1px solid ${COLORS.orange};
     background-color: ${COLORS.orange};
-    margin: 10px 60px;
+    margin: 10px 0;
     padding: 15px;
     text-align: center;
     color:  ${COLORS.white};
     border-radius: 12px;
-    width: 78%;
+    width: 100%;
 `;
 
 const AddNewCont = styled.div`
-    margin: 10px 60px;
+    margin: 10px 0;
     display: flex;
     align-items: center;
     cursor: pointer;

@@ -3,12 +3,11 @@ import styled from "styled-components";
 
 import COLORS from "../../styles/colors";
 
-import { GiCancel } from "react-icons/gi";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import { BsPlusCircleDotted } from "react-icons/bs";
-import TimeAndDate from "./ModalComponents/TimeAndDate";
+import DeliveryMethods from "./ModalComponents/DeliveryMethods";
 
-const AddressModal = ({ cancel, positionStyle, addNew, continueBtn}) => {
+const AddressModal = ({ positionStyle, addNew, continueBtn}) => {
 
     const [selectedOption, setSelectedOption] = useState("option1");
 
@@ -19,8 +18,7 @@ const AddressModal = ({ cancel, positionStyle, addNew, continueBtn}) => {
     return (
         <PageBg style={positionStyle}>
             <Container>
-                <GiCancel onClick={cancel} style={cancelBTN} />
-                <Title>Address</Title>
+                <Title>Delivery details</Title>
                 <ThinBorder></ThinBorder>
 
                 <LabelCont>
@@ -28,9 +26,6 @@ const AddressModal = ({ cancel, positionStyle, addNew, continueBtn}) => {
                     <InputRow>
                         <LabelCol>
                             <Label>Anh Thi Nguyen<Span>Default address</Span></Label>
-                            <LabelText>(+61) 082 771 7873</LabelText>
-                            <LabelText>81 Southwell Crescent</LabelText>
-                            <LabelText>CHARLEY CREEK, Western Australia</LabelText>
                         </LabelCol>
                         <BiDotsVerticalRounded style={{color: COLORS.orange}}/>
                     </InputRow>
@@ -39,24 +34,12 @@ const AddressModal = ({ cancel, positionStyle, addNew, continueBtn}) => {
                     <Input type="radio" value="option2" checked={selectedOption === 'option2'} onChange={selectedOptionHandler} />
                     <InputRow>
                         <LabelCol>
-                            <Label>Dave Tomlinson</Label>
-                            <LabelText>(+61) 082 771 7873</LabelText>
-                            <LabelText>81 Southwell Crescent</LabelText>
-                            <LabelText>CHARLEY CREEK, Western Australia</LabelText>
+                            <Label>Raj Smith</Label>
+                            <LabelText>(+61) 9123 4567</LabelText>
+                            <LabelText>86 Southwell Crescent</LabelText>
+                            <LabelText>Toowong, 4066</LabelText>
                         </LabelCol>
                         <BiDotsVerticalRounded style={{color: COLORS.orange}} />
-                    </InputRow>
-                </LabelCont>
-                <LabelCont>
-                    <Input type="radio" value="option3" checked={selectedOption === 'option3'} onChange={selectedOptionHandler}/>
-                    <InputRow>
-                        <LabelCol>
-                            <Label>Tyson H Chin Kaw</Label>
-                            <LabelText>(+61) 082 771 7873</LabelText>
-                            <LabelText>81 Southwell Crescent</LabelText>
-                            <LabelText>CHARLEY CREEK, Western Australia</LabelText>
-                        </LabelCol>
-                        <BiDotsVerticalRounded style={{color: COLORS.orange}}/>
                     </InputRow>
                 </LabelCont>
 
@@ -67,7 +50,7 @@ const AddressModal = ({ cancel, positionStyle, addNew, continueBtn}) => {
 
                 <LargeBorder></LargeBorder>
 
-                <TimeAndDate />
+                <DeliveryMethods />
 
                 <Button onClick={continueBtn}>Continue</Button>
             </Container>
@@ -84,19 +67,12 @@ const PageBg = styled.div`
 const Container = styled.div`
     border-radius: 25px;
     background-color: ${COLORS.white};
-    position: relative;
-    padding: 15px 0;
+    padding: 15px 60px;
     box-shadow: 0px 12px 40px rgba(181, 173, 176, 0.25);
     position: absolute; 
     z-index: 1; 
+    width: 30%;
 `;
-
-const cancelBTN = {
-    position: 'absolute',
-    color: COLORS.pageTitle,
-    right: '25px',
-    top: '20px'
-};
 
 const Title = styled.h6`
     font-style: normal;
@@ -110,18 +86,18 @@ const Title = styled.h6`
 
 const ThinBorder = styled.div`
     border-top: 1px solid ${COLORS.border};
-    margin: 10px 60px;
+    margin: 10px 0;
 `;
 
 const LargeBorder = styled.div`
     border-top: 8px solid ${COLORS.modelBorder};
-    margin: 10px 60px;
+    margin: 10px 0;
 `;
 
 const LabelCont = styled.div`
     display: flex;
     align-items: flex-start;
-    margin: 10px 60px;
+    margin: 20px 0;
 `;
 
 const Input = styled.input`
@@ -146,7 +122,7 @@ const LabelText = styled.p`
     font-size: 14px;
     color: ${COLORS.grayTextColor};
     margin: -1px 0;
-    padding: 2px 0;
+    padding: 3px 0;
 `;
 
 const Label = styled.label`
@@ -168,16 +144,15 @@ const Span = styled.span`
 const Button = styled.button`
     border: 1px solid ${COLORS.orange};
     background-color: ${COLORS.orange};
-    margin: 10px 60px;
+    margin: 10px 0;
     padding: 15px;
     text-align: center;
     color:  ${COLORS.white};
     border-radius: 12px;
-    width: 78%;
+    width: 100%;
 `;
 
 const AddNewCont = styled.div`
-    margin: 10px 60px;
     display: flex;
     align-items: center;
     cursor: pointer;

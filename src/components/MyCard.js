@@ -4,17 +4,20 @@ import styled from "styled-components";
 import IMG from "../assets/images";
 import COLORS from "../styles/colors";
 
-const MyCard = () => {
+import { GiCancel } from "react-icons/gi";
+
+const MyCard = ({ cancel }) => {
     return (
         <OrderContainer>
-            <Title>My cart (2)</Title>
+            <GiCancel onClick={cancel} style={cancelBTN} />
+            <Title>My Cart [1]</Title>
             <FoodDetails>
                 <Image src={IMG.pizza1} alt="image" />
                 <Info>
                     <Name>Seafood Pizza</Name>
                     <Text>Size S</Text>
                     <Row>
-                        <Price>A$40</Price>
+                        <Price>$40</Price>
                         <Counter>
                             <Oper>-</Oper>
                             <Number>01</Number>
@@ -29,7 +32,7 @@ const MyCard = () => {
                     <Name>Seafood Pizza</Name>
                     <Text>Size L</Text>
                     <Row>
-                        <Price>A$100</Price>
+                        <Price>$100</Price>
                         <Counter>
                             <Oper>-</Oper>
                             <Number>01</Number>
@@ -43,10 +46,10 @@ const MyCard = () => {
                 <TotalCont>
                     <Row>
                         <Text>Total</Text>
-                        <Price>A$140</Price>
+                        <Price>$140</Price>
                     </Row>
                 </TotalCont>
-                <OrderButton>Submit</OrderButton>
+                <OrderButton>Go to checkout</OrderButton>
             </Position>
         </OrderContainer>
     )
@@ -61,6 +64,13 @@ const OrderContainer = styled.div`
     height: 55%;
     position: relative;
 `;
+
+const cancelBTN = {
+    position: 'absolute',
+    color: COLORS.pageTitle,
+    right: '25px',
+    top: '20px'
+};
 
 const Row = styled.div`
     display: flex;

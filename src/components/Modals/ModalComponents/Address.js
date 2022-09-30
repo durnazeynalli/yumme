@@ -1,102 +1,47 @@
 import React from "react";
 import styled from "styled-components";
-// import { useFormik } from "formik";
-// import Select from "react-select";
-// import { Country, State, City } from "country-state-city";
 
 import COLORS from "../../../styles/colors";
 
 import { AiFillCaretDown } from "react-icons/ai";
 
-const Address = ({ value, onChange, borderStyle, labelStyle }) => {
-    
-    // const addressFromik = useFormik({
-    //     initialValues: {
-    //       country: "Australia",
-    //       state: null,
-    //       city: null
-    //     },
-    //     onSubmit: (values) => console.log(JSON.stringify(values))
-    //   });
-    
-    //   const countries = Country.getAllCountries();
-    
-    //   const updatedCountries = countries.map((country) => ({
-    //     label: country.name,
-    //     value: country.isoCode,
-    //     ...country
-    //   }));
-    //   const updatedStates = (countryId) =>
-    //     State
-    //       .getStatesOfCountry(countryId)
-    //       .map((state) => ({ label: state.name, value: state.isoCode, ...state }));
-
-
-    //   const updatedCities = (countryId, stateId) =>
-    //     City
-    //       .getCitiesOfState(countryId, stateId)
-    //       .map((city) => ({ label: city.name, value: city.name, ...city }));
-
-    
-    //   const { values, handleSubmit, setFieldValue, setValues } = addressFromik;
-    
-    //   console.log(addressFromik.values);
-
-
-    //   useEffect(() => {}, [values]);
-
+const Address = ({ 
+                    streetValue, streetOnChange, streetBorderStyle, streetLabelStyle, 
+                    suburbValue, suburbOnChange, suburbBorderStyle, suburbLabelStyle, 
+                    postCodeValue, postCodeOnChange, postCodeBorderStyle, postCodeLabelStyle 
+                }) => {
 
     return (
         <Container>
                 <Text>Address</Text>
-                {/* <Select
-                    id="country"
-                    name="country"
-                    label="country"
-                    options={updatedCountries}
-                    value={values.country}
-                    onChange={(value) => {
-                        setValues({ country: value, state: null, city: null }, false);
-                    }}
-                />
-                <Select
-                    id="state"
-                    name="state"
-                    options={updatedStates(values.country ? values.country.value : null)}
-                    value={values.state}
-                    onChange={(value) => {
-                        setValues({ state: value, city: null }, false);
-                    }}
-                />
-                <Select
-                    id="city"
-                    name="city"
-                    options={updatedCities(values.state ? values.state.value : null)}
-                    value={values.city}
-                    onChange={(value) => setFieldValue("city", value)}
-                /> */}
-                <Border style={{padding: '10px 20px'}}>
+            
+                <Border style={streetBorderStyle}>
+                    <BorderLabel style={streetLabelStyle}>Street</BorderLabel>
+                    <TextInput type="text" placeholder="Street" value={streetValue} onChange={streetOnChange}/>
+                </Border>
+                <Border style={suburbBorderStyle}>
                     <Row>
-                        <TextInput type="text" placeholder="Select a state" />
+                        <Cont>
+                            <BorderLabel style={suburbLabelStyle}>Suburb</BorderLabel>
+                            <TextInput type="text" placeholder="Suburb" value={suburbValue} onChange={suburbOnChange} />
+                        </Cont>
                         <AiFillCaretDown style={{color: COLORS.pageTitle}} />
                     </Row>
                 </Border>
-                <Border style={{padding: '10px 20px'}}>
-                    <Row>
-                        <TextInput type="text" placeholder="Select a city" />
-                        <AiFillCaretDown style={{color: COLORS.pageTitle}} />
-                    </Row>
-                </Border>
-                <Border style={borderStyle}>
-                    <BorderLabel style={labelStyle}>Address</BorderLabel>
-                    <TextInput type="text" placeholder="Address" value={value} onChange={onChange} />
+                <Border style={postCodeBorderStyle}>
+                    <BorderLabel style={postCodeLabelStyle}>Postcode</BorderLabel>
+                    <TextInput type="text" placeholder="Postcode" value={postCodeValue} onChange={postCodeOnChange} />
                 </Border>
         </Container>
     )
 }
 
 const Container = styled.form`
-    margin 0 60px;
+
+`;
+
+const Cont = styled.div`
+
 `;
 
 const Row = styled.div`
@@ -108,6 +53,8 @@ const Row = styled.div`
 const Text = styled.p`
     color: ${COLORS.textColor};
     margin: 20px 0;
+    font-weight: 500;
+    font-size: 14px;
 `;
 
 const Border = styled.div`

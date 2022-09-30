@@ -11,11 +11,12 @@ const SuccessModal = ({ positionStyle, agreeBtn }) => {
             <Container>
                 <Image src={IMG.success} alt="success" />
                 <Body>
-                    <Title>Congratulations!</Title>
+                    <Title>Your order has been recieved!</Title>
                     <TextBorder>
-                        <Text>Your order at Pizza Hut has been accepted.</Text>
+                        <Text>Pizza Hut, thank you for your business. Your order ID is xxx1234567890</Text>
                     </TextBorder>
-                    <Button onClick={agreeBtn}>OK</Button>
+                    <Text style={{fontSize: '12px'}}>You will receive an order confirmation email with details of your order.</Text>
+                    <Button onClick={agreeBtn}>CONTINUE SHOPPING</Button>
                 </Body>
             </Container>
         </PageBg>
@@ -50,12 +51,13 @@ const Body = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0 60px;
 `;
 
 const Title = styled.h6`
     font-style: normal;
     font-weight: 500;
-    font-size: 24px;
+    font-size: 18px;
     color: ${COLORS.textColor};
     margin: -1px;
     // padding: 10px 0;
@@ -63,13 +65,13 @@ const Title = styled.h6`
 
 const TextBorder = styled.div`
     width: 250px;
-    margin: 5px 60px;
+    margin: 5px 0;
 `;
 
 const Text = styled.p`
     color: ${COLORS.grayTextColor};
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 24px;
     letter-spacing: 0.01em;
     text-align: center;
@@ -78,7 +80,7 @@ const Text = styled.p`
 const Button = styled.button`
     border: 1px solid ${COLORS.orange};
     background-color: ${COLORS.orange};
-    margin: 10px 60px;
+    margin: 10px 0;
     padding: 15px;
     text-align: center;
     color:  ${COLORS.white};

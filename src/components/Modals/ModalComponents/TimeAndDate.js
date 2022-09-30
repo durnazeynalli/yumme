@@ -12,7 +12,7 @@ const TimeAndDate = ({ cancel, positionStyle , continueBtn}) => {
 
     return (
         <Container>
-            <Text>Time</Text>
+            <Text>Pickup  onsite ONLY</Text>
             <TimeRow>
             {/* <TimePicker 
                 onChange={onChange} 
@@ -48,7 +48,7 @@ const TimeAndDate = ({ cancel, positionStyle , continueBtn}) => {
 }
 
 const Container = styled.div`
-    margin: 0 60px;
+
 `;
 
 const Row = styled.div`
@@ -60,6 +60,8 @@ const Row = styled.div`
 const Text = styled.p`
     color: ${COLORS.textColor};
     margin: 20px 0;
+    font-weight: 500;
+    font-size: 14px;
 `;
 
 const Border = styled.div`

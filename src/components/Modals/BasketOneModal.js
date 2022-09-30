@@ -9,16 +9,16 @@ const BasketOne = ({ positionStyle, onClick, submit }) => {
         <PageBg style={positionStyle} onClick={onClick}>
             <OrderContainer>
                 <ArrowUp></ArrowUp>
-                <Title>My cart (1)</Title>
+                <Title>My cart [1]</Title>
                 <FoodDetails>
                     <Image src={IMG.pizza1} alt="image" />
                     <Info>
                         <Name>Pizza Hut Restaurant (2 items)</Name>
                         <Text>Chicken Pizza size S, Beef Pizza size M,...</Text>
-                        <Price>A$80</Price>
+                        <Price>$80</Price>
                     </Info>
                 </FoodDetails>
-                <OrderButton onClick={submit}>Submit</OrderButton>
+                <OrderButton onClick={submit}>Go to checkout</OrderButton>
             </OrderContainer>
         </PageBg>
         
@@ -119,8 +119,7 @@ const OrderButton = styled.button`
     font-weight: 700;
     font-size: 14px;
     line-height: 24px;
-    width: 30%;
-    padding: 5px 0;
+    padding: 5px 10px;
     position: absolute;
     bottom: 10px;
     right: 20px;

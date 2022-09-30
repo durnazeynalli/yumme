@@ -4,15 +4,17 @@ import styled from "styled-components";
 import IMG from "../assets/images";
 import COLORS from "../styles/colors";
 
-const OrderDetails = ({ title, text, button, onClick, height }) => {
+const OrderDetails = ({ onClick, height }) => {
     return (
         <OrderContainer style={height}>
-            <Title>{title}</Title>
+            <Title>My Order</Title>
             <Container>
-                <FoodImg src={IMG.food} alt="food" />
-                <Text>{text}</Text>
+                <FoodImg onClick={onClick} src={IMG.food} alt="food" />
+                <TextCont>
+                    <Text>Your cart is empty and you are hungry.</Text>
+                    <Text>Let’s order something to eat and drink.</Text>
+                </TextCont>
             </Container>
-            <OrderButton onClick={onClick}>{button}</OrderButton>
         </OrderContainer>
     )
 }
@@ -22,7 +24,7 @@ const OrderContainer = styled.div`
     box-shadow: 0px 12px 24px rgba(181, 173, 176, 0.25);
     border-radius: 16px;
     background-color: ${COLORS.white};
-    padding: 20px;
+    padding: 20px 0 0;
 `;
 
 const Title = styled.h4`
@@ -34,7 +36,7 @@ const Title = styled.h4`
 `;
 
 const Container = styled.div`
-    margin: 6% 10%;
+    margin: 6% 0;
     height: 80%;
     display: flex;
     flex-direction: column;
@@ -43,7 +45,11 @@ const Container = styled.div`
 `;
 
 const FoodImg = styled.img`
+    margin-bottom: 20px;
+`;
 
+const TextCont = styled.div`
+    width: 170px;
 `;
 
 const Text = styled.p`
@@ -51,18 +57,19 @@ const Text = styled.p`
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
+    margin: -1px 0;
 `;
 
-const OrderButton = styled.button`
-    border: 1px solid ${COLORS.orange};
-    background-color: ${COLORS.orange};
-    color: ${COLORS.white};
-    border-radius: 12px;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 24px;
-    width: 100%;
-    padding: 10px 0;
-`;
+// const OrderButton = styled.button`
+//     border: 1px solid ${COLORS.orange};
+//     background-color: ${COLORS.orange};
+//     color: ${COLORS.white};
+//     border-radius: 12px;
+//     font-weight: 700;
+//     font-size: 16px;
+//     line-height: 24px;
+//     width: 100%;
+//     padding: 10px 0;
+// `;
 
 export default OrderDetails;

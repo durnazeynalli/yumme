@@ -9,24 +9,30 @@ const BasketTwo = ({ positionStyle, onClick, submit }) => {
         <PageBg style={positionStyle} onClick={onClick}>
             <OrderContainer>
                 <ArrowUp></ArrowUp>
-                <Title>My cart (2)</Title>
-                <FoodDetails>
-                    <Image src={IMG.pizza1} alt="image" />
-                    <Info>
-                        <Name>Pizza Hut Restaurant (2 items)</Name>
-                        <Text>Chicken size M with cheese</Text>
-                        <Price>A$80</Price>
-                    </Info>
-                </FoodDetails>
-                <FoodDetails>
-                    <Image src={IMG.pizza1} alt="image" />
-                    <Info>
-                        <Name>Chicken Restaurant (1 item)</Name>
-                        <Text>Chicken Pizza size S, Beef Pizza size M,...</Text>
-                        <Price>A$180</Price>
-                    </Info>
-                </FoodDetails>
-                <OrderButton onClick={submit}>Submit</OrderButton>
+                <Title>My Cart [2]</Title>
+                <Content>
+                    <FoodDetails>
+                        <Image src={IMG.pizza1} alt="image" />
+                        <Info>
+                            <Name>Pizza Hut Restaurant (2 items)</Name>
+                            <Text>Chicken size M with cheese</Text>
+                            <Price>$80</Price>
+                        </Info>
+                    </FoodDetails>
+                    <FoodDetails>
+                        <Image src={IMG.pizza1} alt="image" />
+                        <Info>
+                            <Name>Chicken Restaurant (1 item)</Name>
+                            <Text>Chicken Pizza size S, Beef Pizza size M,...</Text>
+                            <Price>$180</Price>
+                        </Info>
+                    </FoodDetails>
+                    <TotalCont>
+                        <Name>Total: </Name>
+                        <Price>&nbsp; $260</Price>
+                    </TotalCont>
+                </Content>
+                <OrderButton onClick={submit}>Go to checkout</OrderButton>
             </OrderContainer>
         </PageBg>
         
@@ -66,10 +72,15 @@ const ArrowUp = styled.div`
 
 const Title = styled.h4`
     color: ${COLORS.titleColor};
-    font-weight: 700;
-    font-size: 16px;
+    font-weight: 500;
+    font-size: 18px;
     margin: -1px 0;
     text-align: center;
+`;
+
+const Content = styled.div`
+    height: 350px;
+    overflow-y: scroll;
 `;
 
 const FoodDetails = styled.div`
@@ -121,6 +132,16 @@ const Price = styled.h6`
     color: ${COLORS.orange};
 `;
 
+const TotalCont = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    border: 1px solid ${COLORS.border};
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin: 10px 0;
+`;
+
 const OrderButton = styled.button`
     border: 1px solid ${COLORS.orange};
     background-color: ${COLORS.orange};
@@ -129,8 +150,7 @@ const OrderButton = styled.button`
     font-weight: 700;
     font-size: 14px;
     line-height: 24px;
-    width: 30%;
-    padding: 5px 0;
+    padding: 5px 10px;
     position: absolute;
     bottom: 10px;
     right: 20px;

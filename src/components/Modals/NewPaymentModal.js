@@ -6,7 +6,7 @@ import COLORS from "../../styles/colors";
 import { GiCancel } from "react-icons/gi";
 import IMG from "../../assets/images";
 
-const NewPaymentModal = ({ onClick, positionStyle , newPaypal, continueBtn, cash}) => {
+const NewPaymentModal = ({ onClick, positionStyle , newPaypal, continueBtn, redBelly, cash}) => {
 
     const [selectedOption, setSelectedOption] = useState("option1");
 
@@ -19,6 +19,8 @@ const NewPaymentModal = ({ onClick, positionStyle , newPaypal, continueBtn, cash
             newPaypal();
         } else if (selectedOption === 'option2') {
             continueBtn();
+        } else if (selectedOption === 'option4') {
+            redBelly();
         } else {
             cash();
         }
@@ -52,6 +54,13 @@ const NewPaymentModal = ({ onClick, positionStyle , newPaypal, continueBtn, cash
                     <Row>
                         <Label>Paypal</Label>
                         <CardImage src={IMG.paypal} alt="card" />
+                    </Row>
+                </LabelCont>
+                <LabelCont>
+                    <Input type="radio" value="option4" checked={selectedOption === 'option4'} onChange={selectedOptionHandler} />
+                    <Row>
+                        <Label>Redbelly</Label>
+                        {/* <CardImage src={IMG.paypal} alt="card" /> */}
                     </Row>
                 </LabelCont>
         

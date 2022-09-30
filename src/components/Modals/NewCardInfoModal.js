@@ -100,12 +100,12 @@ const NewCardInfoModal = ({ onClick, positionStyle , continueBtn, terms }) => {
                     <FiImage style={{color: COLORS.orange}} />    
                     <ImageText>Or upload credit card image</ImageText>
                 </ImageCont>
+                <Terms>By clicking to Authorise, I agree to <Span onClick={terms}>Credit Card Registration Terms.</Span></Terms>
                 <Button 
                     onClick={continueBtn}
                     disabled={element.submitValid}
                     style={{backgroundColor: element.submitValid ? COLORS.disableOrange : COLORS.orange, borderColor: element.submitValid ? COLORS.disableOrange : COLORS.orange}}
-                >Continue</Button>
-                <Terms>By clicking to Continue, I agree to <Span onClick={terms}>Credit Card Registration Terms.</Span></Terms>
+                >Authorise</Button>
             </Container>
         </PageBg>
     )
@@ -121,9 +121,10 @@ const Container = styled.div`
     border-radius: 25px;
     background-color: ${COLORS.white};
     position: relative;
-    padding: 15px 0;
+    padding: 15px 60px;
     box-shadow: 0px 12px 40px rgba(181, 173, 176, 0.25);
-    position: absolute;  
+    position: absolute; 
+    width: 34%; 
 `;
 
 const cancelBTN = {
@@ -151,18 +152,21 @@ const Title = styled.h6`
 
 const ThinBorder = styled.div`
     border-top: 1px solid ${COLORS.border};
-    margin: 10px 60px;
+    margin: 10px 0;
 `;
 
 const Text = styled.p`
     color: ${COLORS.textColor};
-    margin: 20px 60px;
+    margin: 20px 0;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
 `;
 
 const Border = styled.div`
     border: 1px solid ${COLORS.border};
     border-radius: 12px;
-    margin: 10px 60px;
+    margin: 10px 0;
 `;
 
 const BorderLabel = styled.label`
@@ -174,11 +178,11 @@ const BorderLabel = styled.label`
 `;
 
 const InfoRow = styled.div`
-    margin: 10px 60px;
+    margin: 10px 0;
 `;
 
 const InfoBorder = styled.div`
-    width: 140px;
+    width: 48%;
     border: 1px solid ${COLORS.border};
     border-radius: 12px;
 `;
@@ -190,7 +194,7 @@ const TextInput = styled.input`
 `;
 
 const ImageCont = styled.div`
-    margin: 10px 60px;
+    margin: 10px 0;
     padding: 10px 0;
     display: flex;
     align-items; center;
@@ -212,7 +216,7 @@ const Terms = styled.p`
     font-weight: 400;
     font-size: 14px;
     color: ${COLORS.pageTitle};
-    margin: 10px 60px;
+    margin: 10px 0;
 `;
 
 const Span = styled.span`
@@ -222,12 +226,12 @@ const Span = styled.span`
 
 const Button = styled.button`
     border: 1px solid;
-    margin: 10px 60px;
+    margin: 10px 0;
     padding: 15px;
     text-align: center;
     color:  ${COLORS.white};
     border-radius: 12px;
-    width: 78%;
+    width: 100%;
 `;
 
 export default NewCardInfoModal;

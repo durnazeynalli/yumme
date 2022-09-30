@@ -10,14 +10,14 @@ const FailModal = ({ positionStyle, agreeBtn }) => {
         <PageBg style={positionStyle}>
             <Container>
                 <Image src={IMG.fail} alt="fail" />
-                <Title>Oh uh, Sorry</Title>
+                <Title>Your order has been declined</Title>
 
                 <TextBorder>
-                    <Text>We’re sorry to inform you that our order is cancelled by 
-                        restaurants caz out of stock. We hope you get your order <br/> soon!</Text>
+                    <Text>Your order ID is xxx1234567890</Text>
                 </TextBorder>
+                <Text style={{fontSize: '12px'}}>You will receive an email with details of the decline.</Text>
 
-                <Button onClick={agreeBtn}>Find other restaurant</Button>
+                <Button onClick={agreeBtn}>CONTINUE SHOPPING</Button>
             </Container>
         </PageBg>
     )
@@ -49,7 +49,7 @@ const Image = styled.img`
 const Title = styled.h6`
     font-style: normal;
     font-weight: 500;
-    font-size: 24px;
+    font-size: 18px;
     color: ${COLORS.textColor};
     text-align: center;
     margin: -1px;
@@ -65,7 +65,7 @@ const Text = styled.p`
     color: ${COLORS.grayTextColor};
     text-align: center;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 24px;
     letter-spacing: 0.01em;
 `;

@@ -81,6 +81,10 @@ const RestaurantDetails = () => {
                             }
                             <Reviews>
                                 <InfoText 
+                                    onClick={() => setState('menu')}
+                                    style={state === 'menu' ? {color: COLORS.orange} : { color: COLORS.pageTitle}}
+                                >Menu</InfoText>
+                                <InfoText 
                                     onClick={() => setState('review')}
                                     style={state === 'review' ? {color: COLORS.orange} : { color: COLORS.pageTitle}}
                                 >Reviews</InfoText>
@@ -88,10 +92,10 @@ const RestaurantDetails = () => {
                                     onClick={() => setState('info')} 
                                     style={state === 'info' ? {color: COLORS.orange} : { color: COLORS.pageTitle}}
                                 >Info</InfoText>
-                                <InfoText 
+                                {/* <InfoText 
                                     onClick={() => setState('virtual')} 
                                     style={state === 'virtual' ? {color: COLORS.orange} : { color: COLORS.pageTitle}}
-                                >Virtual</InfoText>
+                                >Virtual</InfoText> */}
                             </Reviews>
                             <ModalContainer>
                                 {state === 'menu' && 
@@ -110,9 +114,6 @@ const RestaurantDetails = () => {
                 <RightSide>
                     {!card ?
                         <OrderDetails 
-                            title="My Cart"
-                            text="You have nothing in your cart"
-                            button="Add item"
                             onClick={cardHandler}
                             height={{height: '55%'}}
                         /> 
