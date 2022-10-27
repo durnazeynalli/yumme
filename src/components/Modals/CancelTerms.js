@@ -15,8 +15,8 @@ const CancelTerms = ({ positionStyle , cancelClick, agreeBtn }) => {
                 <ThinBorder></ThinBorder>
 
                 <TextBorder>
-                    <Text style={{textDecoration: 'underline'}}>A non-refundable fees are intended to protect Yumme in circumstances of sudden 
-                        cancellation and to compensate the restaurant for the time, effort and money expended up to that point.</Text>
+                    <Text><Span>A non-refundable fees are intended to protect Yumme in circumstances of sudden 
+                        cancellation and to compensate the restaurant for the time, effort and money expended up to that point.</Span></Text>
                     <Text>By clicking <Span>Agree</Span>, you affirm that you have read the above, and agree to the terms and conditions stated. 
                         If you do not agree, please press the X button. 
                     </Text>

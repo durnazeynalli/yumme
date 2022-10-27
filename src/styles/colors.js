@@ -2,6 +2,7 @@ const COLORS = {
     white: '#FFFFFF',
     textColor: '#171725',
     searchBar: '#D3D3E2',
+    searchBarText: '#9AA1B2',
     mainColor: '#FF961C',
     blue: '#50B5FF',
     titleColor: '#3B3D41',
@@ -22,7 +23,9 @@ const COLORS = {
     purple: '#A461D8',
     pink: '#FF9AD5',
     favorite: '#FABC41',
-    grayBackground: '#FAFAFB'
+    referral: '#50B5FF',
+    grayBackground: '#FAFAFB',
+    note: '#B5B5BE'
 }
 
 export default COLORS;

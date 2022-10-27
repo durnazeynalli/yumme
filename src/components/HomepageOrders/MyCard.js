@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
-import IMG from "../assets/images";
-import COLORS from "../styles/colors";
+import IMG from "../../assets/images";
+import COLORS from "../../styles/colors";
 
 import { GiCancel } from "react-icons/gi";
 
-const MyCard = ({ cancel }) => {
+const MyCard = ({ cancel, height }) => {
     return (
-        <OrderContainer>
+        <OrderContainer style={height}>
             <GiCancel onClick={cancel} style={cancelBTN} />
             <Title>My Cart [1]</Title>
             <FoodDetails>
@@ -61,7 +61,6 @@ const OrderContainer = styled.div`
     border-radius: 16px;
     background-color: ${COLORS.white};
     padding: 20px 20px 30px;
-    height: 55%;
     position: relative;
 `;
 

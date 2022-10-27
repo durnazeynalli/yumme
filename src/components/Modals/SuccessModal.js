@@ -13,7 +13,7 @@ const SuccessModal = ({ positionStyle, agreeBtn }) => {
                 <Body>
                     <Title>Your order has been recieved!</Title>
                     <TextBorder>
-                        <Text>Pizza Hut, thank you for your business. Your order ID is xxx1234567890</Text>
+                        <Text>Pizza Hut, thank you for your business. Your order ID is <Span>xxx1234567890</Span></Text>
                     </TextBorder>
                     <Text style={{fontSize: '12px'}}>You will receive an order confirmation email with details of your order.</Text>
                     <Button onClick={agreeBtn}>CONTINUE SHOPPING</Button>
@@ -75,6 +75,10 @@ const Text = styled.p`
     line-height: 24px;
     letter-spacing: 0.01em;
     text-align: center;
+`;
+
+const Span = styled.span`
+    color: ${COLORS.orange};
 `;
 
 const Button = styled.button`

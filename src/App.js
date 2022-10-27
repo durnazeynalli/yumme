@@ -18,6 +18,11 @@ import CompletedOrder from "./pages/CompletedOrder";
 import CancelledOrder from "./pages/CancelledOrder";
 import CollectedOrder from "./pages/CollectedOrder";
 import Profile from "./pages/Profile";
+import CookingOrder from "./pages/CookingOrder";
+import UnregisteredCards from "./pages/UnregisteredCards";
+import RegisteredHomepage from "./pages/RegisteredHomepage";
+import RegisteredRestaurantDetails from "./pages/RegisteredRestaurantDetails";
+import RegisteredEmptyOrder from "./pages/RegisteredEmptyOrder";
 
 function App() {
   return (
@@ -25,20 +30,26 @@ function App() {
       <Header />
       <Routes>
         <Route exact path="/" element={ <Homepage/> } />
+        <Route path="/myOrder" element={ <MyOrder/> } />
+        <Route path="/emptyCard" element={ <UnregisteredCards/> } />
         <Route path="/sign-in" element={ <SignIn /> } />
         <Route path="/register" element={ <SignUp /> } />
         <Route path="/forgetPassword" element={ <ForgetPassword /> } />
         <Route path="/confirmCode" element={ <ConfirmCode /> } />
         <Route path="/resetPassword" element={ <ResetPassword /> } />
-        <Route path="/drink" element={ <Categories title="Drinks" /> } />
+        <Route path="/drink" element={ <Categories /> } />
         <Route path="/details" element={ <RestaurantDetails title="Drinks" /> } />
         <Route path="/ongoing" element={ <OnGoingOrders /> } />
-        <Route path="/cooking" element={ <MyOrder /> } />
+        <Route path="/cooking" element={ <CookingOrder /> } />
         <Route path="/pending" element={ <PendingOrder /> } />
         <Route path="/completed" element={ <CompletedOrder /> } />
         <Route path="/collected" element={ <CollectedOrder /> } />
         <Route path="/cancelled" element={ <CancelledOrder/> } />
         <Route path="/profile" element={  <Profile/> } />
+        <Route path="/registeredHomepage" element={  <RegisteredHomepage/> } />
+        <Route path="/registeredRestaurantDetails" element={  <RegisteredRestaurantDetails/> } />
+        <Route path="/registeredEmptyOrder" element={  <RegisteredEmptyOrder/> } />
+
       </Routes>
       <Footer/>
     </Router>

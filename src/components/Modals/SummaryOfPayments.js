@@ -13,10 +13,7 @@ const SummaryOfPayments = ({ positionStyle }) => {
                 <ImSpinner3 style={cancelBTN} />
 
                 <TextBorder>
-                    <Text style={{padding: '10px 0'}}>Summary of payments</Text>
-                    <Text>1. 30 RBX [booking]</Text>
-                    <Text>2. $240 [order]</Text>
-                    <Text>3. $7 [delivery fee]</Text>
+                    <Text>Waiting for Pizza Hut to accept your order...</Text>
                 </TextBorder>
 
             </Container>
@@ -33,14 +30,11 @@ const PageBg = styled.div`
 const Container = styled.div`
     border-radius: 25px;
     background-color: ${COLORS.white};
-    padding: 15px 60px;
+    padding: 60px 40px;
     box-shadow: 0px 12px 40px rgba(181, 173, 176, 0.25);
     position: absolute; 
     z-index: 1; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
 `;
 
 const cancelBTN = {
@@ -48,17 +42,15 @@ const cancelBTN = {
 };
 
 const TextBorder = styled.div`
-    width: 100%;
+    width: 200px;
     margin: 10px 0;
 `;
 
 const Text = styled.p`
     color: ${COLORS.textColor};
-    text-align: left;
+    text-align: center;
     font-weight: 500;
     font-size: 16px;
-    margin: -1px 0;
-    padding: 2px 0;
 `;
 
 export default SummaryOfPayments

@@ -21,7 +21,7 @@ const ItemDetailModal = ({ onClick, positionStyle , addBtn}) => {
 
         <Container>
             <GiCancel onClick={onClick} style={cancelBTN} />
-            <Title>Add item</Title>
+            <Title>Pizza Hut Restaurant</Title>
             <ThinBorder></ThinBorder>
             <FoodDetails>
                 <Image src={IMG.pizza1} alt="image" />
@@ -67,11 +67,11 @@ const ItemDetailModal = ({ onClick, positionStyle , addBtn}) => {
                     </LabelRow>
                 </LabelCont>
                 <NoteCont>
-                    <MdOutlineStickyNote2 style={{color: COLORS.border}} />
-                    <Note type="text" placeholder="Add note"/>
+                    <MdOutlineStickyNote2 style={{color: COLORS.note}} />
+                    <Note type="text" placeholder="Add notes"/>
                 </NoteCont>
             </Form>
-            <Button onClick={addBtn}>Add to cart ($40)</Button>
+            <Button onClick={addBtn}>Add</Button>
         </Container>
         </PageBg>
 
@@ -189,7 +189,7 @@ const Number = styled.div`
     width: 34%;
     height: 20px;
     text-align: center;
-    color: ${COLORS.green};
+    color: ${COLORS.lightGreen};
     border-right: 1px solid ${COLORS.border};
     border-left: 1px solid ${COLORS.border};
     font-style: normal;
@@ -254,7 +254,7 @@ const Note = styled.input`
     margin-left: 8px;
 
     ::placeholder {
-        color: ${COLORS.border}
+        color: ${COLORS.note}
     }
 `;
 

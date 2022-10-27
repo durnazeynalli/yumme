@@ -17,6 +17,7 @@ import Address from "./Profile/Address";
 import PaymetMethods from "./Profile/PaymentMethods";
 import QRCode from "./Profile/QRCode";
 import FavoriteRestaurants from "./Profile/FavoriteRestaurants";
+import Referral from "./Profile/Referral";
 
 const ProfileDetails = () => {
 
@@ -101,6 +102,18 @@ const ProfileDetails = () => {
                                 </TextRow>
                                 <MdKeyboardArrowRight style={state==="favoriteRestaurants" ? {color: COLORS.orange} : {color: COLORS.grayTextColor}}/>
                             </SingleOption>
+                            <SingleOption 
+                                onClick={() => setState("referral")}
+                                style={state==="referral" ? {borderColor: COLORS.orange, backgroundColor: 'rgba(255, 158, 28, 0.12)'} : {borderColor: COLORS.border, backgroundColor: COLORS.white}}
+                            >
+                                <TextRow>
+                                    <IconCont style={{backgroundColor: 'rgba(80, 181, 255, 0.2)'}}>
+                                        <img src={IMG.referral} alt="referrel" />
+                                    </IconCont>
+                                    <OptionText style={state==="referral" ? {color: COLORS.orange} : {color: 'inherit'}}>Referral</OptionText>
+                                </TextRow>
+                                <MdKeyboardArrowRight style={state==="referral" ? {color: COLORS.orange} : {color: COLORS.grayTextColor}}/>
+                            </SingleOption>
                         </OptionsCotainer>
                     </LeftSide>
                     <RightSide>
@@ -109,6 +122,7 @@ const ProfileDetails = () => {
                         {state === "payment" && <PaymetMethods />}
                         {state === "qrCode" && <QRCode />}
                         {state === "favoriteRestaurants" && <FavoriteRestaurants />}
+                        {state === "referral" && <Referral />}
                     </RightSide>
                 </Row>
             </DetailContainer>

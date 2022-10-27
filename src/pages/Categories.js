@@ -5,16 +5,16 @@ import COLORS from "../styles/colors";
 
 import CategoryNearbyHeader from "../components/Headers/CategoryNearbyHeader";
 import NearbyShop from "../components/NearbyShop";
-import PageHeader from "../components/Headers/PageHeader";
+// import PageHeader from "../components/Headers/PageHeader";
 import Promotion from "../components/Promotion";
 import VirtualKitchen from "../components/VirtualKitchen";
 import CategoryPromotionHeader from "../components/Headers/CategoryPromotionHeader";
 import CategoryVirtualHeader from "../components/Headers/CategoryVirtualHeader";
 
-const Categories = ({ title }) => {
+const Categories = () => {
     return (
         <Container>
-            <PageHeader title={title} />
+            {/* <PageHeader title={title} /> */}
             <CategoryNearbyHeader />
             <NearbyShop />
             <CategoryPromotionHeader />

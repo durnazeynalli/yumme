@@ -40,7 +40,8 @@ const Container = styled.div`
 `;
 
 const cancelBTN = {
-    color: COLORS.green,
+    color: COLORS.lightGreen,
+    fontSize: '28px'
 };
 
 const TextBorder = styled.div`

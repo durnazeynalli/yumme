@@ -80,12 +80,12 @@ const ResetPassword = () => {
                         onChange={passwordHandler} 
                     />
                     {visible ? 
-                        <AiFillEye 
+                        <AiFillEyeInvisible  
                             onClick={visibilityHandler} 
                             style={{color: COLORS.pageTitle, marginTop: element.password ? '-20px' : 0}}  
                         /> 
                         : 
-                        <AiFillEyeInvisible 
+                        <AiFillEye
                             onClick={visibilityHandler} 
                             style={{color: COLORS.pageTitle, marginTop: element.password ? '-20px' : 0}}  
                         /> 
@@ -106,12 +106,12 @@ const ResetPassword = () => {
                         onChange={confirmPasswordHandler} 
                     />
                     {confirmVisible ? 
-                        <AiFillEye 
+                        <AiFillEyeInvisible  
                             onClick={confirmVisibilityHandler} 
                             style={{color: COLORS.pageTitle, marginTop: element.confirmPassword ? '-20px' : 0}} 
                         /> 
                         : 
-                        <AiFillEyeInvisible 
+                        <AiFillEye
                             onClick={confirmVisibilityHandler} 
                             style={{color: COLORS.pageTitle, marginTop: element.confirmPassword ? '-20px' : 0}}
                         /> 

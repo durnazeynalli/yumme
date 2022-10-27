@@ -26,6 +26,11 @@ const OrderDetails = () => {
     const cancelHandler = () => setCancelOrder(v => !v);
     const cancelTermHandler = () => setCancelTerm(v => !v);
 
+    const passCancel = () => {
+        cancelTermHandler();
+        cancelHandler();
+    }
+
     const passTerms = () => {
         cancelHandler();
         cancelTermHandler();
@@ -63,9 +68,9 @@ const OrderDetails = () => {
             <Payment />
             <Shipper />
 
-            <Button onClick={cancelHandler}>Cancel Order</Button>
+            <Button onClick={cancelTermHandler}>Cancel Order</Button>
+            {cancelTerm && <CancelTerms positionStyle={positionStyle} agreeBtn={passCancel} />}
             {cancelOrder && <CancelOrderModal positionStyle={positionStyle} keep={cancelHandler} terms={passTerms}/>}
-            {cancelTerm && <CancelTerms positionStyle={positionStyle} agreeBtn={cancelTermHandler} />}
         </OrderDetailsContainer>
         <MapContainer>
             <MapImage src={IMG.cooking} alt="map"/>

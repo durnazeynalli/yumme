@@ -1,71 +1,69 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
 import COLORS from "../../styles/colors";
 
 import { GiCancel } from "react-icons/gi";
-import ServiceAndDelivery from "./ModalComponents/ServiceAndDelivery";
-import OrderDetails from "./ModalComponents/OrderDetails";
-import PaymentMethod from "./ModalComponents/PaymentMethod";
-import PromoCode from "./ModalComponents/PromoCode";
+import IMG from "../../assets/images";
 
-const ConfirmOrderModal = ({ cancel, positionStyle , success, fail}) => {
-
-    const [selectedOption, setSelectedOption] = useState("option1");
-
-    const selectedOptionHandler = (e) => {
-        setSelectedOption(e.target.value);
-    }
+const ConfirmOrderModal = ({ cancel, positionStyle , success}) => {
 
     const continueBtn = () => {
-        if (selectedOption ==='option1') {
-            success();
-        } else {
-            fail();
-        }
+        success();
     }
 
     return (
         <PageBg style={positionStyle}>
             <Container>
                 <GiCancel onClick={cancel} style={cancelBTN} />
-                <Title>Confirm Order</Title>
+                <Title>Summary of payments</Title>
                 <ThinBorder></ThinBorder>
                 <Scroll>
-                    <ServiceAndDelivery
-                        value1="option1"
-                        selectedOption1={selectedOption === 'option1'}
-                        value2="option2"
-                        selectedOption2={selectedOption === 'option2'}
-                        onChange={selectedOptionHandler}
-                    />
-                    <OrderDetails />
                     <Column>
                         <Row>
-                            <SubText>Subtotal</SubText>
-                            <Price>A$80</Price>
-                        </Row>
-                        <Row>
-                            <SubText>Delivery Fee</SubText>
-                            <Price>A$5</Price>
-                        </Row>
-                        <Row>
-                            <SubText>10%OFF</SubText>
-                            <Price>-A$8</Price>
+                            <PriceTitle>Order</PriceTitle>
+                            <Price>$40</Price>
                         </Row>
                     </Column>
-                    <PromoCode />
-                    <PaymentMethod />
+
+                    <FoodDetails>
+                        <Image src={IMG.pizza1} alt="image" />
+                        <Info>
+                            <Name>Seafood Pizza</Name>
+                            <Text>Size S</Text>
+                            <OrderPrice>$20</OrderPrice>    
+                        </Info>
+                    </FoodDetails>
+                    <FoodDetails>
+                        <Image src={IMG.pizza1} alt="image" />
+                        <Info>
+                            <Name>Seafood Pizza</Name>
+                            <Text>Size S</Text>
+                            <OrderPrice>$20</OrderPrice>    
+                        </Info>
+                    </FoodDetails>
+
+                    
+                    <Column>
+                        <Row>
+                            <PriceTitle>Booking</PriceTitle>
+                            <Price>30 RBX</Price>
+                        </Row>
+                        <Row>
+                            <PriceTitle>Delivery fee</PriceTitle>
+                            <Price>$7</Price>
+                        </Row>
+                    </Column>
                     <Border></Border>
                     <Column>
                         <Row>
-                            <Title>Total</Title>
-                            <TotalPrice>A$77</TotalPrice>
+                            <PriceTitle>Total</PriceTitle>
+                            <Price>$47</Price>
                         </Row>
                     </Column>
                 </Scroll>
 
-                <Button onClick={continueBtn}>Place order (A$77)</Button>
+                <Button onClick={continueBtn}>Agree</Button>
             </Container>
         </PageBg>
     )
@@ -85,11 +83,13 @@ const Container = styled.div`
     box-shadow: 0px 12px 40px rgba(181, 173, 176, 0.25);
     position: absolute; 
     z-index: 1; 
+    width: 30%;
 `;
 
 const Scroll = styled.div`
     overflow-y: scroll;
     height: 400px;
+    padding: 10px 60px;
 `;
 
 const cancelBTN = {
@@ -126,15 +126,15 @@ const Border = styled.div`
 `;
 
 const Column = styled.div`
-    margin: 10px 60px;
+    margin: 15px 0;
 `;
 
-const SubText = styled.p`
+const PriceTitle = styled.p`
     margin: -1px 0;
     padding: 5px 0;
     font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
+    font-weight: 500;
+    font-size: 16px;
     color: ${COLORS.restaurantInfo};
 `;
 
@@ -142,18 +142,9 @@ const Price = styled.p`
     margin: -1px 0;
     padding: 5px 0;
     font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    color: ${COLORS.textColor};
-`;
-
-const TotalPrice = styled.p`
-    margin: -1px 0;
-    padding: 5px 0;
-    color: ${COLORS.green};
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
+    font-weight: 700;
+    font-size: 16px;
+    color: ${COLORS.orange};
 `;
 
 const Button = styled.button`
@@ -165,6 +156,53 @@ const Button = styled.button`
     color:  ${COLORS.white};
     border-radius: 12px;
     width: 78%;
+`;
+
+const FoodDetails = styled.div`
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    margin: 10px 0;
+`;
+
+const Info = styled.div`
+    width: 80%;
+`;
+
+const Image = styled.img`
+    width: 75px;
+    height: 75px;
+    margin-right: 10px;
+    border-radius: 10px;
+`;
+
+const Name = styled.h6`
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    margin: -1px;
+    padding: 5px 0;
+    text-align: left;
+    color: ${COLORS.textColor};
+`;
+
+const Text = styled.p`
+    margin: -1px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    padding: 5px 0;
+    text-align: left;
+    color: ${COLORS.pageTitle};
+`;
+
+const OrderPrice = styled.h6`
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    margin: -1px;
+    padding: 8px 0;
+    color: ${COLORS.restaurantInfo};
 `;
 
 export default ConfirmOrderModal;

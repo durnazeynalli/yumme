@@ -28,11 +28,11 @@ const BasketTwo = ({ positionStyle, onClick, submit }) => {
                         </Info>
                     </FoodDetails>
                     <TotalCont>
-                        <Name>Total: </Name>
-                        <Price>&nbsp; $260</Price>
+                        <Name>Total due :</Name>
+                        <Price>&nbsp; $240</Price>
                     </TotalCont>
                 </Content>
-                <OrderButton onClick={submit}>Go to checkout</OrderButton>
+                <OrderButton onClick={submit}>Checkout</OrderButton>
             </OrderContainer>
         </PageBg>
         
@@ -150,7 +150,7 @@ const OrderButton = styled.button`
     font-weight: 700;
     font-size: 14px;
     line-height: 24px;
-    padding: 5px 10px;
+    padding: 5px 20px;
     position: absolute;
     bottom: 10px;
     right: 20px;

@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import IMG from "../assets/images";
-import COLORS from "../styles/colors";
+import IMG from "../../assets/images";
+import COLORS from "../../styles/colors";
 
 const data = [
     {
@@ -112,17 +112,15 @@ const MyOrders = () => {
                                 >{e.status}</Status>
                             </Row>
                             <ItemDetails>
-                                <Row>
-                                    <Image src={e.image} alt="image" />
-                                    <DetailsCont>
-                                        <Name>{e.restaurantName}</Name>
-                                        <Text>{e.address}</Text>
-                                        <TextRow>
-                                            <Price>{e.price}</Price>
-                                            <Text>- {e.itemNumber}</Text>
-                                        </TextRow>
-                                    </DetailsCont>
-                                </Row>
+                                <Image src={e.image} alt="image" />
+                                <DetailsCont>
+                                    <Name>{e.restaurantName}</Name>
+                                    <Text>{e.address}</Text>
+                                    <TextRow>
+                                        <Price>{e.price}</Price>
+                                        <Text>- {e.itemNumber}</Text>
+                                    </TextRow>
+                                </DetailsCont>
                             </ItemDetails>
                             <Border></Border>
                             <Row>
@@ -186,7 +184,7 @@ const MenuCont = styled.div`
 `;
 
 const Scroll = styled.div`
-    height: 480px;
+    height: 450px;
     overflow-y: auto;
 `;
 
@@ -215,7 +213,8 @@ const Status = styled.p`
 `;
 
 const ItemDetails = styled.div`
-
+    display: flex;
+    align-items: center;
 `;
 
 const Image = styled.img`
@@ -225,7 +224,7 @@ const Image = styled.img`
 `;
 
 const DetailsCont = styled.div`
-    margin-left: 5px;
+    margin-left: 10px;
 `;
 
 const Name = styled.h6`

@@ -15,8 +15,9 @@ const Footer = () => {
             <Row>
                 <FirstCol>
                     <AppName>Yumme</AppName>
-                    <AppText>TRAN Systems</AppText>
-                    <AppText>ABN 99 773 857 017</AppText>
+                    <AppText>TRAN Systems<br/>ABN 99 773 857 017</AppText>
+                    <Text>198 Adelaide Street, <br/>Brisbane, Queensland, <br/>4000, Australia.</Text>
+
                     <SocialCont>
                         <SocialLink to="">
                             <BsFacebook style={social} />
@@ -31,7 +32,7 @@ const Footer = () => {
                     </SocialCont>
                 </FirstCol>
                 <SecondCol>
-                    <Title>Company</Title>
+                    <Title>Information</Title>
                     <Text>About Yumme</Text>
                     <Text>Investors</Text>
                     <Text>Techies</Text>
@@ -39,7 +40,7 @@ const Footer = () => {
                     <Text>Careers</Text>
                 </SecondCol>
                 <SecondCol>
-                    <Title>Products</Title>
+                    <Title>Legal </Title>
                     <Text>Privacy Policy</Text>
                     <Text>Terms of service</Text>
                     <Text>Product Disclosure Statement</Text>
@@ -59,10 +60,7 @@ const Footer = () => {
                     <Text>info@3co.network</Text>
                     <Text>sale@3co.network</Text>
                 </SecondCol>
-                <SecondCol>
-                    <Title>Address</Title>
-                    <Text>198 Adelaide Street, Brisbane, Queensland, 4000, Australia.</Text>
-                </SecondCol>
+                <SecondCol></SecondCol>
             </Row>
         </StyledFooter>
     )
@@ -81,7 +79,8 @@ const StyledFooter = styled.div`
 const Logo = styled.img`
     position: absolute;
     right: 50px;
-    bottom: 0;    
+    bottom: 0;   
+    width: 22%; 
 `;
 
 const Row = styled.div`
@@ -95,9 +94,12 @@ const FirstCol = styled.div`
 `;
 
 const AppName = styled.h4`
-    font-size: 20px;
     margin: -1px 0;
     padding: 10px 0;
+    font-family: 'Fuzzy Bubbles';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
 `;
 
 const AppText = styled.p`
@@ -134,12 +136,18 @@ const SecondCol = styled.div`
 `;
 
 const Title = styled.h5`
-    font-size: 14px;
+    font-family: 'Fuzzy Bubbles';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
     margin: -1px 0;
     padding: 10px 0;
 `;
 
 const Text = styled.p`
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
     font-size: 12px;
 `;
 

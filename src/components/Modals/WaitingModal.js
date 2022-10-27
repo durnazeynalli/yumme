@@ -3,17 +3,17 @@ import styled from "styled-components";
 
 import COLORS from "../../styles/colors";
 
-import { ImSpinner3 } from "react-icons/im";
+import { AiFillCheckCircle } from "react-icons/ai";
 
 const WaitingModal = ({ positionStyle }) => {
 
     return (
         <PageBg style={positionStyle}>
             <Container>
-                <ImSpinner3 style={cancelBTN} />
+                <AiFillCheckCircle style={cancelBTN} />
 
                 <TextBorder>
-                    <Text>Waiting for Restaurant accept your order...</Text>
+                    <Text>Payment successfully!</Text>
                 </TextBorder>
 
             </Container>
@@ -30,7 +30,7 @@ const PageBg = styled.div`
 const Container = styled.div`
     border-radius: 25px;
     background-color: ${COLORS.white};
-    padding: 15px 60px;
+    padding: 60px 40px;
     box-shadow: 0px 12px 40px rgba(181, 173, 176, 0.25);
     position: absolute; 
     z-index: 1; 
@@ -38,7 +38,7 @@ const Container = styled.div`
 `;
 
 const cancelBTN = {
-    color: COLORS.orange,
+    color: COLORS.lightGreen,
 };
 
 const TextBorder = styled.div`

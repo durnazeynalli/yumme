@@ -3,18 +3,18 @@ import styled from "styled-components";
 
 import NearbyHeader from "../components/Headers/NearbyHeader";
 import NearbyShop from "../components/NearbyShop";
-import Orders from "../components/HomepageOrders/Orders";
 import Promotion from "../components/Promotion";
 import VirtualKitchen from "../components/VirtualKitchen";
 import PromotionHeader from "../components/Headers/PromotionHeader";
 import VirtualHeader from "../components/Headers/VirtualHeader";
+import RegisteredUserOrder from "../components/RegisteredUserOrders/RegisteredUserOrder";
 
 import COLORS from "../styles/colors";
 
-const MyOrder = () => {
+const RegisteredHomepage = () => {
     return (
         <Container>
-            <Orders />
+            <RegisteredUserOrder />
             <NearbyHeader />
             <NearbyShop />
             <PromotionHeader />
@@ -29,4 +29,4 @@ const Container = styled.div`
     background-color: ${COLORS.white};
 `;
 
-export default MyOrder
+export default RegisteredHomepage

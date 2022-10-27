@@ -52,6 +52,9 @@ import award from './Awards.png';
 import cooking from './cooking.png';
 import collected from './collected.png';
 import completed from './completed.png';
+import emptyOrder from './emptyOrder.png';
+import search from './search.png';
+import referral from './referral.png';
 
 
 const IMG = {
@@ -108,7 +111,10 @@ const IMG = {
     award: award,
     cooking: cooking,
     collected: collected,
-    completed: completed
+    completed: completed,
+    emptyOrder: emptyOrder,
+    search: search,
+    referral: referral
 }
 
 export default IMG;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 import IMG from "../../assets/images";
 import COLORS from "../../styles/colors";
@@ -8,7 +8,6 @@ import COLORS from "../../styles/colors";
 import { MdKeyboardArrowDown, MdOutlineShoppingCart } from 'react-icons/md';
 import { FiSearch } from 'react-icons/fi';
 import { FaUserCircle } from 'react-icons/fa';
-import { AiOutlineBars } from 'react-icons/ai';
 import { GrNotification } from 'react-icons/gr';
 
 import BasketEmpty from "../Modals/BasketEmpty";
@@ -156,6 +155,12 @@ const Header = () =>{
         }, 4000);
     }
 
+    let navigate = useNavigate(); 
+    const emptyCard = (e) =>{ 
+        let path = `/emptyCard`;     
+      navigate(path);
+    }
+
     return (
         <StyledHeader>
             <Container>
@@ -163,15 +168,15 @@ const Header = () =>{
                     <Link to="/"> <Logo src={IMG.logo} alt="logo" /></Link>
                     <Navbar>
                         <Row>
-                            <StyledNavLink to="/ongoing">My order</StyledNavLink>
+                            <StyledNavLink to="/myOrder">My order</StyledNavLink>
                             <StyledMenu>
-                                    <StyledNavLink to="/menu">Menu <MdKeyboardArrowDown style={{color: COLORS.orange}} /></StyledNavLink>      
+                                    <StyledNavLink to="/menu">Menu <MdKeyboardArrowDown style={{color: COLORS.orange, marginLeft: '5px'}} /></StyledNavLink>      
                                     <MenuCont className="drop">
                                         <Column>
                                             <StyledNavLink to="/drink">Drinks</StyledNavLink>
                                             <StyledNavLink to="/pizza">Pizzas</StyledNavLink>
                                             <StyledNavLink to="/burger">Burgers</StyledNavLink>
-                                            <StyledNavLink to="/dessert">Desserts   <MdKeyboardArrowDown style={{color: COLORS.orange, marginLeft: '10px'}}/> </StyledNavLink>
+                                            <StyledNavLink to="/dessert">Desserts</StyledNavLink>
                                             <StyledNavLink to="/cake">Cakes</StyledNavLink>
                                         </Column>
                                     </MenuCont>
@@ -183,8 +188,8 @@ const Header = () =>{
                     <InputContainer>
                         <Row>
                             <FiSearch style={searchStyle} />
-                            <Input type="text" placeholder="Search nearby stores " />
-                            <AiOutlineBars style={searchStyle} />
+                            <Input type="text" placeholder="Search nearby businesses....." />
+                            <SearchImg src={IMG.search} alt="search" />
                         </Row>
                     </InputContainer>
                     <Icons>
@@ -199,8 +204,7 @@ const Header = () =>{
                             <IconLink onClick={basketEmptyHandler}>
                                 <MdOutlineShoppingCart style={iconsStyle} />
                             </IconLink>
-                            <IconLink onClick={basketOneHandler}>
-                                <RedDot></RedDot>
+                            <IconLink onClick={emptyCard}>
                                 <MdOutlineShoppingCart style={iconsStyle} />
                             </IconLink>
                             <IconLink onClick={basketTwoHandler}>
@@ -209,7 +213,7 @@ const Header = () =>{
                             </IconLink>
                         </Row>
                     </Icons>
-                    <StyledLink to="/sign-in"><FaUserCircle/></StyledLink>
+                    <StyledLink to="/sign-in">Sign in</StyledLink>
                     <StyledUser>
                         <FaUserCircle style={{color: COLORS.lightGreen, fontSize: '27px'}} />
                         <UserCont className="dropUser">
@@ -311,7 +315,7 @@ const MenuCont = styled.div`
     position: absolute;
     box-shadow: 0px 12px 40px rgba(181, 173, 176, 0.25);
     border-radius: 8px;
-    padding: 10px 17px 10px 0;
+    padding: 10px 25px 10px 0;
     background-color: ${COLORS.white};
     top: 30px;
     left: 20px;
@@ -336,6 +340,10 @@ const searchStyle = {
     color: COLORS.searchBar,
 }
 
+const SearchImg = styled.img`
+    width: 15px;
+`;
+
 const Input = styled.input`
     width: 100%;
     outline: none;
@@ -343,7 +351,7 @@ const Input = styled.input`
     margin: 0 15px;
 
     ::placeholder {
-        color: ${COLORS.searchBar};
+        color: ${COLORS.searchBarText};
     }
 `;
 
@@ -370,9 +378,11 @@ const iconsStyle = {
 }
 
 const StyledLink = styled(Link)`
-    color: ${COLORS.pageTitle};
+    color: ${COLORS.textColor};
     text-decoration: none;
-    font-size: 27px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
 `;
 
 const StyledUser = styled.div`

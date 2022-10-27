@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-import IMG from "../assets/images";
-import COLORS from "../styles/colors";
+import IMG from "../../assets/images";
+import COLORS from "../../styles/colors";
 
 import { AiOutlineHeart } from "react-icons/ai";
 import { MdLocationOn } from "react-icons/md";
@@ -13,13 +13,14 @@ import { BsFacebook } from "react-icons/bs";
 import { BsInstagram } from "react-icons/bs";
 import { BsLinkedin } from "react-icons/bs";
 
-import RestaurantMenu from "./RestaurantMenu";
-import MyCard from "./HomepageOrders/MyCard";
-import ItemDetailModal from "./Modals/ItemDetailModal";
-import OrderDetails from "./HomepageOrders/OrderDetails";
-import Info from "./Info";
-import Virtual from "./Virtual";
-import RestaurantReview from "./RestaurantReview";
+import RestaurantMenu from "../RestaurantMenu";
+import MyCard from "../HomepageOrders/MyCard";
+import EmptyCard from "./EmptyCard";
+import ItemDetailModal from "../Modals/ItemDetailModal";
+import RestaurantReview from "../RestaurantReview";
+import Info from "../Info";
+import Virtual from "../Virtual";
+
 
 const RestaurantDetails = () => {
 
@@ -33,6 +34,13 @@ const RestaurantDetails = () => {
     const submit = () => {
         cardHandler();
         modalHandler();
+    }
+
+
+    let navigate = useNavigate(); 
+    const cancelCart = (e) =>{ 
+        let path = `/registeredEmptyOrder`;     
+      navigate(path);
     }
 
     return (
@@ -113,14 +121,12 @@ const RestaurantDetails = () => {
                 </DetailContainer>
                 <RightSide>
                     {!card ?
-                        <OrderDetails 
-                            onClick={cardHandler}
+                        <EmptyCard 
                             height={{height: '55%'}}
-                            text="Your cart is empty and you are hungry. Let’s order something to eat and drink."
-                            title="My Order"
+                            title="My Cart"
                         /> 
                         :
-                        <MyCard height={{height: '55%'}}/>
+                        <MyCard height={{height: '55%'}} cancel={cancelCart}/>
                     }            
                     <Image src={IMG.online} alt="online" />
                 </RightSide>
